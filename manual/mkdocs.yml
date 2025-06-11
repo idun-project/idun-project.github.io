@@ -1,0 +1,56 @@
+# Site settings
+site_name: Idun Cartridge Manual
+site_url: https://idun-project.github.io
+site_author: Brian
+site_description: Documentation for the Idun Cartridge for Commodore 128 and 64
+
+# Theme customization
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.expand
+    - navigation.sections
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: amber
+  code:
+    highlight_theme: monokai  # Change to github, dracula, etc.
+
+# Navigation (optional, auto-generated if omitted)
+nav:
+  - Home: index.md
+  - Setup: doc/setup-rpi.md
+  - Included Samples: idun-base.md
+  - CP/M Support: idun-cpem.md
+  - Web File Access: idun-filebrowser.md
+  - Audio Streaming: idunSID.md
+  - Emulator: idun-vice.md
+  - Programming:
+      - ACE API: doc/apiref.md
+      - Lua: doc/luaref.md
+      - ERAM: doc/eram.md
+      - Toolbox: doc/toolbox.md
+      - Z80: idun-zcc.md
+
+# Markdown file directory
+docs_dir: docs
+
+# Site output directory (static files are built here)
+site_dir: site
+
+# Plugins (optional but recommended)
+plugins:
+  - search
+
+# Markdown extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+  - admonition
+  - footnotes

@@ -1,0 +1,903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
+      
+      
+        <meta name="author" content="Brian">
+      
+      
+        <link rel="canonical" href="https://idun-project.github.io/doc/toolbox/">
+      
+      
+        <link rel="prev" href="../eram/">
+      
+      
+        <link rel="next" href="../../idun-zcc/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Toolbox - Idun Cartridge Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#toolbox-apis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Idun Cartridge Manual" class="md-header__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Idun Cartridge Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Toolbox
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Idun Cartridge Manual" class="md-nav__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Idun Cartridge Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-rpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idun-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idun-cpem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CP/M Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idun-filebrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web File Access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idunSID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idun-vice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emulator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apiref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACE API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luaref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#toolbox-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolbox APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toolbox APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooluser" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolwin" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolWin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolStat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolKeys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolTmo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolSys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idun-zcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Z80
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#toolbox-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolbox APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toolbox APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooluser" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolwin" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolWin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolStat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolKeys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolTmo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolSys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Toolbox</h1>
+
+<h2 id="toolbox-apis">Toolbox APIs<a class="headerlink" href="#toolbox-apis" title="Permanent link">&para;</a></h2>
+<hr />
+<p>The Toolbox is a small set of reusable ML routines (~4 KiB) that are available alongside the Idun Kernel routines to make it easier to develop text-based tools in assembly language. These tools are launched from Idun Dos, and return the user to Dos when complete. By utilizing the Toolbox, tools can provide a simpler and more consistent user and programming experience. There are 7 APIs for the following purposes:</p>
+<ol>
+<li><a href="#tooluser">user</a>: An API for UI and decorative text</li>
+<li><a href="#toolwin">win</a>: An API for defining window areas managed by tools that take over the screen.</li>
+<li><a href="#toolstat">stat</a>; An API for using the status bar that appears at the top of the screen when tools are running.</li>
+<li><a href="#toolkeys">keys</a>: An API for programming command keys used by the tool.</li>
+<li><a href="#tooltmo">tmo</a>: An API for setting one-shot timeouts to invoke a callback.</li>
+<li><a href="#toolsys">sys</a>: An API for calling System utilities</li>
+</ol>
+<h3 id="tooluser">toolUser<a class="headerlink" href="#tooluser" title="Permanent link">&para;</a></h3>
+<p>This API works for console and full-screen tools. For console tools, it is mainly useful for creating text that stands out against the more mundane console output through the use of colors, lines, or borders. When used for a full-screen tool, it can also provide "popup" dialogs, menus, or help.</p>
+<p>The interface to the user API is designed so it can be data-driven. Therefore, the parameters to each function are embedded in the code, immediately following the <code>jsr</code> for the function.</p>
+<p><code>toolUserLayout/End</code> enable/disable active UI layout</p>
+<ul>
+<li>param = !byte 2 [layout-flags, width-or-height]</li>
+<li>layout-flags = h|r|o|x|x|x|x|x, where<ul>
+<li>h = horizontal (0=vertical)</li>
+<li>r = retained (0=not retained)</li>
+<li>o = overlayed (0=not overlayed)</li>
+</ul>
+</li>
+<li>width-or-height = number of characters wide or high, depending on if it is to be layed out vertically or horizontally.</li>
+</ul>
+<p><code>toolUserNode/End</code> start/end a text area definition</p>
+<ul>
+<li>param = !byte 3 [refresh-flag,width,height]</li>
+<li>refresh-flag = refresh counter to control redraw during vsync interrupt; only used for retained layout!</li>
+<li>width = width of text area in characters</li>
+<li>height = height of text area in characters</li>
+</ul>
+<p><code>toolUserGadget</code></p>
+<ul>
+<li>param !byte 1 gadget-flags</li>
+<li>gadget-flags = f|s|x|x|x|pen, where<ul>
+<li>f = focus</li>
+<li>s = select</li>
+<li>pen = fgrd pen</li>
+</ul>
+</li>
+<li>param !pet null-terminated gadget text (PETSCII)</li>
+</ul>
+<p><code>toolUserLabel</code></p>
+<ul>
+<li>param !pet null-terminated gadget text (PETSCII)</li>
+</ul>
+<p><code>toolUserSeparator</code> outputs a horizontal line used as a separator</p>
+<p>The following variables can be set and will be global to the text area (e.g. the "node") within which they are modified.</p>
+<p><code>toolUserColor</code> upper nybble is border pen; lower nybble is text pen</p>
+<p><code>toolUserStyles</code> = b|a|r|u|f|c|&gt;|&lt;, where</p>
+<div class="codehilite"><pre><span></span><code>    - b = bordered text
+    - a = 
+    - r = reverse text
+    - u = underline text
+    - f = 
+    - c = center text
+    - &lt; = left=align text
+    - &gt; = right-align text
+</code></pre></div>
+
+<h3 id="toolwin">toolWin<a class="headerlink" href="#toolwin" title="Permanent link">&para;</a></h3>
+<p>This API is for tools that take over screen drawing, rather than just outputting to a scrolling console. They are useful for defining screen and active region dimensions, color palette, and character set. The active region can be scrolled vertically, and can be cached and retrieved to support popups.</p>
+<p><code>toolWinB</code> defines the variables that can be set.
+- toolWinRegion: define rows x cols and top-left
+- toolWinScroll: scrolling rows x cols and top-left
+- toolWinPalette: colors to use for 8x palette entries</p>
+<p><code>toolWinRestore</code> restores the window setup back to the default and should be called at exit by any tool that manipulates the screen window, palette, etc.</p>
+<h3 id="toolstat">toolStat<a class="headerlink" href="#toolstat" title="Permanent link">&para;</a></h3>
+<p>This API is for manipulating the top line of the display, which is consistently used as a status bar. A minimum use would be to set a title for an interactive tool, which is displayed at the top left of the screen. Tools can ignore this API and the status bar will continue updating the standard values it displays automatically, such as the time &amp; date.</p>
+<p><code>toolStatB</code> defines the variables that can be set.</p>
+<p><code>toolStatTitle</code> sets the title string</p>
+<p><code>toolStatAlert</code> temporarily replace status line text with alert message</p>
+<h3 id="toolkeys">toolKeys<a class="headerlink" href="#toolkeys" title="Permanent link">&para;</a></h3>
+<p>This API is for defining the tool's command keys and their handlers.</p>
+<p><code>toolKeysSet</code> set up a command key handler</p>
+<p><code>toolKeysMacro</code> set up a macro key (up to 32 chars)</p>
+<p><code>toolKeysRemove</code> removes a command key and handler</p>
+<p><code>toolKeysHandler</code> call this API to check for a command key in the input and handle it.</p>
+<p>Any key code can be used by the tool. However, reusing key codes already defined by the user as described below will override the user-defined function. Therefore, most tools should only use key codes outside the range $80-$8f for command keys.</p>
+<p>In addition to command keys, up to 16 user-defined function key macro definitions may be created by the user with the <code>funkey</code> shell command. These user-defined keys are used to inject a macro string (up to 32 chars) any time the key is pressed from within any tool, including in the DOS shell itself.</p>
+<p>Only the keycodes $80-$8f may be used with the <code>funkey</code> command. This includes F1-F12 codes, plus SH-HELP, SH-RUN, SH-RETURN. The code for CO-1 ($81) is specifically excluded by <code>funkey</code> and is available as an application command key instead.</p>
+<h3 id="tooltmo">toolTmo<a class="headerlink" href="#tooltmo" title="Permanent link">&para;</a></h3>
+<p>This API provides two functions for setting a countdown timer and invoking a callback function when the timer expires. It is based on the per-frame Irq handler, so the shortest timeout possible is roughly the time of one video frame. For timeouts of a few seconds or shorter, use <code>toolTmoJifs</code> to countdown 1-255 "jiffies" (~that many frames). For longer timeouts, use <code>toolTmoSecs</code> to countdown 1-255 seconds (allows ~4.25 mins). All timeouts occur only once, and you will need to reset them to trigger another. Also, calling either API will supercede any pending timeout that was counting down before.</p>
+<p><code>toolTmoJifs</code> invoke callback routine after 1-255 "jiffies"</p>
+<p><code>toolTmoSecs</code> invoke callback routine after 1-255 seconds</p>
+<h3 id="toolsys">toolSys<a class="headerlink" href="#toolsys" title="Permanent link">&para;</a></h3>
+<p>This API allows the tool to call other system tools by executing a sub-process with arguments.</p>
+<p><code>toolSyscall</code> invoke a sub-process</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

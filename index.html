@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
+      
+      
+        <meta name="author" content="Brian">
+      
+      
+        <link rel="canonical" href="https://idun-project.github.io/">
+      
+      
+      
+        <link rel="next" href="doc/setup-rpi/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Idun Cartridge Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#idun-for-the-commodore-128-and-c64" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Idun Cartridge Manual" class="md-header__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Idun Cartridge Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Idun Cartridge Manual" class="md-nav__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Idun Cartridge Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idun-for-the-commodore-128-and-c64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idun for the Commodore 128 and C64
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun for the Commodore 128 and C64">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support the project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-sd-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download SD Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartridge-mode-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartridge Mode &amp; Reset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands-and-launching-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASIC commands and launching Apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-managing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking and Managing Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emulating-the-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emulating the Cartridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-commodore-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Commodore code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patched-commodore-kernal-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patched Commodore Kernal (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programming-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6502-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6502 Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lua-scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lua Scripting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-and-z80-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      C and Z80 Assembly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trivia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trivia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/setup-rpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idun-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idun-cpem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CP/M Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idun-filebrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web File Access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idunSID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idun-vice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emulator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/apiref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACE API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/luaref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/eram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="idun-zcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Z80
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idun-for-the-commodore-128-and-c64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idun for the Commodore 128 and C64
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun for the Commodore 128 and C64">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support the project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-sd-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download SD Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartridge-mode-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartridge Mode &amp; Reset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands-and-launching-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASIC commands and launching Apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-managing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking and Managing Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emulating-the-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emulating the Cartridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-commodore-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Commodore code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patched-commodore-kernal-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patched Commodore Kernal (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programming-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6502-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6502 Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lua-scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lua Scripting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-and-z80-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      C and Z80 Assembly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trivia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trivia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Home</h1>
+
+<h2 id="idun-for-the-commodore-128-and-c64">Idun for the Commodore 128 and C64<a class="headerlink" href="#idun-for-the-commodore-128-and-c64" title="Permanent link">&para;</a></h2>
+<p>This is the home of the idun-cartridge for the C128/64. Here you will find the latest software, along with source code, sample applications, and other content.</p>
+<p>This innovative cartridge integrates a Raspberry Pi to provide a fast hardware interface, enabling features such as virtual disks, networking, and the ability to run modern applications. Users can interact with the cartridge via BASIC commands, a web-based file browser, or SSH, and the project supports developing new software in 6502 Assembly, Lua, and even C and Z80 Assembly. There's an optional Commodore Kernal patch that allow native software to access cartridge functionality at high speeds, effectively turning the cartridge into a "hard drive" for Commodore.</p>
+<p>What does it do? It's easier to show in a demo, and there are many demo videos on <a href="https://www.youtube.com/@idunproject">YouTube</a>.</p>
+<p>There's also a <a href="https://discord.gg/6Du9jhK4eF">Discord Server</a> for the project. This is for idun-project discussion, new user advice, beta testing new features, and general retro-computing banter with a  Commodore bias.</p>
+<h3 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h3>
+<p>The idun-cartridge uses a Propeller 1 micro-controller to provide a fast hardware interface between the Commodore and a Raspberry Pi ("RPi") that runs a customized Linux OS. The cartridge is designed to work and fit best with the Raspberry Pi Zero 2. However, any recent Raspberry Pi can be made to work.</p>
+<p>The first set of photos show the idun-cartridge with RPi Zero 2 fitted. As you can see, a standard-sized C64/128 cartridge case can be hacked to cover the board, but leave the RPi, ports, and button accessible.</p>
+<p><img align="left" src="doc/cart_no_rpi.jpg" /><img src="doc/330_112856.jpg" /></p>
+<p>A Model B RPi will also fit on an idun-cartridge, as this photo shows. For both Model Zero and Model B, the RPi is fitted on top of the idun-cartridge and upside-down. For the Model B, a case or other support is essential because of the weight.</p>
+<p>You can also fit a Model A RPi, but the headers must be relocated to the opposite side of both the idun-cartridge PCB and the RPi itself. In this case, the RPi will be on the bottom (under the idun-cartridge), as shown here connected to a flat C128.</p>
+<p><img align="left" src="doc/401_122754.jpg" /><img src="doc/407_144230.jpg" /></p>
+<h3 id="support-the-project">Support the project<a class="headerlink" href="#support-the-project" title="Permanent link">&para;</a></h3>
+<p>The best way to support the project is to <a href="https://www.tindie.com/products/idun-cartridge-c128/idun-cartridge-c128-kit/">buy a hardware kit</a> from the online store. The kit comes with everything needed to assemble the idun-cartridge, except for the Raspberry Pi, which you will need to obtain yourself. Only basic soldering skills are needed, since the PCB is strictly through-hole components.</p>
+<h3 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
+<h4 id="download-sd-image">Download SD Image<a class="headerlink" href="#download-sd-image" title="Permanent link">&para;</a></h4>
+<p>You can download the customized Arch Linux OS image and flash it to a microSD card.</p>
+<ol>
+<li>Ensure you have a suitable SD card compatible with your Raspberry Pi and at least 4GB (recommend 16 GB).</li>
+<li><a href="https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing">Download Image</a></li>
+<li>Use <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> or a similar program to write image to SD card.</li>
+</ol>
+<p>Your microSD is now ready to use with your idun-cartridge. To expand the file system or setup networking, follow the additional instructions in <a href="doc/setup-rpi/">setup-rpi.md</a>.</p>
+<h4 id="power">Power<a class="headerlink" href="#power" title="Permanent link">&para;</a></h4>
+<p>It is recommended that you power the RPi externally from a USB power supply. The jumper (JP1) that allows power to come from the Commodore is not installed by default, and only suited for the RPi Zero 2. Even then, it makes it too easy to turn off the Commodore and Raspberry Pi without first shutting it down via the button. Plus, it is nice to be able to access the cartridge using the web filebrowser, emulation, or <code>ssh</code> while the Commodore is switched off.</p>
+<h4 id="cartridge-mode-reset">Cartridge Mode &amp; Reset<a class="headerlink" href="#cartridge-mode-reset" title="Permanent link">&para;</a></h4>
+<p><img align="right" src="doc/cart_mode_sw2.jpg" /></p>
+<p>The idun-cartridge has a single "big red button" with dual use. Press and release immediately to Reset everything, including rebooting your Commodore. Press and hold for at least 3 seconds to shutdown your cartridge, which is necessary before powering down.</p>
+<p>As of release v1.2.0, the idun-cartridge has two different modes, controlled by the setting of the Mode toggle switch. When the switch is "Off" (i.e. not switched to the "Mode" position), the idun-cartridge works on the C128 in its native mode. However, when switched to "Mode", a different software stack is selected as specified by the [mode] settings in the configuration file.</p>
+<p>With the default configuration file, setting the switch to the "Mode" position enables C64 support. This means that the cartridge can be used on a C64 and that it will boot a C128 into its C64 mode. If you are primarily wanting to play C64 games, then you can most easily do so by launching the arcade.app from BASIC using the command <code>go "arcade"</code>.</p>
+<h4 id="basic-commands-and-launching-apps">BASIC commands and launching Apps<a class="headerlink" href="#basic-commands-and-launching-apps" title="Permanent link">&para;</a></h4>
+<p>On initial boot, the cartridge starts BASIC with some utilities for accessing the Idun virtual disks. The screen lets you use the cursor keys to select which virtual drive to use and on which IEC address; the normal default is <code>C:</code>, which is the HOME directory, on IEC device 10. Once you hit "RETURN", you will be in Commodore BASIC.</p>
+<p><img align="left" src="doc/cart_startup.jpg" /></p>
+<p>From the BASIC prompt, you can use any of the several commands that are briefly described in the boot screen. Mainly, you can navigate the virtual disk by using <code>@$</code> (also <code>F3</code> on the C128) to load directories, and the <code>cd</code> command to change directories. Any disk image file can be mounted by using <code>cd</code> and prefixing the image file name with a ":". This will switch you automatically to the <code>D:</code> device, which is where the disk is mounted. You can switch back to the <code>C:</code> device using the command <code>@c</code>, and switch to any other virtual disk this way. If you want to load and run a program, just locate it in the directory, place a <code>%</code> in column 1, and "RETURN". This is equivalent to typing <code>% "prgname"</code> on a new line.</p>
+<p>The other thing you can do is launch an Idun Application. This is done with the <code>go</code> command, and entering just that will quickly launch the default shell. The default shell is controlled by the configuration file, and is normally setup to load <code>dos.app</code>, which is the idun-shell and an MS-DOS work-a-like. Other applications, such as the Arcade Selector for running games can be started similarly, using <code>go "arcade"</code>. Any app on the cartridge can be started this way, and you can create your own using programming tools that run right on the cartridge!</p>
+<h4 id="networking-and-managing-files">Networking and Managing Files<a class="headerlink" href="#networking-and-managing-files" title="Permanent link">&para;</a></h4>
+<p>It's well worth connecting your cartridge to your LAN. Convenient file management can be done through the web-based idun-filebrowser at <code>idunpi:8080</code>; it even includes remote file editing and drag&amp;drop. Linux terminal access is also there using an <code>ssh</code> client from any computer. Additionally, you can <a href="https://youtu.be/EPf45QN3PJk">stream SID tunes</a> and <a href="https://youtu.be/NZajjJ2tERM">setup file sharing</a> with a Windows computer.</p>
+<h4 id="emulating-the-cartridge">Emulating the Cartridge<a class="headerlink" href="#emulating-the-cartridge" title="Permanent link">&para;</a></h4>
+<p>You can also run <a href="https://github.com/idun-project/idun-vice">idun-vice</a> to experiment with the idun-cartridge software WITHOUT any actual cartridge; just running everything off of the Raspberry Pi.</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<p>Configuration options are available in <code>$HOME/.config/idunrc.toml</code>. There is documentation within that file, but the following hints are also helpful.</p>
+<ol>
+<li>Because of the "special" VDC hi-res graphic modes used by some of the software (e.g. <code>showvdc</code>), it is very important to set the correct amount of VRAM in the configuration file to either 16kB or 64kB, as appropriate. The setting is the second parameter in the <code>[vdc]</code> section.</li>
+<li>Some monitors are picky about how many rows of text they can display in 80 column mode, and how they look when displaying text in interlaced mode. The default is 27 rows, non-interlaced. You can modify this by changing the first parameter in the <code>[vdc]</code> section, and for interlaced text, the section <code>[vdc_interlace]</code>. Also take a look at the <code>mode</code> command for changing the number of text rows on demand (not to be confused with the mode switch described above).</li>
+<li>If you are using the software with only a Raspberry Pi and Vice (no idun-cartridge hardware), then pay careful attention to disable the configuration file from trying to connect with hardware that isn't there. For details, see the <a href="https://github.com/idun-project/idun-vice">README for idun-vice</a>.</li>
+</ol>
+<h3 id="building-commodore-code">Building Commodore code<a class="headerlink" href="#building-commodore-code" title="Permanent link">&para;</a></h3>
+<p>The idun-cartridge software in this repository is self-hosting. All of the assembly code is built with the <code>acme</code> cross-assembler and everything you need to build and modify it can be done on the cartridge itself. You can perform each of these steps from the Linux prompt:</p>
+<ol>
+<li>Clone this repository to your idun home directory: <code>git clone https://github.com/idun-project/idun-cartridge</code></li>
+<li><code>cd idun-cartridge &amp;&amp; ./setup.sh</code> -installs additional packages such as acme and idun-zcc.</li>
+<li><code>cd cbm &amp;&amp; make</code> -builds cartridge software and updates the <code>sys</code> directory (<code>z:</code> device in the idun-shell)</li>
+</ol>
+<p>See the <a href="https://github.com/idun-project/idun-cartridge/cbm/Makefile">Makefile</a> for details.</p>
+<h3 id="patched-commodore-kernal-optional">Patched Commodore Kernal (Optional)<a class="headerlink" href="#patched-commodore-kernal-optional" title="Permanent link">&para;</a></h3>
+<p>The latest ROM kernal patch can be created easily with idun v1.1.9 and above using the command <code>lua makerom.lua</code> from within the Idun Shell. The patched ROM file(s) will be found in your home directory on the cartridge, and most easily copied using the web file browser or a network command like scp.</p>
+<p>The patches to the C128 kernal (U35) overwrite the kernal's support for RS-232 devices. This code is frequently unused by native software anyway. If you also update the C64 kernal (U32), then you lose both RS-232 and cassette tape support in C64 mode.</p>
+<p>With the kernal patches in place, things work pretty much the same, except that you can access cartridge functionality easily through standard Commodore ROM kernal routines, rather than loading Idun's own kernel into RAM. So, in theory, native Commodore software that is programmed to use kernal routines for file access can "transparently" access files via the cartridge and at "breakneck speed". Think of it as basically a hard drive for the Commodore without having to go through the Idun software drivers in RAM. So now those drivers can just be overwritten by some program.</p>
+<p>You really only need to know about two zero-page variables to control the ROM patch - $9b/$9c (155/156). So you can POKE 155, 10, for example, to setup the cartridge as IEC device #10. And, you can POKE 156, 3 to setup the cartridge to use idun's C: device, which is default configured to the Linux home directory. Using other values let's you easily switch to any Idun device mapped as any IEC device. This opens up the cartridge to native software that can use it for virtually anything without requiring RAM drivers. By the way, setting values in $9b/$9c is just what the little booter program the cartridge starts up with does - When you use the cursor keys to modify the IEC and Idun device selection, you are changing these two memory locations. </p>
+<h3 id="programming-applications">Programming applications<a class="headerlink" href="#programming-applications" title="Permanent link">&para;</a></h3>
+<p>The idun-cartridge works with many legacy applications. Single-file loaders in particular work very well and load instantly in either C128 or C64 mode. But the point is to enhance both the user and programmer experience with applications that integrate into the idun-cartridge. There are currently 3 well-supported ways to create software for the idun-cartridge.</p>
+<h4 id="6502-assembly">6502 Assembly<a class="headerlink" href="#6502-assembly" title="Permanent link">&para;</a></h4>
+<p>This repository includes the acme 6502 cross-assembler, which can be used to build both the contents of this repo and your own programs on the idun-cartridge. You should first decide whether to build a Tool or an App.</p>
+<ol>
+<li>Tools load from the idun-shell using $6D00-$BFFF, have access to the <a href="doc/apiref/">kernel api</a> and the <a href="doc/toolbox/">toolbox</a>, and return the user to the idun-shell on exit. They are typically command-line style programs, but can also take over the screen and run interactively. Many examples can be found in the <a href="https://github.com/idun-project/idun-cartridge/cbm/cmd/">cmd</a> sub-directory</li>
+<li>An App is launched by the kernel at startup using $6000-$BFFF, has access to the kernel API, but not the toolbox <em>unless</em> <code>sys/toolbox.asm</code> is explicitly included, and return to BASIC, or not at all. They typically take over the machine and reconfigure the hardware as needed. Examples are <code>dos.app</code> (the idun-shell) and <code>arcade.app</code> (the arcade game selector).</li>
+</ol>
+<p>It is certainly possible to use other assemblers besides acme; just requiring that the header files <code>acehead.asm</code> and <code>toolhead.asm</code> be ported over to your environment.</p>
+<h4 id="lua-scripting">Lua Scripting<a class="headerlink" href="#lua-scripting" title="Permanent link">&para;</a></h4>
+<p>The idun software running on the Raspberry Pi embeds a Lua scripting engine. This allows you to create either Tools or Apps in which much, even a majority of the functionality, is implemented in Lua.</p>
+<p>Begin by reading <a href="doc/luaref/">luaref.md</a>. There is sample Lua App code in <a href="https://github.com/idun-project/idun-cartridge/samples/">samples</a>, and the <a href="https://github.com/idun-project/idun-cartridge/cbm/arcade.app.d/main.lua">arcade.app</a> is Lua. These can serve as a template for creating your own Lua App.</p>
+<p><em>NOTE: There is a forthcoming tool called <code>mace</code> that will generate new Lua Apps automatically, including all the boiler-plate needed.</em></p>
+<h4 id="c-and-z80-assembly">C and Z80 Assembly<a class="headerlink" href="#c-and-z80-assembly" title="Permanent link">&para;</a></h4>
+<p>You can create programs that run on the Z80! They launch seamlessly from the idun-shell, and return to it on exit. These are more akin to Apps than Tools, except for their use of the <code>zload</code> command and launching from the idun-shell. The programs can be written in a mixture of C and Z80asm code, and can be built directly on the idun-cartridge. For more information, browse to the <a href="https://github.com/idun-project/idun-zcc">idun-zcc</a> repository.</p>
+<h3 id="trivia">Trivia<a class="headerlink" href="#trivia" title="Permanent link">&para;</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/I%C3%B0unn">Idun</a> is the <a href="https://youtu.be/0IIcDB3noxE?t=308">Norse goddess</a> of youth and <a href="https://youtu.be/GiXNEf_NOak">rejuvenation</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

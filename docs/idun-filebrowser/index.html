@@ -9,16 +9,16 @@
         <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
       
       
-        <meta name="author" content="Brian">
+        <meta name="author" content="Idun Community">
       
       
-        <link rel="canonical" href="https://idun-project.github.io/idun-cpem/">
+        <link rel="canonical" href="https://idun-project.github.io/idun-filebrowser/">
       
       
-        <link rel="prev" href="../idun-base/">
+        <link rel="prev" href="../idun-cpem/">
       
       
-        <link rel="next" href="../idun-filebrowser/">
+        <link rel="next" href="../idunSID/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>CP/M Support - Idun Cartridge Manual</title>
+        <title>Web File Access - Idun Cartridge Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#features" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CP/M Support
+              Web File Access
             
           </span>
         </div>
@@ -287,6 +287,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-cpem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CP/M Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -302,7 +324,7 @@
   
   
   <span class="md-ellipsis">
-    CP/M Support
+    Web File Access
     
   </span>
   
@@ -315,7 +337,7 @@
   
   
   <span class="md-ellipsis">
-    CP/M Support
+    Web File Access
     
   </span>
   
@@ -336,45 +358,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-programs-on-real-z80" class="md-nav__link">
+  <a href="#install" class="md-nav__link">
     <span class="md-ellipsis">
-      Running programs on real Z80
+      Install
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Development Tools
+      Configuration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-cpem-remotely" class="md-nav__link">
+  <a href="#contributing" class="md-nav__link">
     <span class="md-ellipsis">
-      Access CPem remotely
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-possibilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Future possibilities...
+      Contributing
     </span>
   </a>
   
@@ -384,28 +397,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../idun-filebrowser/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Web File Access
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -646,45 +637,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-programs-on-real-z80" class="md-nav__link">
+  <a href="#install" class="md-nav__link">
     <span class="md-ellipsis">
-      Running programs on real Z80
+      Install
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Development Tools
+      Configuration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-cpem-remotely" class="md-nav__link">
+  <a href="#contributing" class="md-nav__link">
     <span class="md-ellipsis">
-      Access CPem remotely
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-possibilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Future possibilities...
+      Contributing
     </span>
   </a>
   
@@ -706,23 +688,29 @@
 
 
 
-  <h1>CP/M Support</h1>
+  <h1>Web File Access</h1>
 
-<p>This repository contains CPem; a modified version of the excellent "RunCPM" emulator by Marcelo Dantas. CPem has been improved to work with the idun-cartridge and to support the real z80 CPU when running programs on a Commodore 128.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>You can install this software on your idun-cartridge using the following pacman command from the Linux prompt: <code>sudo pacman -Sy idun-cpem</code>. You also need the "cpm.app" that is part of the cartridge project. This is included from v1.2.1 of idun-cartridge onward.</p>
-<p>You can launch directly into CPem from the Commodore BASIC prompt using the command <code>go "cpm"</code>. You can also start CPem from the idun-shell by simply typing <code>cpm</code>.</p>
-<p>Once started, you will be in a CP/M v2.2 compatible OS that can run "vanilla" CP/M text programs. The environment is emulated on the Raspberry Pi's ARM processor, so CP/M programs run super fast. You can use all the standard CP/M commands, plus some additional built-in commands. To see the built-in commands, enter <code>?</code>. To see what CP/M software is available, you can enter <code>drives</code> to get a list of disk drives, then enter <code>vol a:</code>, <code>vol b:</code>, etc. to see what is on each drive. You can switch to drive B, for example, by entering <code>b:</code> and to user area 1 by entering either <code>user 1</code> or <code>b1:</code>.</p>
-<p>The terminal is VT-100 compatible. Therefore, CP/M programs that are setup to use VT-100 will work best. You can use CPem in 40-column mode and on the Commodore 64. However, be aware that many CP/M programs expect an 80-column text display. If you have weird looking text output from a CP/M program, you should investigate what kind of terminal it is setup to use. CP/M software compatibility problems that can be improved by modifying the CP/M software, its setup, or the idun-cartridge VT-100 emulation abilities can be reported here using GitHub's "Issues" reporting.</p>
-<h2 id="running-programs-on-real-z80">Running programs on real Z80<a class="headerlink" href="#running-programs-on-real-z80" title="Permanent link">&para;</a></h2>
-<p>If you are using the idun-cartridge on a Commodore 128, then you have the best of both worlds- fast, emulated performance along with the ability to launch programs on the C128's Z80 CPU. CPem's command processor will assume that any command with a ".Z80" extension is a native program intended to run on the C128. Such programs are identical to the programs also supported by the <code>zload</code> command used to launch them from idun-shell. These programs are most easily created using the ZCC cross-compiler from <a href="https://github.com/idun-project/idun-zcc">idun-zcc</a>. Some sample programs are available on drive <code>c1:</code>.</p>
-<h2 id="development-tools">Development Tools<a class="headerlink" href="#development-tools" title="Permanent link">&para;</a></h2>
-<p>CP/M might be best remembered for the large selection of software development tools it offered. Default drive <code>A0:</code> includes Z80 assemblers and <code>mbasic</code>. Other drives include C, Pascal, and BASIC compilers. Plus there is BBCBASIC and a Forth language compiler. All of these CP/M dev tools run very fast and can thus provide an enjoyable way to learn as much as you ever wanted to know about CP/M programming.</p>
-<p>The ZCC cross-compiler that is also installed on the idun-cartridge can build both native c128 and CP/M programs. ZCC is based on the excellent Z88DK project. It has an extensive library and provides a more "modern" C programming experience. </p>
-<h2 id="access-cpem-remotely">Access CPem remotely<a class="headerlink" href="#access-cpem-remotely" title="Permanent link">&para;</a></h2>
-<p>When you installed the idun-cpem package, it will have created a new <code>cpm</code> user account. The reason this account exists is to turn the idun-cartridge into a remote CP/M terminal that you can access from your PC using ssh. Just login using <code>ssh cpm@idunpi</code> (default password <code>idun</code>). This user account drops you directly into CPem. If you only have a 40-column display for your Commodore, then you might find the PC terminal to be a good alternative. It's also very convenient since you can leave the cartridge powered up and use it this way when your Commodore is turned off.</p>
-<h2 id="future-possibilities">Future possibilities...<a class="headerlink" href="#future-possibilities" title="Permanent link">&para;</a></h2>
-<p>BIOS extensions and/or driver libraries to allow CP/M programs running on the emulated (accelerated) Z80 to directly access the Commodore's VIC-II or VDC to display text and graphics.</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/filebrowser/logo/master/banner.png" width="550"/>
+</p>
+
+<p><img alt="Preview" src="https://user-images.githubusercontent.com/5447088/50716739-ebd26700-107a-11e9-9817-14230c53efd2.gif" /></p>
+<p><a href="https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml"><img alt="Build" src="https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml/badge.svg" /></a>
+<a href="https://goreportcard.com/report/github.com/filebrowser/filebrowser"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/filebrowser/filebrowser?style=flat-square" /></a>
+<a href="http://godoc.org/github.com/filebrowser/filebrowser"><img alt="Documentation" src="https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square" /></a>
+<a href="https://github.com/filebrowser/filebrowser/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/filebrowser/filebrowser.svg?style=flat-square" /></a>
+<a href="http://webchat.freenode.net/?channels=%23filebrowser"><img alt="Chat IRC" src="https://img.shields.io/badge/freenode-%23filebrowser-blue.svg?style=flat-square" /></a></p>
+<p>filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>Please refer to our docs at <a href="https://filebrowser.org/features">https://filebrowser.org/features</a></p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>For installation instructions please refer to our docs at <a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a>.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p><a href="https://filebrowser.org/configuration/authentication-method">Authentication Method</a> - You can change the way the user authenticates with the filebrowser server</p>
+<p><a href="https://filebrowser.org/configuration/command-runner">Command Runner</a> - The command runner is a feature that enables you to execute any shell command you want before or after a certain event.</p>
+<p><a href="https://filebrowser.org/configuration/custom-branding">Custom Branding</a> - You can customize your File Browser installation by change its name to any other you want, by adding a global custom style sheet and by using your own logotype if you want.</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>If you're interested in contributing to this project, our docs are best places to start <a href="https://filebrowser.org/contributing">https://filebrowser.org/contributing</a>.</p>
 
 
 

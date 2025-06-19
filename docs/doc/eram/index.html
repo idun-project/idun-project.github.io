@@ -9,16 +9,16 @@
         <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
       
       
-        <meta name="author" content="Brian">
+        <meta name="author" content="Idun Community">
       
       
-        <link rel="canonical" href="https://idun-project.github.io/doc/toolbox/">
+        <link rel="canonical" href="https://idun-project.github.io/doc/eram/">
       
       
-        <link rel="prev" href="../eram/">
+        <link rel="prev" href="../luaref/">
       
       
-        <link rel="next" href="../../idun-zcc/">
+        <link rel="next" href="../toolbox/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Toolbox - Idun Cartridge Manual</title>
+        <title>ERAM - Idun Cartridge Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#toolbox-apis" class="md-skip">
+        <a href="#what-is-eram" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Toolbox
+              ERAM
             
           </span>
         </div>
@@ -466,29 +466,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../eram/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ERAM
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -498,13 +475,15 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    Toolbox
+    ERAM
     
   </span>
   
@@ -517,7 +496,7 @@
   
   
   <span class="md-ellipsis">
-    Toolbox
+    ERAM
     
   </span>
   
@@ -530,6 +509,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -538,64 +519,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#toolbox-apis" class="md-nav__link">
+  <a href="#high-level-eram-api-newmmap" class="md-nav__link">
     <span class="md-ellipsis">
-      Toolbox APIs
+      High-level ERAM API (New/Mmap)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Toolbox APIs">
+    <nav class="md-nav" aria-label="High-level ERAM API (New/Mmap)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tooluser" class="md-nav__link">
+  <a href="#file-style-api-for-tagged-eram" class="md-nav__link">
     <span class="md-ellipsis">
-      toolUser
+      File style API for tagged ERAM
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#toolwin" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-eram-api-stashfetch" class="md-nav__link">
     <span class="md-ellipsis">
-      toolWin
+      Low-level ERAM API (Stash/Fetch)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#toolstat" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#hardware-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      toolStat
+      Hardware interface
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Hardware interface">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#toolkeys" class="md-nav__link">
+  <a href="#block-caching-and-performance" class="md-nav__link">
     <span class="md-ellipsis">
-      toolKeys
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tooltmo" class="md-nav__link">
-    <span class="md-ellipsis">
-      toolTmo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toolsys" class="md-nav__link">
-    <span class="md-ellipsis">
-      toolSys
+      Block caching and performance
     </span>
   </a>
   
@@ -610,6 +579,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -662,6 +654,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -670,64 +664,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#toolbox-apis" class="md-nav__link">
+  <a href="#high-level-eram-api-newmmap" class="md-nav__link">
     <span class="md-ellipsis">
-      Toolbox APIs
+      High-level ERAM API (New/Mmap)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Toolbox APIs">
+    <nav class="md-nav" aria-label="High-level ERAM API (New/Mmap)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tooluser" class="md-nav__link">
+  <a href="#file-style-api-for-tagged-eram" class="md-nav__link">
     <span class="md-ellipsis">
-      toolUser
+      File style API for tagged ERAM
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#toolwin" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-eram-api-stashfetch" class="md-nav__link">
     <span class="md-ellipsis">
-      toolWin
+      Low-level ERAM API (Stash/Fetch)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#toolstat" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#hardware-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      toolStat
+      Hardware interface
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Hardware interface">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#toolkeys" class="md-nav__link">
+  <a href="#block-caching-and-performance" class="md-nav__link">
     <span class="md-ellipsis">
-      toolKeys
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tooltmo" class="md-nav__link">
-    <span class="md-ellipsis">
-      toolTmo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toolsys" class="md-nav__link">
-    <span class="md-ellipsis">
-      toolSys
+      Block caching and performance
     </span>
   </a>
   
@@ -754,97 +736,110 @@
 
 
 
-  <h1>Toolbox</h1>
-
-<h2 id="toolbox-apis">Toolbox APIs<a class="headerlink" href="#toolbox-apis" title="Permanent link">&para;</a></h2>
-<hr />
-<p>The Toolbox is a small set of reusable ML routines (~4 KiB) that are available alongside the Idun Kernel routines to make it easier to develop text-based tools in assembly language. These tools are launched from Idun Dos, and return the user to Dos when complete. By utilizing the Toolbox, tools can provide a simpler and more consistent user and programming experience. There are 7 APIs for the following purposes:</p>
+<h1 id="what-is-eram">What is ERAM?<a class="headerlink" href="#what-is-eram" title="Permanent link">&para;</a></h1>
+<p>ERAM is a 4.0 Megabyte expansion memory available to your Commodore with idun-cartridge. It works similar to <em>GeoRAM</em>, but is not compatible and will need a different driver for GEOS. ERAM is not normally used for running code; it's for faster and more convenient access to large data sets, and for sharing memory with the ARM CPU when used in hybrid applications (i.e. apps that use Linux or Lua). You can think of ERAM as poviding "Extra", "External", or "Expansion" memory, but more useful and programmable than just a <em>RAM Disk</em>.</p>
+<p>Using ERAM from software can be done in multiple ways. You can program it directly using a simple hardware interface controlled by two registers. Or, you can use one of two builtin APIs: the low-level "Stash API" or the high-level "New API". The high-level API is novel for 8-bit computers; it includes routines to instantly load files from the cartridge SD card to ERAM, and access them by name using familiar, albeit faster, routines like <code>open</code>, <code>read</code>, and <code>seek</code>.</p>
+<h2 id="high-level-eram-api-newmmap">High-level ERAM API (New/Mmap)<a class="headerlink" href="#high-level-eram-api-newmmap" title="Permanent link">&para;</a></h2>
+<p>This API makes it very simple to use ERAM in an application or tool written for the idun-cartridge. There are only 3 routines.</p>
 <ol>
-<li><a href="#tooluser">user</a>: An API for UI and decorative text</li>
-<li><a href="#toolwin">win</a>: An API for defining window areas managed by tools that take over the screen.</li>
-<li><a href="#toolstat">stat</a>; An API for using the status bar that appears at the top of the screen when tools are running.</li>
-<li><a href="#toolkeys">keys</a>: An API for programming command keys used by the tool.</li>
-<li><a href="#tooltmo">tmo</a>: An API for setting one-shot timeouts to invoke a callback.</li>
-<li><a href="#toolsys">sys</a>: An API for calling System utilities</li>
+<li><strong>new</strong> - Combines a memory allocation with a memory stash operation. The data in local memory is transferred to ERAM. If an allocation size, but no data is provided, then it's just an alloc with the ERAM initialized to zeroes.</li>
+<li><strong>memtag</strong> - Previously allocated memory (using <code>new</code>) is paired with a hashtag, giving the object in ERAM a name. This allows the data in ERAM to be opened as a file using a filename like "_:hashtag".</li>
+<li><strong>mmap</strong> - Combines loading a file into memory with the above hash tagging. A file is instantly loaded to ERAM from the SD card, without passing the data through local memory. So, it's VERY fast. Then, the data in ERAM is accessed using any of the file API, Low-level ERAM API, or hardware interface.</li>
 </ol>
-<h3 id="tooluser">toolUser<a class="headerlink" href="#tooluser" title="Permanent link">&para;</a></h3>
-<p>This API works for console and full-screen tools. For console tools, it is mainly useful for creating text that stands out against the more mundane console output through the use of colors, lines, or borders. When used for a full-screen tool, it can also provide "popup" dialogs, menus, or help.</p>
-<p>The interface to the user API is designed so it can be data-driven. Therefore, the parameters to each function are embedded in the code, immediately following the <code>jsr</code> for the function.</p>
-<p><code>toolUserLayout/End</code> enable/disable active UI layout</p>
-<ul>
-<li>param = !byte 2 [layout-flags, width-or-height]</li>
-<li>layout-flags = h|r|o|x|x|x|x|x, where<ul>
-<li>h = horizontal (0=vertical)</li>
-<li>r = retained (0=not retained)</li>
-<li>o = overlayed (0=not overlayed)</li>
-</ul>
-</li>
-<li>width-or-height = number of characters wide or high, depending on if it is to be layed out vertically or horizontally.</li>
-</ul>
-<p><code>toolUserNode/End</code> start/end a text area definition</p>
-<ul>
-<li>param = !byte 3 [refresh-flag,width,height]</li>
-<li>refresh-flag = refresh counter to control redraw during vsync interrupt; only used for retained layout!</li>
-<li>width = width of text area in characters</li>
-<li>height = height of text area in characters</li>
-</ul>
-<p><code>toolUserGadget</code></p>
-<ul>
-<li>param !byte 1 gadget-flags</li>
-<li>gadget-flags = f|s|x|x|x|pen, where<ul>
-<li>f = focus</li>
-<li>s = select</li>
-<li>pen = fgrd pen</li>
-</ul>
-</li>
-<li>param !pet null-terminated gadget text (PETSCII)</li>
-</ul>
-<p><code>toolUserLabel</code></p>
-<ul>
-<li>param !pet null-terminated gadget text (PETSCII)</li>
-</ul>
-<p><code>toolUserSeparator</code> outputs a horizontal line used as a separator</p>
-<p>The following variables can be set and will be global to the text area (e.g. the "node") within which they are modified.</p>
-<p><code>toolUserColor</code> upper nybble is border pen; lower nybble is text pen</p>
-<p><code>toolUserStyles</code> = b|a|r|u|f|c|&gt;|&lt;, where</p>
-<div class="codehilite"><pre><span></span><code>    - b = bordered text
-    - a = 
-    - r = reverse text
-    - u = underline text
-    - f = 
-    - c = center text
-    - &lt; = left=align text
-    - &gt; = right-align text
+<h3 id="file-style-api-for-tagged-eram">File style API for tagged ERAM<a class="headerlink" href="#file-style-api-for-tagged-eram" title="Permanent link">&para;</a></h3>
+<p>As mentioned above, a memory buffer in ERAM can be assigned a name, and then treated as a file in a call to the <code>open</code> routine. The key is to prefix the filename for <code>open</code> with the device previx <code>_:</code>. This tells the <code>open</code> call to locate the file in ERAM. You can then use other file routines (<code>read</code>, <code>seek</code>, etc.) To access the data in a simple and familiar way. Since the data is in ERAM, access is even faster than the normal file access (already pretty fast). But even better is that it's a random access memory buffer that can also be shared by software running on the ARM CPU. This opens many exciting possibilities for future applications.</p>
+<h2 id="low-level-eram-api-stashfetch">Low-level ERAM API (Stash/Fetch)<a class="headerlink" href="#low-level-eram-api-stashfetch" title="Permanent link">&para;</a></h2>
+<p>ERAM is also compatible with the existing, low-level <code>aceMem</code> API calls which still work with local RAM banks too. The routines are <code>aceMemAlloc, aceMemStash, aceMemFetch, and aceMemFree</code>. You should note that memory is automatically garbage collected when a process exits, so calls to <code>aceMemFree</code> are unnecessary and ignored when using ERAM. This API is familiar to many Commodore programmers because it is the same approach used for additional local RAM banks and the <em>REU</em>. You are free to mix &amp; match calls to this API with the ones from the New API and with direct hardware access, if needed. You just have to be sure that you address the RAM buffers correctly, which is done by treating all far memory pointers as 32-bit values.</p>
+<p><em>A far memory pointer is stored in zero-page using <code>mp</code></em></p>
+<table>
+<thead>
+<tr>
+<th>ptr byte</th>
+<th>mp+0</th>
+<th>mp+1</th>
+<th>mp+2</th>
+<th>mp+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>byte offset</td>
+<td>page</td>
+<td>bank/block</td>
+<td>memory type</td>
+</tr>
+</tbody>
+</table>
+<p>The memory type is either <code>aceMemInternal</code> or <code>aceMemERAM</code>.</p>
+<h2 id="hardware-interface">Hardware interface<a class="headerlink" href="#hardware-interface" title="Permanent link">&para;</a></h2>
+<p>Like GeoRAM, ERAM uses two registers in the cartridge IO space to select one page (256 bytes) of the external RAM at a time. The page contents are also accessed using IO space. The registers used to specify the block/page are $defe &amp; $deff.  The definition for each register is pretty simple:</p>
+<table>
+<thead>
+<tr>
+<th>8-bit byte addr</th>
+<th>6-bit Page addr</th>
+<th>8-bit Block addr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$DFxx</td>
+<td>$DEFE (*bits 0-5)</td>
+<td>$DEFF</td>
+</tr>
+<tr>
+<td>* $DEFE bit 6 indicates Ready</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* $DEFE bit 7 indicates Write mode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* $DEFF is a write-only register</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This scheme provides a total of 22 address bits, thus supporting 4 MiB of ERAM. The 8-bit value stored to $DEFF selects 1 of 256 16 KiB blocks, and the 6-bit value stored to $DEFE selects 1 of 64 pages, each of size 256 bytes. Then, the individual byte is read using an 8-bit offset from $DF00. The memory appears one page at a time in $DFxx.</p>
+<p>Bit 7 of the Page addr register is used to enable writing to the memory. If this bit is not set, then the memory in $DFxx is read only. If it is set then the memory is write only.</p>
+<p>Bit 6 of the Page addr register is used as the "Ready bit". A "1" in this bit location indicates selected ERAM page is ready for access (at $DFxx). After modifying either register, you MUST wait on the Ready bit set to access the page data.</p>
+<p>The initial setup following reset will have the first page of the last block selected- which we can write as "$ff/0". This page is special- it holds the Freemap, which is a list of the number of free pages in each of the 256 ERAM blocks. The Freemap is treated as a read-only page since it is updated automatically by the cartridge. Each time you select a block/page and write some data to it, the Freemap gets updated to reflect the pages you have used.</p>
+<p>Updating the value of either register will cause the Ready Bit to go low, temporarily. Depending on many factors, the delay before the Ready Bit goes high, and you can access the data, could be from a few Commodore machine cycles to multiple milliseconds. If you attempt to access the page data without waiting for the Ready Bit, you will read invalid data and any writes will be lost. So don't do this.</p>
+<p>In practice, you should first write the Block addr to $DEFF for the 16KiB Block you want to work with. Wait on the Ready bit to go high, and at that time the first page of the Block is available to read in $DFxx. To select a different page, write the Page addr to $DEFE and again wait on the Ready bit. If you want to write a page, then OR the Page addr with $80 before writing it to the Page addr.</p>
+<div class="codehilite"><pre><span></span><code>    lda #$01
+    sta $deff   ;select block #1
+-   bit $defe
+    bvc -       ;waiting on ready
+    lda #$04
+    sta $defe   ;select page #4
+-   bit $defe
+    bvc -       ;waiting on ready
+    ;now access the data in $dDFxx
+    lda $df00
+    ... and such ...
 </code></pre></div>
 
-<h3 id="toolwin">toolWin<a class="headerlink" href="#toolwin" title="Permanent link">&para;</a></h3>
-<p>This API is for tools that take over screen drawing, rather than just outputting to a scrolling console. They are useful for defining screen and active region dimensions, color palette, and character set. The active region can be scrolled vertically, and can be cached and retrieved to support popups.</p>
-<p><code>toolWinB</code> defines the variables that can be set.
-- toolWinRegion: define rows x cols and top-left
-- toolWinScroll: scrolling rows x cols and top-left
-- toolWinPalette: colors to use for 8x palette entries</p>
-<p><code>toolWinRestore</code> restores the window setup back to the default and should be called at exit by any tool that manipulates the screen window, palette, etc.</p>
-<h3 id="toolstat">toolStat<a class="headerlink" href="#toolstat" title="Permanent link">&para;</a></h3>
-<p>This API is for manipulating the top line of the display, which is consistently used as a status bar. A minimum use would be to set a title for an interactive tool, which is displayed at the top left of the screen. Tools can ignore this API and the status bar will continue updating the standard values it displays automatically, such as the time &amp; date.</p>
-<p><code>toolStatB</code> defines the variables that can be set.</p>
-<p><code>toolStatTitle</code> sets the title string</p>
-<p><code>toolStatAlert</code> temporarily replace status line text with alert message</p>
-<h3 id="toolkeys">toolKeys<a class="headerlink" href="#toolkeys" title="Permanent link">&para;</a></h3>
-<p>This API is for defining the tool's command keys and their handlers.</p>
-<p><code>toolKeysSet</code> set up a command key handler</p>
-<p><code>toolKeysMacro</code> set up a macro key (up to 32 chars)</p>
-<p><code>toolKeysRemove</code> removes a command key and handler</p>
-<p><code>toolKeysHandler</code> call this API to check for a command key in the input and handle it.</p>
-<p>Any key code can be used by the tool. However, reusing key codes already defined by the user as described below will override the user-defined function. Therefore, most tools should only use key codes outside the range $80-$8f for command keys.</p>
-<p>In addition to command keys, up to 16 user-defined function key macro definitions may be created by the user with the <code>funkey</code> shell command. These user-defined keys are used to inject a macro string (up to 32 chars) any time the key is pressed from within any tool, including in the DOS shell itself.</p>
-<p>Only the keycodes $80-$8f may be used with the <code>funkey</code> command. This includes F1-F12 codes, plus SH-HELP, SH-RUN, SH-RETURN. The code for CO-1 ($81) is specifically excluded by <code>funkey</code> and is available as an application command key instead.</p>
-<h3 id="tooltmo">toolTmo<a class="headerlink" href="#tooltmo" title="Permanent link">&para;</a></h3>
-<p>This API provides two functions for setting a countdown timer and invoking a callback function when the timer expires. It is based on the per-frame Irq handler, so the shortest timeout possible is roughly the time of one video frame. For timeouts of a few seconds or shorter, use <code>toolTmoJifs</code> to countdown 1-255 "jiffies" (~that many frames). For longer timeouts, use <code>toolTmoSecs</code> to countdown 1-255 seconds (allows ~4.25 mins). All timeouts occur only once, and you will need to reset them to trigger another. Also, calling either API will supercede any pending timeout that was counting down before.</p>
-<p><code>toolTmoJifs</code> invoke callback routine after 1-255 "jiffies"</p>
-<p><code>toolTmoSecs</code> invoke callback routine after 1-255 seconds</p>
-<h3 id="toolsys">toolSys<a class="headerlink" href="#toolsys" title="Permanent link">&para;</a></h3>
-<p>This API allows the tool to call other system tools by executing a sub-process with arguments.</p>
-<p><code>toolSyscall</code> invoke a sub-process</p>
+<p>For the common use-case of accessing consecutive pages, you can normally just do "inc $defe", then wait on the Ready bit. You have to be cognizant of the rollover. Use this simple code to safely advance to the next Page while accounting for rollover.</p>
+<div class="codehilite"><pre><span></span><code>    lda $defe
+    cmp #$ff        ;check if last page of block
+    bne +
+    ;need to select next 16 KiB block in $deff
+    lda next
+    sta $deff       ;0th page will automatically select
+    jmp w           ;jump to wait for Ready
++   inc $defe
+w:  bit $defe
+    bvc w
+    ;all done; access the next page in $DFxx
+</code></pre></div>
+
+<h3 id="block-caching-and-performance">Block caching and performance<a class="headerlink" href="#block-caching-and-performance" title="Permanent link">&para;</a></h3>
+<p>The Block you are currently working with is always held in a cache. This allows reading/writing of all pages in the current Block with fast switching between the pages of the Block. However, anytime you change the Block addr, any modified data in the cache must be stored and then the newly selected Block has to be loaded to the cache. Depending on how many pages are used, this can be a slow operation. Therefore, you should only change the Block addr sparingly to not incur this overhead, except when necessary. In practice, you should use the APIs provided in order to get good performance without having to worry much about caching or deal with the hardware interface.</p>
 
 
 

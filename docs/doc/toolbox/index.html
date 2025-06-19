@@ -9,16 +9,16 @@
         <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
       
       
-        <meta name="author" content="Brian">
+        <meta name="author" content="Idun Community">
       
       
-        <link rel="canonical" href="https://idun-project.github.io/doc/luaref/">
+        <link rel="canonical" href="https://idun-project.github.io/doc/toolbox/">
       
       
-        <link rel="prev" href="../apiref/">
+        <link rel="prev" href="../eram/">
       
       
-        <link rel="next" href="../eram/">
+        <link rel="next" href="../../idun-zcc/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Lua - Idun Cartridge Manual</title>
+        <title>Toolbox - Idun Cartridge Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#idun-to-lua-interface" class="md-skip">
+        <a href="#toolbox-apis" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lua
+              Toolbox
             
           </span>
         </div>
@@ -443,30 +443,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Lua
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../luaref/" class="md-nav__link">
         
   
   
@@ -477,126 +457,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#idun-to-lua-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Idun to Lua Interface
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Idun to Lua Interface">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mini-socket" class="md-nav__link">
-    <span class="md-ellipsis">
-      mini socket
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#idun-handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      idun handler
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m8-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      m8 API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="m8 API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#low-level-m8-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Low-level m8 functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-level-m8-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      High-level m8 functions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m8x-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      m8x extensions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system-sys-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      System (sys.) functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#user-usr-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      User (usr.) functions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -629,10 +489,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../toolbox/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -643,6 +523,93 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#toolbox-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolbox APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toolbox APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooluser" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolwin" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolWin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolStat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolKeys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolTmo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      toolSys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -703,97 +670,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#idun-to-lua-interface" class="md-nav__link">
+  <a href="#toolbox-apis" class="md-nav__link">
     <span class="md-ellipsis">
-      Idun to Lua Interface
+      Toolbox APIs
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Idun to Lua Interface">
+    <nav class="md-nav" aria-label="Toolbox APIs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#tooluser" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      toolUser
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mini-socket" class="md-nav__link">
+  <a href="#toolwin" class="md-nav__link">
     <span class="md-ellipsis">
-      mini socket
+      toolWin
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#idun-handler" class="md-nav__link">
+  <a href="#toolstat" class="md-nav__link">
     <span class="md-ellipsis">
-      idun handler
+      toolStat
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#m8-api" class="md-nav__link">
+  <a href="#toolkeys" class="md-nav__link">
     <span class="md-ellipsis">
-      m8 API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="m8 API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#low-level-m8-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Low-level m8 functions
+      toolKeys
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-m8-functions" class="md-nav__link">
+  <a href="#tooltmo" class="md-nav__link">
     <span class="md-ellipsis">
-      High-level m8 functions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m8x-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      m8x extensions
+      toolTmo
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#system-sys-functions" class="md-nav__link">
+  <a href="#toolsys" class="md-nav__link">
     <span class="md-ellipsis">
-      System (sys.) functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#user-usr-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      User (usr.) functions
+      toolSys
     </span>
   </a>
   
@@ -820,74 +754,97 @@
 
 
 
-  <h1>Lua</h1>
+  <h1>Toolbox</h1>
 
-<h2 id="idun-to-lua-interface">Idun to Lua Interface<a class="headerlink" href="#idun-to-lua-interface" title="Permanent link">&para;</a></h2>
+<h2 id="toolbox-apis">Toolbox APIs<a class="headerlink" href="#toolbox-apis" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
-<p>Idun provides several methods by which Lua code running on the Raspberry Pi can provide coprocessing functionality to idun tools and applications. First, let's describe the three basic ways of integrating Lua code, from simplest to most complicated:</p>
+<p>The Toolbox is a small set of reusable ML routines (~4 KiB) that are available alongside the Idun Kernel routines to make it easier to develop text-based tools in assembly language. These tools are launched from Idun Dos, and return the user to Dos when complete. By utilizing the Toolbox, tools can provide a simpler and more consistent user and programming experience. There are 7 APIs for the following purposes:</p>
 <ol>
-<li>Write a Lua script and execute it in a tty from the idun-shell.</li>
+<li><a href="#tooluser">user</a>: An API for UI and decorative text</li>
+<li><a href="#toolwin">win</a>: An API for defining window areas managed by tools that take over the screen.</li>
+<li><a href="#toolstat">stat</a>; An API for using the status bar that appears at the top of the screen when tools are running.</li>
+<li><a href="#toolkeys">keys</a>: An API for programming command keys used by the tool.</li>
+<li><a href="#tooltmo">tmo</a>: An API for setting one-shot timeouts to invoke a callback.</li>
+<li><a href="#toolsys">sys</a>: An API for calling System utilities</li>
 </ol>
-<p>This is by far the easiest way to add applications written in Lua. The idun-shell has a <code>lua</code> command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua <code>print()</code> function would just work. To see this in action, switch to the <code>idun-base/apps</code> (usually mapped to <code>e:</code>) directory and type <code>lua sieve.lua</code>. The script is a generic thing that spits out prime numbers up to 10000. It only uses <code>print()</code> for output.</p>
-<p>To do a more interactive program that requires user input, you simply switch the Lua stdio to use the <a href="#mini-socket">minisock</a> API described below. Now, every character typed or printed is available on both the Lua and C128 side. To see an example of a script that works this way, simply type <code>help</code> or press <code>F1</code> in the shell. The help system is implemented as a <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/help.lua">Lua script</a>.</p>
-<ol>
-<li>Write a Lua "server" that handles requests from your idun "client" application.</li>
-</ol>
-<p>Included with Idun is an <a href="#idun-handler">idun-handler</a> Lua object that makes it easy to create client/server applications where Lua does the "heavy lifting". For example, the <code>sidplay</code> command relies on a helpful <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">Lua server</a> to pre-process the SID files. </p>
-<ol>
-<li>Write a "native" idun application in a combination of Lua and 6502 assembler.</li>
-</ol>
-<p>Finally, Idun supports creating applications in Lua in which the C128 is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. </p>
-<p>To communicate, messages are passed to the C128 using a "mailbox" interface, and these messages can be of arbitrary size and content. Even streaming data as fast as the C128 can handle it is possible. Likewise, there is an "event" interface that allows asynchronous events, like user input, to be forwarded to the Lua script. The two best, though simple, examples of this are e:mandelbrot.app and e:cube.app. These Lua/6502 assembler hybrid apps will even work in the idun-vice emulator.</p>
-<p>Of course, complicated rendering like drawing polygons on the VDC hi-res display, and complicated input like using the mouse, needs support on the C128 side. This is the role of the <a href="#m8-api">m8 ("mate") API</a> and <a href="#m8x-extensions">m8x ("mate extensions")</a>.</p>
-<h3 id="mini-socket">mini socket<a class="headerlink" href="#mini-socket" title="Permanent link">&para;</a></h3>
-<p>Under the hood of the Lua interface is a dedicated local socket connection that passes the data stream between the C128 and your script. The <code>minisock</code> is actually a standard Lua way to talk to a socket, and it is augmented by a second Lua object <code>redirect</code>.</p>
-<p>In the simplest case, the normal way of outputting text to <code>stdout</code> and inputting text from <code>stdin</code> is modified as so:</p>
+<h3 id="tooluser">toolUser<a class="headerlink" href="#tooluser" title="Permanent link">&para;</a></h3>
+<p>This API works for console and full-screen tools. For console tools, it is mainly useful for creating text that stands out against the more mundane console output through the use of colors, lines, or borders. When used for a full-screen tool, it can also provide "popup" dialogs, menus, or help.</p>
+<p>The interface to the user API is designed so it can be data-driven. Therefore, the parameters to each function are embedded in the code, immediately following the <code>jsr</code> for the function.</p>
+<p><code>toolUserLayout/End</code> enable/disable active UI layout</p>
 <ul>
-<li>Instead of <code>print(str)</code> or <code>io.write(str)</code>, you use <code>minisock.write(redirect.stdout, str)</code>.</li>
-<li>Instead of <code>io.read()</code>, you use <code>key = minisock.read(redirect.stdin, 10000)</code>. The number is a timeout value given in milliseconds; so, 10 seconds for this example. This is just the maximum time you want your script to block waiting on a keystroke from the user. It can be 0 ms to make it non-blocking, or a very big number if you want to block "forever". More practically, place it in a loop that polls for other things or does other work.</li>
+<li>param = !byte 2 [layout-flags, width-or-height]</li>
+<li>layout-flags = h|r|o|x|x|x|x|x, where<ul>
+<li>h = horizontal (0=vertical)</li>
+<li>r = retained (0=not retained)</li>
+<li>o = overlayed (0=not overlayed)</li>
 </ul>
-<p>Minisock can of course be used in a more structured way, such as for passing pre-defined requests and responses between assembler and Lua code. This is where idun-handler provides a helpful and simple solution.</p>
-<h3 id="idun-handler">idun handler<a class="headerlink" href="#idun-handler" title="Permanent link">&para;</a></h3>
-<p>The handler is included, so you can just <code>require("idun-handler")</code> in your script. Then, you implement a function to handle the requests that your assembler code will send to Lua. In <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">sidplay.lua</a>, for example, the <code>handleRequest(req)</code> function supports 2 types of requests using this simple bit of Lua script:</p>
-<div class="codehilite"><pre><span></span><code>    -- Allowed requests: &quot;H&quot;=get sid header, &quot;P&quot;=get sid program
-    if req == &quot;H&quot; then
-        return sidhdr
-    elseif req == &quot;P&quot; then
-        -- Prepend with the size
-        local resp = string.pack(&quot;&lt;H&quot;, #sidprg)
-        return resp .. sidprg
-    else
-        return nil, 3   -- Bad request
-    end
+</li>
+<li>width-or-height = number of characters wide or high, depending on if it is to be layed out vertically or horizontally.</li>
+</ul>
+<p><code>toolUserNode/End</code> start/end a text area definition</p>
+<ul>
+<li>param = !byte 3 [refresh-flag,width,height]</li>
+<li>refresh-flag = refresh counter to control redraw during vsync interrupt; only used for retained layout!</li>
+<li>width = width of text area in characters</li>
+<li>height = height of text area in characters</li>
+</ul>
+<p><code>toolUserGadget</code></p>
+<ul>
+<li>param !byte 1 gadget-flags</li>
+<li>gadget-flags = f|s|x|x|x|pen, where<ul>
+<li>f = focus</li>
+<li>s = select</li>
+<li>pen = fgrd pen</li>
+</ul>
+</li>
+<li>param !pet null-terminated gadget text (PETSCII)</li>
+</ul>
+<p><code>toolUserLabel</code></p>
+<ul>
+<li>param !pet null-terminated gadget text (PETSCII)</li>
+</ul>
+<p><code>toolUserSeparator</code> outputs a horizontal line used as a separator</p>
+<p>The following variables can be set and will be global to the text area (e.g. the "node") within which they are modified.</p>
+<p><code>toolUserColor</code> upper nybble is border pen; lower nybble is text pen</p>
+<p><code>toolUserStyles</code> = b|a|r|u|f|c|&gt;|&lt;, where</p>
+<div class="codehilite"><pre><span></span><code>    - b = bordered text
+    - a = 
+    - r = reverse text
+    - u = underline text
+    - f = 
+    - c = center text
+    - &lt; = left=align text
+    - &gt; = right-align text
 </code></pre></div>
 
-<p>Since this isn't the Web, you don't need fancy long names. An "H" request and a "P" request are sufficient, and these are sent as two-byte messages from the C128 ("H\n" or "P\n"). So, 8-bit efficiency is maintained.</p>
-<p>Likewise, the response to the "P" request is many kilobytes of SID tune data. However, the assembler side just has to copy all that data to RAM as fast as it can read it from the cartridge port.</p>
-<h3 id="m8-api">m8 API<a class="headerlink" href="#m8-api" title="Permanent link">&para;</a></h3>
-<p>The m8 (say "Mate") API is what allows code written in Lua to run on the Raspberry Pi's processor, but call into 8-bit machine code that's running on the 6502 CPU in your Commodore 128. It's akin to "old school" programming on the Commodore using BASIC to call machine language routines, except the high-level script is Lua and runs on a powerful ARM coprocessor. To use m8, just add a line like <code>local m8 = require("m8api")</code> to your Lua program.</p>
-<h4 id="low-level-m8-functions">Low-level m8 functions<a class="headerlink" href="#low-level-m8-functions" title="Permanent link">&para;</a></h4>
-<p>All of the functionality in m8 is ultimately based on just two low-level functions:</p>
-<div class="codehilite"><pre><span></span><code>1. m8.load({6502_ml_code}, load_addr, [start_addr])
-2. m8.intr({6502_ml_code})
-</code></pre></div>
-
-<p>The <code>m8.load</code> function takes some ml code written for the 6502, and quickly loads it into the Commodore at the memory location specified by <code>load_addr</code>. An optional <code>start_addr</code>, if provided, causes a <code>jmp</code> to that address as soon as the code has been loaded. The size of the 6502_code blob that is downloaded to the Commodore is only limited by the RAM available to the 6502.</p>
-<p>The <code>m8.intr</code> function is used to invoke some inline ml code, which might be as simple as a <code>jsr</code> call to a subroutine in the Commodore memory. Such a subroutine may be a user routine loaded via <code>m8.load</code>, a routine in a running application or tool, an Idun Kernel routine, or even a  routine in Commodore ROM.</p>
-<p>Since the 6502_code that is provided to <code>m8.intr</code> may be <em>up to 512 bytes</em>, it can be much more complex than just calling a subroutine. Another common use-case would be to treat it as a traditional interrupt handler such that Lua code can both trigger a Commodore interrupt, and provide the handler to run in response, through a simple call to <code>m8.intr</code>.</p>
-<h4 id="high-level-m8-functions">High-level m8 functions<a class="headerlink" href="#high-level-m8-functions" title="Permanent link">&para;</a></h4>
-<p><strong>UNDER CONSTRUCTION</strong></p>
-<p><code>m8.mailbox</code> is the standard API for message passing from Lua to assembler.</p>
-<p><code>m8.waitevent</code> is the standard API for receiving input events from assembler in Lua.</p>
-<p><code>m8.writeln</code> is for outputting lines of text to the display for a full-screen Lua application. For console applications in Lua, you can just use minisock or the Lua <code>print()</code> function.</p>
-<p><code>m8.file.load_prg</code> is for loading/starting a native program from a Lua script.</p>
-<h3 id="m8x-extensions">m8x extensions<a class="headerlink" href="#m8x-extensions" title="Permanent link">&para;</a></h3>
-<p>m8x ("mate extensions") is the standard way to add application-dependent functionality to Lua apps. These extensions become part of the callable code in the m8 namespace created by the applications. So, it allows new functionality to be invoked on the assembler side. For an example, see: <a href="https://github.com/idun-project/idun-cartridge/samples/cube.app.d/">cube.app.d</a> and <a href="https://github.com/idun-project/idun-cartridge/samples/mandelbrot.app.d/">mandelbrot.app.d</a>.</p>
-<h3 id="system-sys-functions">System (sys.) functions<a class="headerlink" href="#system-sys-functions" title="Permanent link">&para;</a></h3>
-<p><strong>UNDER CONSTRUCTION</strong></p>
-<h3 id="user-usr-functions">User (usr.) functions<a class="headerlink" href="#user-usr-functions" title="Permanent link">&para;</a></h3>
-<p><strong>UNDER CONSTRUCTION</strong></p>
+<h3 id="toolwin">toolWin<a class="headerlink" href="#toolwin" title="Permanent link">&para;</a></h3>
+<p>This API is for tools that take over screen drawing, rather than just outputting to a scrolling console. They are useful for defining screen and active region dimensions, color palette, and character set. The active region can be scrolled vertically, and can be cached and retrieved to support popups.</p>
+<p><code>toolWinB</code> defines the variables that can be set.
+- toolWinRegion: define rows x cols and top-left
+- toolWinScroll: scrolling rows x cols and top-left
+- toolWinPalette: colors to use for 8x palette entries</p>
+<p><code>toolWinRestore</code> restores the window setup back to the default and should be called at exit by any tool that manipulates the screen window, palette, etc.</p>
+<h3 id="toolstat">toolStat<a class="headerlink" href="#toolstat" title="Permanent link">&para;</a></h3>
+<p>This API is for manipulating the top line of the display, which is consistently used as a status bar. A minimum use would be to set a title for an interactive tool, which is displayed at the top left of the screen. Tools can ignore this API and the status bar will continue updating the standard values it displays automatically, such as the time &amp; date.</p>
+<p><code>toolStatB</code> defines the variables that can be set.</p>
+<p><code>toolStatTitle</code> sets the title string</p>
+<p><code>toolStatAlert</code> temporarily replace status line text with alert message</p>
+<h3 id="toolkeys">toolKeys<a class="headerlink" href="#toolkeys" title="Permanent link">&para;</a></h3>
+<p>This API is for defining the tool's command keys and their handlers.</p>
+<p><code>toolKeysSet</code> set up a command key handler</p>
+<p><code>toolKeysMacro</code> set up a macro key (up to 32 chars)</p>
+<p><code>toolKeysRemove</code> removes a command key and handler</p>
+<p><code>toolKeysHandler</code> call this API to check for a command key in the input and handle it.</p>
+<p>Any key code can be used by the tool. However, reusing key codes already defined by the user as described below will override the user-defined function. Therefore, most tools should only use key codes outside the range $80-$8f for command keys.</p>
+<p>In addition to command keys, up to 16 user-defined function key macro definitions may be created by the user with the <code>funkey</code> shell command. These user-defined keys are used to inject a macro string (up to 32 chars) any time the key is pressed from within any tool, including in the DOS shell itself.</p>
+<p>Only the keycodes $80-$8f may be used with the <code>funkey</code> command. This includes F1-F12 codes, plus SH-HELP, SH-RUN, SH-RETURN. The code for CO-1 ($81) is specifically excluded by <code>funkey</code> and is available as an application command key instead.</p>
+<h3 id="tooltmo">toolTmo<a class="headerlink" href="#tooltmo" title="Permanent link">&para;</a></h3>
+<p>This API provides two functions for setting a countdown timer and invoking a callback function when the timer expires. It is based on the per-frame Irq handler, so the shortest timeout possible is roughly the time of one video frame. For timeouts of a few seconds or shorter, use <code>toolTmoJifs</code> to countdown 1-255 "jiffies" (~that many frames). For longer timeouts, use <code>toolTmoSecs</code> to countdown 1-255 seconds (allows ~4.25 mins). All timeouts occur only once, and you will need to reset them to trigger another. Also, calling either API will supercede any pending timeout that was counting down before.</p>
+<p><code>toolTmoJifs</code> invoke callback routine after 1-255 "jiffies"</p>
+<p><code>toolTmoSecs</code> invoke callback routine after 1-255 seconds</p>
+<h3 id="toolsys">toolSys<a class="headerlink" href="#toolsys" title="Permanent link">&para;</a></h3>
+<p>This API allows the tool to call other system tools by executing a sub-process with arguments.</p>
+<p><code>toolSyscall</code> invoke a sub-process</p>
 
 
 

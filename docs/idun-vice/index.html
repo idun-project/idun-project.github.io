@@ -9,16 +9,16 @@
         <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
       
       
-        <meta name="author" content="Brian">
+        <meta name="author" content="Idun Community">
       
       
-        <link rel="canonical" href="https://idun-project.github.io/idun-filebrowser/">
+        <link rel="canonical" href="https://idun-project.github.io/idun-vice/">
       
       
-        <link rel="prev" href="../idun-cpem/">
+        <link rel="prev" href="../idunSID/">
       
       
-        <link rel="next" href="../idunSID/">
+        <link rel="next" href="../doc/apiref/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Web File Access - Idun Cartridge Manual</title>
+        <title>Emulator - Idun Cartridge Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#features" class="md-skip">
+        <a href="#vice-emulator-for-idun-cartridge" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Web File Access
+              Emulator
             
           </span>
         </div>
@@ -309,30 +309,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Web File Access
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../idun-filebrowser/" class="md-nav__link">
         
   
   
@@ -343,60 +323,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -427,10 +353,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../idun-vice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Emulator
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -441,6 +387,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vice-emulator-for-idun-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vice Emulator for Idun Cartridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vice Emulator for Idun Cartridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-without-idun-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using without idun-cartridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -637,38 +643,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#vice-emulator-for-idun-cartridge" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      Vice Emulator for Idun Cartridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vice Emulator for Idun Cartridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
     <span class="md-ellipsis">
-      Install
+      Building
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#using-without-idun-cartridge" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration
+      Using without idun-cartridge
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -688,29 +700,45 @@
 
 
 
-  <h1>Web File Access</h1>
+  <h1>Emulator</h1>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/filebrowser/logo/master/banner.png" width="550"/>
-</p>
+<h2 id="vice-emulator-for-idun-cartridge">Vice Emulator for Idun Cartridge<a class="headerlink" href="#vice-emulator-for-idun-cartridge" title="Permanent link">&para;</a></h2>
+<p>Developing for the idun cart can be done using Vice. This patched version of Vice connects to the Raspberry Pi on your Idun cartridge and lets you run an emulated environment either directly on the Raspberry Pi, or from a remote PC. Most of the features of the idun cart are available through the emulator, including developing apps that use Lua. What does not work is the <code>go64</code> and <code>load</code> commands from the idun shell.</p>
+<p>This emulator can also work for development even if you lack the actual idun cartidge hardware. You can download the image for idun, burn it to an SD card, and use it to boot most versions of Raspberry Pi. You need a RPi with ARMv7, at least 512MB of RAM, and a 4GB SD card.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>To use the emulator on the Raspberry Pi connected with your idun cart, install the latest release from the idun package repository. If you are new to <code>pacman</code>, consider perusing the Arch Linux <a href="https://wiki.archlinux.org/title/Pacman">pacman primer</a>.</p>
+<div class="codehilite"><pre><span></span><code>sudo pacman -Sy idun-vice
+</code></pre></div>
 
-<p><img alt="Preview" src="https://user-images.githubusercontent.com/5447088/50716739-ebd26700-107a-11e9-9817-14230c53efd2.gif" /></p>
-<p><a href="https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml"><img alt="Build" src="https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml/badge.svg" /></a>
-<a href="https://goreportcard.com/report/github.com/filebrowser/filebrowser"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/filebrowser/filebrowser?style=flat-square" /></a>
-<a href="http://godoc.org/github.com/filebrowser/filebrowser"><img alt="Documentation" src="https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square" /></a>
-<a href="https://github.com/filebrowser/filebrowser/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/filebrowser/filebrowser.svg?style=flat-square" /></a>
-<a href="http://webchat.freenode.net/?channels=%23filebrowser"><img alt="Chat IRC" src="https://img.shields.io/badge/freenode-%23filebrowser-blue.svg?style=flat-square" /></a></p>
-<p>filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<p>Please refer to our docs at <a href="https://filebrowser.org/features">https://filebrowser.org/features</a></p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>For installation instructions please refer to our docs at <a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a>.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p><a href="https://filebrowser.org/configuration/authentication-method">Authentication Method</a> - You can change the way the user authenticates with the filebrowser server</p>
-<p><a href="https://filebrowser.org/configuration/command-runner">Command Runner</a> - The command runner is a feature that enables you to execute any shell command you want before or after a certain event.</p>
-<p><a href="https://filebrowser.org/configuration/custom-branding">Custom Branding</a> - You can customize your File Browser installation by change its name to any other you want, by adding a global custom style sheet and by using your own logotype if you want.</p>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>If you're interested in contributing to this project, our docs are best places to start <a href="https://filebrowser.org/contributing">https://filebrowser.org/contributing</a>.</p>
+<p>Connect a keyboard to your RPi, and start the emulator using the included launch script <code>idun-vice/emu.sh</code>. The emulator runs fullscreen using SDL2. Press F12 to access the Vice menu.</p>
+<p><em>Note</em>: <code>idun-vice/emu64.sh</code> is sort of ancillary. It exists mainly because the <code>go64</code> shell command doesn't work in the emulator. Instead, you can exit the x128 emulator (<code>emu.sh</code>), and start the x64sc emulator (<code>emu64.sh</code>), without upsetting the state of the cartridge.</p>
+<h3 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h3>
+<p>This GitHub repo is fully buildable on a RPi.</p>
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/idun-project/idun-vice.git
+cd idun-vice
+./buildpkg.sh
+</code></pre></div>
+
+<p>If you want to build modified Vice binaries for other platforms, then start in directory <code>idun-vice/vice</code> and build things the normal way using <code>configure</code> and <code>make</code>, or follow the details for your platform in the Vice documentation.</p>
+<h3 id="using-without-idun-cartridge">Using without idun-cartridge<a class="headerlink" href="#using-without-idun-cartridge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You will need to edit <code>~/.config/idunrc.toml</code> and comment out the setting for <code>io.serial</code> such as shown below. This will stop the RPi continually trying to re-connect with the cartridge, otherwise it's unusable!</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>[io]
+#serial     = &quot;/dev/ttyAMA0&quot;
+</code></pre></div>
+
+<ul>
+<li>You will also need to make an addition to <code>/etc/systemd/system/idun.service</code>. In the section under <code>[Service]</code>, add an additional line<ul>
+<li><code>Environment=IDUN_MODE_SWITCH=False</code></li>
+<li>This variable is used to toggle whether the Mode switch is seen as enabled when you don't have an actual idun-cart connected to the RPi.</li>
+</ul>
+</li>
+<li>To connect to the RPi from a PC running the emulator, make sure <code>io.devsock</code> is set as shown below. Otherwise, only local connection is allowed!</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>[io]
+devsock = &quot;0.0.0.0:25232&quot;   # allow remote emulator connection
+</code></pre></div>
 
 
 

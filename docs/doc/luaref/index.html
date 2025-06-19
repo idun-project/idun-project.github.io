@@ -9,16 +9,16 @@
         <meta name="description" content="Documentation for the Idun Cartridge for Commodore 128 and 64">
       
       
-        <meta name="author" content="Brian">
+        <meta name="author" content="Idun Community">
       
       
-        <link rel="canonical" href="https://idun-project.github.io/doc/eram/">
+        <link rel="canonical" href="https://idun-project.github.io/doc/luaref/">
       
       
-        <link rel="prev" href="../luaref/">
+        <link rel="prev" href="../apiref/">
       
       
-        <link rel="next" href="../toolbox/">
+        <link rel="next" href="../eram/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>ERAM - Idun Cartridge Manual</title>
+        <title>Lua - Idun Cartridge Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-eram" class="md-skip">
+        <a href="#idun-to-lua-interface" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ERAM
+              Lua
             
           </span>
         </div>
@@ -443,29 +443,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../luaref/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lua
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -475,15 +452,13 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    ERAM
+    Lua
     
   </span>
   
@@ -496,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    ERAM
+    Lua
     
   </span>
   
@@ -509,8 +484,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -519,19 +492,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#high-level-eram-api-newmmap" class="md-nav__link">
+  <a href="#idun-to-lua-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      High-level ERAM API (New/Mmap)
+      Idun to Lua Interface
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="High-level ERAM API (New/Mmap)">
+    <nav class="md-nav" aria-label="Idun to Lua Interface">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-style-api-for-tagged-eram" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      File style API for tagged ERAM
+      Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mini-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      mini socket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idun-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      idun handler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m8-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      m8 API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="m8 API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-level-m8-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level m8 functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-level-m8-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-level m8 functions
     </span>
   </a>
   
@@ -541,30 +560,29 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#low-level-eram-api-stashfetch" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#m8x-extensions" class="md-nav__link">
     <span class="md-ellipsis">
-      Low-level ERAM API (Stash/Fetch)
+      m8x extensions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-interface" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#system-sys-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware interface
+      System (sys.) functions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware interface">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#block-caching-and-performance" class="md-nav__link">
+  <a href="#user-usr-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Block caching and performance
+      User (usr.) functions
     </span>
   </a>
   
@@ -579,6 +597,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERAM
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -654,8 +695,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -664,19 +703,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#high-level-eram-api-newmmap" class="md-nav__link">
+  <a href="#idun-to-lua-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      High-level ERAM API (New/Mmap)
+      Idun to Lua Interface
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="High-level ERAM API (New/Mmap)">
+    <nav class="md-nav" aria-label="Idun to Lua Interface">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-style-api-for-tagged-eram" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      File style API for tagged ERAM
+      Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mini-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      mini socket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idun-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      idun handler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m8-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      m8 API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="m8 API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-level-m8-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level m8 functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-level-m8-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-level m8 functions
     </span>
   </a>
   
@@ -686,30 +771,29 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#low-level-eram-api-stashfetch" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#m8x-extensions" class="md-nav__link">
     <span class="md-ellipsis">
-      Low-level ERAM API (Stash/Fetch)
+      m8x extensions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-interface" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#system-sys-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware interface
+      System (sys.) functions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware interface">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#block-caching-and-performance" class="md-nav__link">
+  <a href="#user-usr-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Block caching and performance
+      User (usr.) functions
     </span>
   </a>
   
@@ -736,93 +820,74 @@
 
 
 
-<h1 id="what-is-eram">What is ERAM?<a class="headerlink" href="#what-is-eram" title="Permanent link">&para;</a></h1>
-<p>ERAM is a 4.0 Megabyte expansion memory available to your Commodore with idun-cartridge. It works similar to <em>GeoRAM</em>, but is not compatible and will need a different driver for GEOS. ERAM is not normally used for running code; it's for faster and more convenient access to large data sets, and for sharing memory with the ARM CPU when used in hybrid applications (i.e. apps that use Linux or Lua). You can think of ERAM as poviding "Extra", "External", or "Expansion" memory, but more useful and programmable than just a <em>RAM Disk</em>.</p>
-<p>Using ERAM from software can be done in multiple ways. You can program it directly using a simple hardware interface controlled by two registers. Or, you can use one of two builtin APIs: the low-level "Stash API" or the high-level "New API". The high-level API is novel for 8-bit computers; it includes routines to instantly load files from the cartridge SD card to ERAM, and access them by name using familiar, albeit faster, routines like <code>open</code>, <code>read</code>, and <code>seek</code>.</p>
-<h2 id="high-level-eram-api-newmmap">High-level ERAM API (New/Mmap)<a class="headerlink" href="#high-level-eram-api-newmmap" title="Permanent link">&para;</a></h2>
-<p>This API makes it very simple to use ERAM in an application or tool written for the idun-cartridge. There are only 3 routines.</p>
+  <h1>Lua</h1>
+
+<h2 id="idun-to-lua-interface">Idun to Lua Interface<a class="headerlink" href="#idun-to-lua-interface" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
+<p>Idun provides several methods by which Lua code running on the Raspberry Pi can provide coprocessing functionality to idun tools and applications. First, let's describe the three basic ways of integrating Lua code, from simplest to most complicated:</p>
 <ol>
-<li><strong>new</strong> - Combines a memory allocation with a memory stash operation. The data in local memory is transferred to ERAM. If an allocation size, but no data is provided, then it's just an alloc with the ERAM initialized to zeroes.</li>
-<li><strong>memtag</strong> - Previously allocated memory (using <code>new</code>) is paired with a hashtag, giving the object in ERAM a name. This allows the data in ERAM to be opened as a file using a filename like "_:hashtag".</li>
-<li><strong>mmap</strong> - Combines loading a file into memory with the above hash tagging. A file is instantly loaded to ERAM from the SD card, without passing the data through local memory. So, it's VERY fast. Then, the data in ERAM is accessed using any of the file API, Low-level ERAM API, or hardware interface.</li>
+<li>Write a Lua script and execute it in a tty from the idun-shell.</li>
 </ol>
-<h3 id="file-style-api-for-tagged-eram">File style API for tagged ERAM<a class="headerlink" href="#file-style-api-for-tagged-eram" title="Permanent link">&para;</a></h3>
-<p>As mentioned above, a memory buffer in ERAM can be assigned a name, and then treated as a file in a call to the <code>open</code> routine. The key is to prefix the filename for <code>open</code> with the device previx <code>_:</code>. This tells the <code>open</code> call to locate the file in ERAM. You can then use other file routines (<code>read</code>, <code>seek</code>, etc.) To access the data in a simple and familiar way. Since the data is in ERAM, access is even faster than the normal file access (already pretty fast). But even better is that it's a random access memory buffer that can also be shared by software running on the ARM CPU. This opens many exciting possibilities for future applications.</p>
-<h2 id="low-level-eram-api-stashfetch">Low-level ERAM API (Stash/Fetch)<a class="headerlink" href="#low-level-eram-api-stashfetch" title="Permanent link">&para;</a></h2>
-<p>ERAM is also compatible with the existing, low-level <code>aceMem</code> API calls which still work with local RAM banks too. The routines are <code>aceMemAlloc, aceMemStash, aceMemFetch, and aceMemFree</code>. You should note that memory is automatically garbage collected when a process exits, so calls to <code>aceMemFree</code> are unnecessary and ignored when using ERAM. This API is familiar to many Commodore programmers because it is the same approach used for additional local RAM banks and the <em>REU</em>. You are free to mix &amp; match calls to this API with the ones from the New API and with direct hardware access, if needed. You just have to be sure that you address the RAM buffers correctly, which is done by treating all far memory pointers as 32-bit values.</p>
-<p><em>far memory pointer (mp)</em>
-| ptr byte | mp+0        | mp+1 | mp+2       | mp+3        |
-| -------- | ----------- | ---- | ---------- | ----------- |
-|          | byte offset | page | bank/block | memory type |</p>
-<p>The memory type is either <code>aceMemInternal</code> or <code>aceMemERAM</code>.</p>
-<h2 id="hardware-interface">Hardware interface<a class="headerlink" href="#hardware-interface" title="Permanent link">&para;</a></h2>
-<p>Like GeoRAM, ERAM uses two registers in the cartridge IO space to select one page (256 bytes) of the external RAM at a time. The page contents are also accessed using IO space. The registers used to specify the block/page are $defe &amp; $deff.  The definition for each register is pretty simple:</p>
-<table>
-<thead>
-<tr>
-<th>8-bit byte addr</th>
-<th>6-bit Page addr</th>
-<th>8-bit Block addr</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$DFxx</td>
-<td>$DEFE (*bits 0-5)</td>
-<td>$DEFF</td>
-</tr>
-<tr>
-<td>* $DEFE bit 6 indicates Ready</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* $DEFE bit 7 indicates Write mode</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* $DEFF is a write-only register</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>This scheme provides a total of 22 address bits, thus supporting 4 MiB of ERAM. The 8-bit value stored to $DEFF selects 1 of 256 16 KiB blocks, and the 6-bit value stored to $DEFE selects 1 of 64 pages, each of size 256 bytes. Then, the individual byte is read using an 8-bit offset from $DF00. The memory appears one page at a time in $DFxx.</p>
-<p>Bit 7 of the Page addr register is used to enable writing to the memory. If this bit is not set, then the memory in $DFxx is read only. If it is set then the memory is write only.</p>
-<p>Bit 6 of the Page addr register is used as the "Ready bit". A "1" in this bit location indicates selected ERAM page is ready for access (at $DFxx). After modifying either register, you MUST wait on the Ready bit set to access the page data.</p>
-<p>The initial setup following reset will have the first page of the last block selected- which we can write as "$ff/0". This page is special- it holds the Freemap, which is a list of the number of free pages in each of the 256 ERAM blocks. The Freemap is treated as a read-only page since it is updated automatically by the cartridge. Each time you select a block/page and write some data to it, the Freemap gets updated to reflect the pages you have used.</p>
-<p>Updating the value of either register will cause the Ready Bit to go low, temporarily. Depending on many factors, the delay before the Ready Bit goes high, and you can access the data, could be from a few Commodore machine cycles to multiple milliseconds. If you attempt to access the page data without waiting for the Ready Bit, you will read invalid data and any writes will be lost. So don't do this.</p>
-<p>In practice, you should first write the Block addr to $DEFF for the 16KiB Block you want to work with. Wait on the Ready bit to go high, and at that time the first page of the Block is available to read in $DFxx. To select a different page, write the Page addr to $DEFE and again wait on the Ready bit. If you want to write a page, then OR the Page addr with $80 before writing it to the Page addr.</p>
-<div class="codehilite"><pre><span></span><code>    lda #$01
-    sta $deff   ;select block #1
--   bit $defe
-    bvc -       ;waiting on ready
-    lda #$04
-    sta $defe   ;select page #4
--   bit $defe
-    bvc -       ;waiting on ready
-    ;now access the data in $dDFxx
-    lda $df00
-    ... and such ...
+<p>This is by far the easiest way to add applications written in Lua. The idun-shell has a <code>lua</code> command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua <code>print()</code> function would just work. To see this in action, switch to the <code>idun-base/apps</code> (usually mapped to <code>e:</code>) directory and type <code>lua sieve.lua</code>. The script is a generic thing that spits out prime numbers up to 10000. It only uses <code>print()</code> for output.</p>
+<p>To do a more interactive program that requires user input, you simply switch the Lua stdio to use the <a href="#mini-socket">minisock</a> API described below. Now, every character typed or printed is available on both the Lua and C128 side. To see an example of a script that works this way, simply type <code>help</code> or press <code>F1</code> in the shell. The help system is implemented as a <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/help.lua">Lua script</a>.</p>
+<ol>
+<li>Write a Lua "server" that handles requests from your idun "client" application.</li>
+</ol>
+<p>Included with Idun is an <a href="#idun-handler">idun-handler</a> Lua object that makes it easy to create client/server applications where Lua does the "heavy lifting". For example, the <code>sidplay</code> command relies on a helpful <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">Lua server</a> to pre-process the SID files. </p>
+<ol>
+<li>Write a "native" idun application in a combination of Lua and 6502 assembler.</li>
+</ol>
+<p>Finally, Idun supports creating applications in Lua in which the C128 is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. </p>
+<p>To communicate, messages are passed to the C128 using a "mailbox" interface, and these messages can be of arbitrary size and content. Even streaming data as fast as the C128 can handle it is possible. Likewise, there is an "event" interface that allows asynchronous events, like user input, to be forwarded to the Lua script. The two best, though simple, examples of this are e:mandelbrot.app and e:cube.app. These Lua/6502 assembler hybrid apps will even work in the idun-vice emulator.</p>
+<p>Of course, complicated rendering like drawing polygons on the VDC hi-res display, and complicated input like using the mouse, needs support on the C128 side. This is the role of the <a href="#m8-api">m8 ("mate") API</a> and <a href="#m8x-extensions">m8x ("mate extensions")</a>.</p>
+<h3 id="mini-socket">mini socket<a class="headerlink" href="#mini-socket" title="Permanent link">&para;</a></h3>
+<p>Under the hood of the Lua interface is a dedicated local socket connection that passes the data stream between the C128 and your script. The <code>minisock</code> is actually a standard Lua way to talk to a socket, and it is augmented by a second Lua object <code>redirect</code>.</p>
+<p>In the simplest case, the normal way of outputting text to <code>stdout</code> and inputting text from <code>stdin</code> is modified as so:</p>
+<ul>
+<li>Instead of <code>print(str)</code> or <code>io.write(str)</code>, you use <code>minisock.write(redirect.stdout, str)</code>.</li>
+<li>Instead of <code>io.read()</code>, you use <code>key = minisock.read(redirect.stdin, 10000)</code>. The number is a timeout value given in milliseconds; so, 10 seconds for this example. This is just the maximum time you want your script to block waiting on a keystroke from the user. It can be 0 ms to make it non-blocking, or a very big number if you want to block "forever". More practically, place it in a loop that polls for other things or does other work.</li>
+</ul>
+<p>Minisock can of course be used in a more structured way, such as for passing pre-defined requests and responses between assembler and Lua code. This is where idun-handler provides a helpful and simple solution.</p>
+<h3 id="idun-handler">idun handler<a class="headerlink" href="#idun-handler" title="Permanent link">&para;</a></h3>
+<p>The handler is included, so you can just <code>require("idun-handler")</code> in your script. Then, you implement a function to handle the requests that your assembler code will send to Lua. In <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">sidplay.lua</a>, for example, the <code>handleRequest(req)</code> function supports 2 types of requests using this simple bit of Lua script:</p>
+<div class="codehilite"><pre><span></span><code>    -- Allowed requests: &quot;H&quot;=get sid header, &quot;P&quot;=get sid program
+    if req == &quot;H&quot; then
+        return sidhdr
+    elseif req == &quot;P&quot; then
+        -- Prepend with the size
+        local resp = string.pack(&quot;&lt;H&quot;, #sidprg)
+        return resp .. sidprg
+    else
+        return nil, 3   -- Bad request
+    end
 </code></pre></div>
 
-<p>For the common use-case of accessing consecutive pages, you can normally just do "inc $defe", then wait on the Ready bit. You have to be cognizant of the rollover. Use this simple code to safely advance to the next Page while accounting for rollover.</p>
-<div class="codehilite"><pre><span></span><code>    lda $defe
-    cmp #$ff        ;check if last page of block
-    bne +
-    ;need to select next 16 KiB block in $deff
-    lda next
-    sta $deff       ;0th page will automatically select
-    jmp w           ;jump to wait for Ready
-+   inc $defe
-w:  bit $defe
-    bvc w
-    ;all done; access the next page in $DFxx
+<p>Since this isn't the Web, you don't need fancy long names. An "H" request and a "P" request are sufficient, and these are sent as two-byte messages from the C128 ("H\n" or "P\n"). So, 8-bit efficiency is maintained.</p>
+<p>Likewise, the response to the "P" request is many kilobytes of SID tune data. However, the assembler side just has to copy all that data to RAM as fast as it can read it from the cartridge port.</p>
+<h3 id="m8-api">m8 API<a class="headerlink" href="#m8-api" title="Permanent link">&para;</a></h3>
+<p>The m8 (say "Mate") API is what allows code written in Lua to run on the Raspberry Pi's processor, but call into 8-bit machine code that's running on the 6502 CPU in your Commodore 128. It's akin to "old school" programming on the Commodore using BASIC to call machine language routines, except the high-level script is Lua and runs on a powerful ARM coprocessor. To use m8, just add a line like <code>local m8 = require("m8api")</code> to your Lua program.</p>
+<h4 id="low-level-m8-functions">Low-level m8 functions<a class="headerlink" href="#low-level-m8-functions" title="Permanent link">&para;</a></h4>
+<p>All of the functionality in m8 is ultimately based on just two low-level functions:</p>
+<div class="codehilite"><pre><span></span><code>1. m8.load({6502_ml_code}, load_addr, [start_addr])
+2. m8.intr({6502_ml_code})
 </code></pre></div>
 
-<h3 id="block-caching-and-performance">Block caching and performance<a class="headerlink" href="#block-caching-and-performance" title="Permanent link">&para;</a></h3>
-<p>The Block you are currently working with is always held in a cache. This allows reading/writing of all pages in the current Block with fast switching between the pages of the Block. However, anytime you change the Block addr, any modified data in the cache must be stored and then the newly selected Block has to be loaded to the cache. Depending on how many pages are used, this can be a slow operation. Therefore, you should only change the Block addr sparingly to not incur this overhead, except when necessary. In practice, you should use the APIs provided in order to get good performance without having to worry much about caching or deal with the hardware interface.</p>
+<p>The <code>m8.load</code> function takes some ml code written for the 6502, and quickly loads it into the Commodore at the memory location specified by <code>load_addr</code>. An optional <code>start_addr</code>, if provided, causes a <code>jmp</code> to that address as soon as the code has been loaded. The size of the 6502_code blob that is downloaded to the Commodore is only limited by the RAM available to the 6502.</p>
+<p>The <code>m8.intr</code> function is used to invoke some inline ml code, which might be as simple as a <code>jsr</code> call to a subroutine in the Commodore memory. Such a subroutine may be a user routine loaded via <code>m8.load</code>, a routine in a running application or tool, an Idun Kernel routine, or even a  routine in Commodore ROM.</p>
+<p>Since the 6502_code that is provided to <code>m8.intr</code> may be <em>up to 512 bytes</em>, it can be much more complex than just calling a subroutine. Another common use-case would be to treat it as a traditional interrupt handler such that Lua code can both trigger a Commodore interrupt, and provide the handler to run in response, through a simple call to <code>m8.intr</code>.</p>
+<h4 id="high-level-m8-functions">High-level m8 functions<a class="headerlink" href="#high-level-m8-functions" title="Permanent link">&para;</a></h4>
+<p><strong>UNDER CONSTRUCTION</strong></p>
+<p><code>m8.mailbox</code> is the standard API for message passing from Lua to assembler.</p>
+<p><code>m8.waitevent</code> is the standard API for receiving input events from assembler in Lua.</p>
+<p><code>m8.writeln</code> is for outputting lines of text to the display for a full-screen Lua application. For console applications in Lua, you can just use minisock or the Lua <code>print()</code> function.</p>
+<p><code>m8.file.load_prg</code> is for loading/starting a native program from a Lua script.</p>
+<h3 id="m8x-extensions">m8x extensions<a class="headerlink" href="#m8x-extensions" title="Permanent link">&para;</a></h3>
+<p>m8x ("mate extensions") is the standard way to add application-dependent functionality to Lua apps. These extensions become part of the callable code in the m8 namespace created by the applications. So, it allows new functionality to be invoked on the assembler side. For an example, see: <a href="https://github.com/idun-project/idun-cartridge/samples/cube.app.d/">cube.app.d</a> and <a href="https://github.com/idun-project/idun-cartridge/samples/mandelbrot.app.d/">mandelbrot.app.d</a>.</p>
+<h3 id="system-sys-functions">System (sys.) functions<a class="headerlink" href="#system-sys-functions" title="Permanent link">&para;</a></h3>
+<p><strong>UNDER CONSTRUCTION</strong></p>
+<h3 id="user-usr-functions">User (usr.) functions<a class="headerlink" href="#user-usr-functions" title="Permanent link">&para;</a></h3>
+<p><strong>UNDER CONSTRUCTION</strong></p>
 
 
 

@@ -5,17 +5,17 @@
 
 Idun provides several methods by which Lua code running on the Raspberry Pi can provide coprocessing functionality to idun tools and applications. First, let's describe the three basic ways of integrating Lua code, from simplest to most complicated:
 
-1. Write a Lua script and execute it in a tty from the idun-shell.
+#### Write a Lua script and execute it in a tty from the idun-shell.
 
 This is by far the easiest way to add applications written in Lua. The idun-shell has a `lua` command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua `print()` function would just work. To see this in action, switch to the `idun-base/apps` (usually mapped to `e:`) directory and type `lua sieve.lua`. The script is a generic thing that spits out prime numbers up to 10000. It only uses `print()` for output.
 
 To do a more interactive program that requires user input, you simply switch the Lua stdio to use the [minisock](#mini-socket) API described below. Now, every character typed or printed is available on both the Lua and C128 side. To see an example of a script that works this way, simply type `help` or press `F1` in the shell. The help system is implemented as a [Lua script](https://github.com/idun-project/idun-cartridge/cbm/resc/help.lua).
 
-2. Write a Lua "server" that handles requests from your idun "client" application.
+#### Write a Lua "server" that handles requests from your idun "client" application.
 
 Included with Idun is an [idun-handler](#idun-handler) Lua object that makes it easy to create client/server applications where Lua does the "heavy lifting". For example, the `sidplay` command relies on a helpful [Lua server](https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua) to pre-process the SID files. 
 
-3. Write a "native" idun application in a combination of Lua and 6502 assembler.
+#### Write a "native" idun application in a combination of Lua and 6502 assembler.
 
 Finally, Idun supports creating applications in Lua in which the C128 is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. 
 

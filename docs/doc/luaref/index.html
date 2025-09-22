@@ -530,6 +530,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a Lua script and execute it in a tty from the idun-shell.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a Lua "server" that handles requests from your idun "client" application.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a "native" idun application in a combination of Lua and 6502 assembler.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -741,6 +774,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a Lua script and execute it in a tty from the idun-shell.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a Lua "server" that handles requests from your idun "client" application.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write a "native" idun application in a combination of Lua and 6502 assembler.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -848,18 +914,12 @@
 <hr />
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
 <p>Idun provides several methods by which Lua code running on the Raspberry Pi can provide coprocessing functionality to idun tools and applications. First, let's describe the three basic ways of integrating Lua code, from simplest to most complicated:</p>
-<ol>
-<li>Write a Lua script and execute it in a tty from the idun-shell.</li>
-</ol>
+<h4 id="write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell">Write a Lua script and execute it in a tty from the idun-shell.<a class="headerlink" href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" title="Permanent link">&para;</a></h4>
 <p>This is by far the easiest way to add applications written in Lua. The idun-shell has a <code>lua</code> command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua <code>print()</code> function would just work. To see this in action, switch to the <code>idun-base/apps</code> (usually mapped to <code>e:</code>) directory and type <code>lua sieve.lua</code>. The script is a generic thing that spits out prime numbers up to 10000. It only uses <code>print()</code> for output.</p>
 <p>To do a more interactive program that requires user input, you simply switch the Lua stdio to use the <a href="#mini-socket">minisock</a> API described below. Now, every character typed or printed is available on both the Lua and C128 side. To see an example of a script that works this way, simply type <code>help</code> or press <code>F1</code> in the shell. The help system is implemented as a <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/help.lua">Lua script</a>.</p>
-<ol>
-<li>Write a Lua "server" that handles requests from your idun "client" application.</li>
-</ol>
+<h4 id="write-a-lua-server-that-handles-requests-from-your-idun-client-application">Write a Lua "server" that handles requests from your idun "client" application.<a class="headerlink" href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" title="Permanent link">&para;</a></h4>
 <p>Included with Idun is an <a href="#idun-handler">idun-handler</a> Lua object that makes it easy to create client/server applications where Lua does the "heavy lifting". For example, the <code>sidplay</code> command relies on a helpful <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">Lua server</a> to pre-process the SID files. </p>
-<ol>
-<li>Write a "native" idun application in a combination of Lua and 6502 assembler.</li>
-</ol>
+<h4 id="write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler">Write a "native" idun application in a combination of Lua and 6502 assembler.<a class="headerlink" href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" title="Permanent link">&para;</a></h4>
 <p>Finally, Idun supports creating applications in Lua in which the C128 is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. </p>
 <p>To communicate, messages are passed to the C128 using a "mailbox" interface, and these messages can be of arbitrary size and content. Even streaming data as fast as the C128 can handle it is possible. Likewise, there is an "event" interface that allows asynchronous events, like user input, to be forwarded to the Lua script. The two best, though simple, examples of this are e:mandelbrot.app and e:cube.app. These Lua/6502 assembler hybrid apps will even work in the idun-vice emulator.</p>
 <p>Of course, complicated rendering like drawing polygons on the VDC hi-res display, and complicated input like using the mouse, needs support on the C128 side. This is the role of the <a href="#m8-api">m8 ("mate") API</a> and <a href="#m8x-extensions">m8x ("mate extensions")</a>.</p>

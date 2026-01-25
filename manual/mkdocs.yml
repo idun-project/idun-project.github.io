@@ -2,7 +2,7 @@
 site_name: Idun Cartridge Manual
 site_url: https://idun-project.github.io
 site_author: Idun Community
-site_description: Documentation for the Idun Cartridge for Commodore 128 and 64
+site_description: Documentation for Idun Cartridge for Commodore C128, C64, and Ultimate
 
 # Theme customization
 theme:
@@ -23,6 +23,7 @@ theme:
 # Navigation (optional, auto-generated if omitted)
 nav:
   - Home: index.md
+  - NEWS: news.md
   - Setup: doc/setup-rpi.md
   - Included Samples: idun-base.md
   - Idun Shell: doc/shell.md

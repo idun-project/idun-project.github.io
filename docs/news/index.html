@@ -1,0 +1,941 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Idun Cartridge for Commodore C128, C64, and Ultimate">
+      
+      
+        <meta name="author" content="Idun Community">
+      
+      
+        <link rel="canonical" href="https://idun-project.github.io/news/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../doc/setup-rpi/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>NEWS - Idun Cartridge Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#idun-v122-release" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Idun Cartridge Manual" class="md-header__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Idun Cartridge Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NEWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Idun Cartridge Manual" class="md-nav__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Idun Cartridge Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NEWS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NEWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v122-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.2 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v121-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.1 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v120-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.0 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/setup-rpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Included Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idun Shell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-cpem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CP/M Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-filebrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web File Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idunSID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-vice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emulator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/apiref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/luaref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/eram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-zcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Z80
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v122-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.2 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v121-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.1 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v120-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.2.0 Release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>NEWS</h1>
+
+<h3 id="idun-v122-release">Idun v1.2.2 Release<a class="headerlink" href="#idun-v122-release" title="Permanent link">&para;</a></h3>
+<p>This release brings a new shell interface (<code>shell.app</code>) which is fully integrated with Linux. In fact, it makes the experience much closer to simply running modern Linux on your Commodore! Unlike the previous versions, this one boots directly to the shell by default. The previous DOS-work-a-like shell is still available, but no longer needed for running Commodore programs. <code>shell.app</code> can run Commodore programs directly, simply, and right alongside Linux programs.</p>
+<p>Additionally, this release adds support for the new Commodore 64 Ultimate. Along with all the features present in the C64 version, the C64U includes Turbo Boost and easily launching content files (CRT images, MODs, SIDs, etc.) that are supported by the C64U using the new <code>run</code> command.</p>
+<p>On the C64(U), the <code>shell.app</code> also defaults to the software 80 columns text mode (requires cart with ERAM support). This mode runs smooth and fast on the Ultimate, thanks to Turbo Boost support. On the original C64, it is quite slow, but serviceable. It is recommended for heavy text usage that users take advantage of an HDMI secondary display. <em>Bonus</em> the HDMI Linux console, as well as any remote Linux shell, can run all the same commands as <code>shell.app</code> and launch Commodore programs directly, simply, and right alongside Linux programs.</p>
+<p><em>Installation</em> should be done as follows from a Linux prompt: <code>pacman -Sy idun idun-defaults idun-base idun-filebrowser</code>. Alternatively, download the latest <a href="https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing">SD card image</a> to replace the one you are using.</p>
+<p>If you have a C64U, you should also copy the file <code>/etc/xdg/idun/Idun_c64u_run_first.cfg</code> to your C64U "Flash" directory. Run it once to setup your C64U correctly for Idun, then save the settings as the default configuration.</p>
+<ul>
+<li><strong>New</strong> Linux default shell. This consists of the <code>shell.app</code> Commodore program and various Linux software found in the new <code>idun-defaults</code> package. <code>idun-defaults</code> includes the new default configuration, which makes booting to the shell possible. This can be changed by modifying your configuration file in <code>.config/idunrc.toml</code>. So, if you like booting to BASIC or using the old DOS Shell, you can still do that. From BASIC, you can use the command <code>go "shell"</code> to start <code>shell.app</code>, just as with any other Idun App. There is a <code>help</code> command, and you should start there to see the list of commands supported. Because this is built on standard Linux foundations, most of the commands can be run from <em>any</em> Linux shell which you open locally or remotely too!</li>
+<li><strong>New</strong> C64 Ultimate Turbo CPU support. This is fantastic for the 80 column VIC-II text display, and useful for many Idun programs. The Turbo is normally enabled for running any Idun programs and normally disabled when launching native Commodore programs. It can be controlled in software with the <code>aceTurboCtl</code> command, which is documented in the ACE API reference and used in the <code>liner</code> and <code>boxer</code> screensaver tools.</li>
+<li><strong>New</strong> Smart <code>run</code> command. In <code>shell.app</code>, one of the key commands is <code>run</code>. This replaces the <code>load</code> command from the old DOS Shell and is used to load &amp; run native PRG files on any Commodore. Additionally, <code>run</code> is C64 Ultimate "aware". It can be used to run C64U specific files like .CRT cartridges. It is designed to "do the right thing" based on filename extensions. <em>Bonus</em> <code>run</code> command can control the C64U from another Commodore computer across the network!</li>
+<li><strong>New</strong> <code>drives</code> command. In <code>shell.app</code>, the old commands: "mount" and "assign" are replaced with a single command <code>drives</code>. It is used to list the current mounts/assigns and to change the disk images (mounts) or default directories (assigns). See <code>help drives</code>.</li>
+<li><strong>New</strong> Machine type detection. The type of Commodore machine is recognized by the cartridge and reported by the <code>ffetch</code> program in <code>shell.app</code>. It is also stored in the <code>$IDUN_SYS</code> variable in a compressed form. See code for <code>ffetch</code> to understand more.</li>
+<li><strong>New</strong> Startup configuration. The <code>[start]</code> config setting lets you change the firmware and booter selection when the Mode switch is disabled. Allows two completely independent boot sequences based on the Mode switch and what you configure in <code>[start]</code> and <code>[mode]</code>.</li>
+<li><strong>New</strong> The tool extension for high-resolution graphics has been extended to provide a common API for both VDC and VIC-II. Now, graphical program can easily be created that detect the video in use and adjust to it automatically. The new API is <code>toolx/gfx.asm</code>.</li>
+<li><strong>New</strong> The tool extension for 1351 mouse support has been extended to provide a common API for both VDC and VIC-II. It can be found in <code>toolx/pointer.asm</code>.</li>
+<li><strong>New</strong> <code>boxer</code> tool is a simple screensaver that draws rectangles using <code>toolx/gfx</code>. Runs on VDC and VIC-II displays.</li>
+<li><strong>Update</strong> liner, mousetest, and cube.app graphical programs now run on C64/VIC-II, in addition to C128/VDC.</li>
+<li><strong>Update</strong> <code>koala.app</code> is removed, and replaced with the <code>koala</code> tool instead. The new version can take filenames to display as command arguments.</li>
+<li><strong>Update</strong> Keyboard switching using Com+k now works in Linux shell.</li>
+<li><strong>Update</strong> <code>basic</code> command. This command now resets the cartridge into BASIC mode with Idun activated on all machines. For C128, use <code>go64</code> to switch modes as well.</li>
+<li><strong>Update</strong> Idun's Linux terminal now identifies itself as a "vt100" term. Previously used "ansi", and still does for virtual modem (M: device).</li>
+<li><strong>Update</strong> <code>io.devsock</code> renamed to <code>io.socket</code> in configuration file.</li>
+<li><strong>Update</strong> Issue #31; <code>go64</code> command now works from BASIC on the C128 to switch into C64 mode <em>with the cartridge activated</em>.</li>
+<li><strong>Update</strong> Filebrowser shell window works with <code>idunsh</code> to launch programs remotely.</li>
+<li><strong>Fix</strong> Scrolling issues with some Linux terminal programs.</li>
+<li><strong>Fix</strong> ERAM garbage collection was not tracked correctly causing crash.</li>
+<li><strong>Fix</strong> Issue #33. Plugging in a gamepad crashes <code>idunio</code> process.</li>
+<li><strong>Fix</strong> Issue #26. <code>diskcopy</code> is functional again.</li>
+<li><strong>Fix</strong> <code>del</code> command failing to delete file in DOS shell.</li>
+<li><strong>Fix</strong> <code>copy</code> command not copying files between virtual drives.</li>
+<li><strong>Fix</strong> All prior hotfixes to v1.2.1 are included.</li>
+</ul>
+<h3 id="idun-v121-release">Idun v1.2.1 Release<a class="headerlink" href="#idun-v121-release" title="Permanent link">&para;</a></h3>
+<p>This release adds support for the CP/M operating system and applications on both the C128 &amp; C64. Additionally, there are some new features for the Idun Shell and the Arcade.app, and several other updates. See list below:</p>
+<ul>
+<li><strong>New</strong> Support for CP/M. This is provided by the new package <a href="https://github.com/idun-project/idun-cpem">idun-cpem</a>. The <em>CPem</em> emulator runs standard Z80 CP/M programs on a super-fast Z80 that is emulated by the RPi. This works for C64/128. On the C128 only, you can also launch native Z80 programs on the CPU in your C128. Check out the README at the link above.</li>
+<li><strong>New</strong>  Software 80-column text display is available on the C64 (or C128 in 64 mode). This is only officially supported for CPem and is the default display you get when you start it with <code>go "cpm"</code> from Basic. <em>Note:</em> For both C128 and C64, you can toggle 40/80 column mode in CP/M using <code>Com+4</code> and <code>Com+8</code> hotkeys.</li>
+<li><strong>New</strong> <code>assign</code> command in the shell lets you change paths for virtual drives and updates those changes in the configuration file, These changes persist across resets and power-cycles. Virtual drives (E:, G:, additional ones you add) can thus be setup easily to point to different paths. <code>help assign</code> will show the command usage.</li>
+<li><strong>New</strong> Switching between drives in the shell can now be done more simply by just type <code>a:</code>, <code>c:</code>, etc. You used to have to type <code>cd a:</code>, for example.</li>
+<li><strong>New</strong> You can send IEC device commands from the shell by using the <code>@</code> symbol. You have to select the target device first. For example, to format a disk in drive A: from the shell, first do <code>a:</code> to switch drives, followed by <code>@n0:mydisk,1a</code>. All CBM-DOS supported drive commands (and whatever "extended" commands your IEC device allows) should work in this manner.</li>
+<li><strong>Update</strong> The searching for games by name in <code>arcade.app</code> now uses "fuzzy" search. Just start typing any letters in the game's name, and fuzzy search will quickly locate the game you thought you wanted.</li>
+<li><strong>Update</strong> <code>mount</code> command now updates the configuration file when you mount a Virtual Floppy, so that the mounted drive persists across resets and power-cycles. <code>help mount</code> will show the command usage.</li>
+<li><strong>Update</strong> <code>cd</code> command with no arguments now shows the current working directory.</li>
+<li><strong>Update</strong> <code>makerom.lua</code> script can now make a patched 8KiB kernal ROM for the C64. Just run it from the shell as <code>lua makerom.lua /8</code>. <em>Note:</em> For the newer C64c 16KiB ROM, you can simply use the U32 patched ROM file that is normally created by the script.</li>
+</ul>
+<p>How to update: If you are already on at least v1.1.7, then you can update from the Linux prompt with <code>sudo pacman -Sy idun idun-base idun-cpem</code>. Alternatively, you can just download the new <a href="https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing">SD card image</a> to replace the one you are using.</p>
+<p>Full Changelog: https://github.com/idun-project/idun-cartridge/compare/v1.2.0...v1.2.1</p>
+<h3 id="idun-v120-release">Idun v1.2.0 Release<a class="headerlink" href="#idun-v120-release" title="Permanent link">&para;</a></h3>
+<p>This is a significant release that adds support for the Commodore 64 and the addition of 4 Megabytes of external, expansion memory ("ERAM").</p>
+<ul>
+<li><strong>New</strong> From this version onward, the idun-cartridge works on the C128 and C64. The Mode switch is the toggle. When ON (switch toward the expansion port), the cart boots on a C64 or in C64 mode on the C128. When OFF, the cart is partially invisible to the C64. It can still be accessed if you load software that uses the cart, but there is nothing loaded into the C64 RAM and it will behave as if there is no cartridge. All software is cross-platform except for those programs that require the VDC or z80 CPU.</li>
+<li><strong>New</strong> The cart and its software now provide a 4M RAM expansion called "ERAM". This additional memory is used by the <code>resident</code> command in the shell and is a major enabler for future software. If you have the <strong>2023 edition</strong> of the cart, then ERAM will not work unless you install a bodge wire, which is described on the Discord. See <a href="https://github.com/idun-project/idun-cartridge/blob/main/doc/eram.md">ERAM doc</a></li>
+<li><strong>New</strong> <code>go</code> command added to BASIC wedge allows launching any Idun app directly. The command by itself ("go") launches the default shell set in the config file. With unmodified config, this replaces the old <code>dos</code> command. You can also specify the app, such as by using <code>go "dos"</code> or <code>go "arcade"</code>. The quotes are required. The ".app" extension is NOT required. <em>Note</em>: This is the new way to start arcade mode if you do not want it to start automatically (see configuration file!).</li>
+<li><strong>New</strong> partial implementation for issue #18 allows direct commands to IEC devices using the built-in wedge. Start by selecting an IEC device using <code>@#n</code> where n is the device number. Then, any command following <code>@</code> is sent to the device (i.e. <code>@n:mydisk,4d</code> to format a diskette).</li>
+<li><strong>Fix</strong> issue #17 was preventing use of <code>pacman</code> to update the idun software from the idun terminal. Works now!</li>
+<li><strong>Fix</strong> issue #19 so you can again use the <STOP> key to exit from a <code>mode debug vdc</code> command.</li>
+<li><strong>Update</strong> Soft-switches ($de7e &amp; $de7f) that turn EXROM on/off improved and working on C64.</li>
+<li><strong>Update</strong> A few changes in default configuration for [mode] settings and ERAM. You should merge or copy <code>idun-sys/idunrc.toml</code> to your <code>.config/idunrc.toml</code> to be up-to-date.</li>
+<li><strong>Fix</strong> A broader array of VIC-IIe revisions are working reliably. I have tested R4-R7. Thanks to Chad for the loaner VIC chips.</li>
+<li><strong>Fix</strong> When exiting the shell, the current virtual device selection is preserved. This makes it simple to continue to access virtual drives from BASIC if you have the ROM patch.</li>
+<li><strong>Fix</strong> Launch an app from the shell no longer requires providing the ".app" extension.</li>
+<li><strong>Fix</strong> aceFileStat routine had a bug that crashed the cart.</li>
+<li><strong>Fix</strong> Disk image directories causing crash if the disk was empty.</li>
+<li><strong>Fix</strong> Filesystem ownership for all the files in <code>idun-base</code> (should be owner/group idun/idun, NOT root!).</li>
+</ul>
+<p>How to update: If you are already on at least v1.1.7, then you can update from the Linux prompt with <code>sudo pacman -Sy idun idun-base</code>. Alternatively, you can just download the new <a href="https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing">SD card image</a> to replace the one you are using. </p>
+<p>Full Changelog: https://github.com/idun-project/idun-cartridge/compare/v1.1.9...v1.2.0</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

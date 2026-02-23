@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1006,7 +1006,7 @@
 <h4 id="startup-process">Startup Process<a class="headerlink" href="#startup-process" title="Permanent link">&para;</a></h4>
 <p>When you first boot the shell by pressing the cartridge RESET button, it loads the Idun kernel and <code>shell.app</code>, then starts a script called <code>.newshell</code> in your HOME directory. This displays the output of the Linux program <code>ffetch</code> and drops you into the shell. Importantly, the file <code>.bashrc</code>, also in your home directory, is run just as usual for Linux shells. But it has many customizations to support the integration with the Commodore. Commands such as <code>run</code> and <code>show</code> that are designed to access content on the Commodore are handled by routines in the <code>.bashrc</code>.</p>
 <h4 id="command-dispatcher">Command Dispatcher<a class="headerlink" href="#command-dispatcher" title="Permanent link">&para;</a></h4>
-<p>A sequence of software components are necessary to make commands that you type in a Linux shell become programs that execute on the Commoodre. First, the routines in <code>.bashrc</code> turn the raw command into a set of command-line arguments that are passed to the <code>idunsh</code> program also running on Linux. <code>idunsh</code> is the interface that controls what instructions can be forwarded on to <code>shell.app</code>. You can type <code>idunsh help</code> to get an idea how it works. To communicate with the Commodore, <code>idunsh</code> turns its arguments into one or more Lua function calls, usually relying on the <code>sys.shell()</code> built-in Lua function. Lua functions can in turn cause code to run on the Commodore. In this case, it is code that is part of the <code>shell.app</code> that is run to ultimately handle the command originally typed at the Linux prompt. <code>shell.app</code> has the ability to spawn other programs too - and that's how any Idun tool or App comes to be started. When the program exits, this can all be unwound to return the user to the Linux shell prompt seamlessly.</p>
+<p>A sequence of software components are necessary to make commands that you type in a Linux shell become programs that execute on the Commodore. First, the routines in <code>.bashrc</code> turn the raw command into a set of command-line arguments that are passed to the <code>idunsh</code> program also running on Linux. <code>idunsh</code> is the interface that controls what instructions can be forwarded on to <code>shell.app</code>. You can type <code>idunsh help</code> to get an idea how it works. To communicate with the Commodore, <code>idunsh</code> turns its arguments into one or more Lua function calls, usually relying on the <code>sys.shell()</code> built-in Lua function. Lua functions can in turn cause code to run on the Commodore. In this case, it is code that is part of the <code>shell.app</code> that is run to ultimately handle the command originally typed at the Linux prompt. <code>shell.app</code> has the ability to spawn other programs too - and that's how any Idun tool or App comes to be started. When the program exits, this can all be unwound to return the user to the Linux shell prompt seamlessly.</p>
 <h4 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>C64 Ultimate Support</strong>: In addition to what was described above, the <code>idunsh</code> can also forward commands to the C64 Ultimate's network control API. That API includes an interface called "runner", and the <code>run</code> command in the shell uses <code>idunsh</code> to access this. Based on the filename extension, <code>idunsh</code> will push the content to the correct C64 Ultimate "runner" API, causing it to load and run. This means that all native content you'd want to run can be stored on your cartridge and easily moved from machine-to-machine. And, any Commoodore with Idun connected to the LAN with your C64 Ultimate can be used to start content remotely.</li>
@@ -1089,10 +1089,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

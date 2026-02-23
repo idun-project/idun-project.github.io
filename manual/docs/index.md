@@ -6,7 +6,7 @@ This innovative cartridge integrates a Raspberry Pi to provide a fast hardware i
 
 What does it do? It's easier to show in a demo, and there are many demo videos on [YouTube](https://www.youtube.com/@idunproject).
 
-There's also a [Discord Server](https://discord.gg/6Du9jhK4eF) for the project. This is for idun-project discussion, new user advice, beta testing new features, and general retro-computing banter with a  Commodore bias.
+There's also a [Discord Server](https://discord.gg/bddGUpfP) for the project. This is for idun-project discussion, new user advice, beta testing new features, and general retro-computing banter with a  Commodore bias.
 
 ### Hardware
 
@@ -33,7 +33,7 @@ The best way to support the project is to [buy a hardware kit](https://www.tindi
 You can download the customized Arch Linux OS image and flash it to a microSD card.
 
 1. Ensure you have a suitable SD card compatible with your Raspberry Pi and at least 4GB (recommend 16 GB).
-2. [Download Image](https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing)
+2. [Download Image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link)
 3. Use [Raspberry Pi Imager](https://www.raspberrypi.com/software/) or a similar program to write image to SD card.
 
 Your microSD is now ready to use with your idun-cartridge. To expand the file system or setup networking, follow the additional instructions in [setup-rpi.md](doc/setup-rpi.md).

@@ -19,7 +19,7 @@ Any number or mix of both C and asm files is supported, and the .c files also su
 
 How to Install
 --------------
-Grab the latest SD card image for the idun-cart, which includes this package by default. Or, download the release from this repository using `wget` and install it on your cart using `sudo pacman -U idun-zcc-*`. You'll also need to update the main idun package (adds `zload`) and the content from the `idun-base` repository to get the sample code files.
+Install it on your cart using `sudo pacman -Sy idun-zcc`.
 
 What's Included
 ---------------
@@ -40,7 +40,7 @@ This works really well on the idun-cart, allowing near seamless and fast launchi
 
 What about CP/M?
 ----------------
-You can (in theory) use this package as installed to also build Z80 programs for use with C128 CP/M. Just modify the compile command to use `zcc +cpm ...` This has not been tested.
+Yes! CP/M support on the idun-cartridge is called **CPem** and provided by the [idun-cpem](https://github.com/idun-project/idun-cpem) project. You can use this package as installed to also build Z80 programs for use with **CPem**. Just modify the compile command using `zcc +cpm ...`. The resulting binary will be a "vanilla" CP/M text program with output to a VT-100 terminal. It should thus work on most CP/M systems in the same manner as it will under "CPem"; except, it will likely run *much, much, faster* with **CPem**.
 
 TODOs
 -----

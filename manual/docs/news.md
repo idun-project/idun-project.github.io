@@ -1,3 +1,38 @@
+### Idun v1.2.3 Release
+
+This release includes enhancements, fixes, and some new features. For those interested in development, the Lua integration has been made more powerful and easy to use. It is now possible to write a shell tool for Idun in assembly language that can call the functions in a companion Lua module using a simple RPC-style approach. Thus, it is easy to separate what needs to run on the Raspberry Pi and just write functions in Lua that receive arguments and return results to the Commodore program. The `sidplay` tool, as one example, has been updated to take advantage of this new approach.
+
+Another improvement for developers in this release is more complete support for Idun functionality in the Vice emulator (using idun-vice). Support for Windows users has finally been added, along with pre-built binary for Windows! Many thanks to user **Dwaco** for these contributions! If you are wanting to connect to your cartridge from Vice, you should definitely update to the latest versions. Check out the idun-project/idun-vice repository on Github and the [emulator docs](https://idun-project.github.io/docs/idun-vice/) for more info.
+
+Another area that has been reworked is the internal KVM switching- which allows the keyboard to be toggled between controlling the Commodore or controlling a Linux console directly. The new implementation works more reliably, has low latency, AND fully supports a mouse connected to the Commodore too! If you connect a display to the HDMI output of your cartridge you can have full access to applications on the RasPi and easy switching between the two computers. And, remember, the HDMI Linux console can also control your Commodore!
+
+Additionally, there are a few new convenience commands that make Linux setup and file sharing easy for new users, or new installs on your SD card.
+
+1. `resize-fs` - This command can be used to expand the root filesystem to fill your SD card. It runs in two phases with an automated reboot.
+2. `wifi` - A command for setting up your wifi connection with little typing required. Easier than using `connmanctl` directly.
+3. `share` - A command for enabling any of the 3 file-sharing options avaialble (Web, WebDAV, and Windows). Web-based sharing is still the default, but is now connected on port 80 by using  `http://idunpi` in your browser. The other two servers are easily enabled if you want integration with Windows Explorer or the macOS Finder.
+
+The documentation site has also received a refresh to include all the enhancements in this release.
+
+#### Installation
+
+As part of this update, I have refreshed with the latest Linux kernel version. It is therefore __recommended__ to install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing) and flashing to your SD card. If you install the update using `pacman -Suy`, then you will likely run into problems with the Linux upgrade part, coming from Linux 6.6 to the latest 6.18.
+
+#### Notes and Fixes
+
+- **New** Holding down the C= key during reset causes the cartridge to boot into Idun's BASIC interface instead of the Idun shell. Use the `go` comamnd from BASIC to launch shell or other Idun apps (Issue #32).
+- **New** Internal KVM (activation using C=+k) now supports the Commodore mouse (1351 style).
+- **New** `turbo` command simply reports the clock speed in use; mainly for C64U, but works on all Commodore machines.
+- **Update** `sidplay` rewritten to use the `usrcall` interface. `sidplay.lua` is now a regular Lua module with functions callable from the Commodore.
+- **Update** Cartridge mapper API updated with more consistent routine names. Also options to avoid double-copy of Lua responses.
+- **Update** Vice emulator for Idun Windows compatibility and pre-built Windows binary release.
+- **Update** Linux service refactoring. The low-level hardware service is now called `cartmon`, and remains a system-level systemd service. The higher level I/O manager and Lua engine is all contained in the `idun` service, and it now runs as a user-level systemd service under the `idun` user account.
+- **Fix** Issue #37. ANSI charcters (selected using `mode ans`) were not working in the Soft80 display mode.
+- **Fix** Issue #35. `tmux` installation should work again; solved with upgrade to newest Linux.
+- **Fix** Issue #34. `dir` command works correctly with virtual drives (e.g. `dir d:`)
+- **Fix** Issue #13. $HOME env variable not available in Lua.
+- **Removed** The `idun-handler` Lua module is removed; replaced by `usrcall` API instead.
+
 ### Idun v1.2.2 Release
 
 This release brings a new shell interface (`shell.app`) which is fully integrated with Linux. In fact, it makes the experience much closer to simply running modern Linux on your Commodore! Unlike the previous versions, this one boots directly to the shell by default. The previous DOS-work-a-like shell is still available, but no longer needed for running Commodore programs. `shell.app` can run Commodore programs directly, simply, and right alongside Linux programs.

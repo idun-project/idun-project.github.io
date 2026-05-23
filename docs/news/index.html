@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#idun-v122-release" class="md-skip">
+        <a href="#idun-v130-release" class="md-skip">
           Skip to content
         </a>
       
@@ -307,6 +307,45 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v130-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.3.0 Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#idun-v122-release" class="md-nav__link">
@@ -764,6 +803,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#idun-v130-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.3.0 Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#idun-v122-release" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -815,6 +893,41 @@
 
   <h1>NEWS</h1>
 
+<h3 id="idun-v130-release">Idun v1.3.0 Release<a class="headerlink" href="#idun-v130-release" title="Permanent link">&para;</a></h3>
+<p>This release includes the migration to 64-bit Alpine Linux OS, plus enhancements, fixes, and some new features. Because of the new OS, Idun now works on the full range of Raspberry Pi devices, and with slightly better performance.</p>
+<p>For those interested in development, the Lua integration has been made more powerful and easy to use. It is now possible to write a shell tool for Idun in assembly language that can call the functions in a companion Lua module using a simple RPC-style approach. Thus, it is easy to separate what needs to run on the Raspberry Pi and just write functions in Lua that receive arguments and return results to the Commodore program. The <code>sidplay</code> tool, as one example, has been updated to take advantage of this new approach.</p>
+<p>Another improvement for developers in this release is more complete support for Idun functionality in the Vice emulator (using idun-vice). Support for Windows users has finally been added, along with a pre-built binary for Windows! Many thanks to user <strong>Dwaco</strong> for these contributions! If you are wanting to connect to your cartridge from Vice, you should definitely update to the latest versions. Check out the idun-project/idun-vice repository on Github and the <a href="https://idun-project.github.io/docs/idun-vice/">emulator docs</a> for more info.
+Another area that has been reworked is the internal KVM switching- which allows the keyboard to be toggled between controlling the Commodore or controlling a Linux console or application directly. The new implementation works more reliably, has low latency, AND fully supports a mouse connected to the Commodore too! If you connect a display to the HDMI output of your cartridge you can have full access to applications on the RasPi and easy switching between the two computers. And, remember, the HDMI Linux console can also control your Commodore using the same commands!</p>
+<p>Additionally, there are a few new convenience commands that make Linux setup and file sharing easy for new users, or new installs on your SD card.</p>
+<ol>
+<li><code>resize-fs</code> - This command can be used to expand the root filesystem to fill your SD card. It runs in two phases with an automated reboot.</li>
+<li><code>setup-interfaces</code> - An Alpine command for setting up your wifi connection with little typing required.</li>
+<li><code>share</code> - A command for enabling any of the 3 file-sharing options avaialble (Web, WebDAV, and Windows). Web-based sharing is still the default, but is now connected on port 80 by using  <code>http://idunpi.local</code> in your browser. The other two servers are easily enabled if you want integration with Windows Explorer or the macOS Finder.</li>
+</ol>
+<p>The documentation site has also received a refresh to include all the enhancements in this release.</p>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
+<p>Since this version is built on an entirely new OS, you must install this upgrade by downloading the <a href="https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing">SD card image</a> and flashing to your SD card.</p>
+<h4 id="notes-and-fixes">Notes and Fixes<a class="headerlink" href="#notes-and-fixes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>New</strong> Holding down the C= key during reset causes the cartridge to boot into Idun's BASIC interface instead of the Idun shell. Use the <code>go</code> comamnd from BASIC to launch shell or other Idun apps (Issue #32).</li>
+<li><strong>New</strong> Internal KVM (activation using C=+k) now supports the Commodore mouse (1351 style).</li>
+<li><strong>New</strong> Moving between virtual drives in the shell is now supported and works the same as from the BASIC wedge. For example, use <code>@e</code> in the shell to CD to the E: virtual drive.</li>
+<li><strong>New</strong> <code>turbo</code> command simply reports the clock speed in use; mainly for C64U, but works on all Commodore machines.</li>
+<li><strong>Update</strong> <code>sidplay</code> rewritten to use the <code>usrcall</code> interface. <code>sidplay.lua</code> is now a regular Lua module with functions callable from the Commodore.</li>
+<li><strong>Update</strong> Cartridge mapper API updated with more consistent routine names. Also options to avoid double-copy of Lua responses.</li>
+<li><strong>Update</strong> Vice emulator for Idun Windows compatibility and pre-built Windows binary release.</li>
+<li><strong>Update</strong> Linux service refactoring. The low-level hardware service is now called <code>cartmon</code>. The higher level I/O manager and Lua engine is all contained in the <code>idun</code> service, and runs as service under the <code>idun</code> user account.</li>
+<li><strong>Update</strong> The Commodore 64 Backarrow key is now mapped to the Escape key in all terminals.</li>
+<li><strong>Update</strong> Initial cartridge poweron boots the Commodore to vanilla BASIC. You <em>must</em> press the red reset button to activate any Idun software. This results in a more consistent user experience when turning on the Commodore.</li>
+<li><strong>Fix</strong> Issue #37. ANSI charcters (selected using <code>mode ans</code>) were not working in the Soft80 display mode.</li>
+<li><strong>Fix</strong> Issue #35. <code>tmux</code> installation should work again; solved with upgrade to newest Linux.</li>
+<li><strong>Fix</strong> Issue #34. <code>dir</code> command works correctly with virtual drives (e.g. <code>dir d:</code>)</li>
+<li><strong>Fix</strong> Issue #13. $HOME env variable not available in Lua.</li>
+<li><strong>Removed</strong> The <code>idun-handler</code> Lua module is removed; replaced by <code>usrcall</code> API instead.</li>
+</ul>
+<p><strong>Known Issues</strong>
+- USB keyboards controlling the Commodore is broken and needs to be modified for Alpine. It will work fine as a Linux keyboard.</p>
+<p><strong>Note</strong>: I have worked with the MEGA65 developers on their C64 core. Their next release of the core works perfectly with Idun, just like a C64. More news soon on native MEGA65 support!</p>
 <h3 id="idun-v122-release">Idun v1.2.2 Release<a class="headerlink" href="#idun-v122-release" title="Permanent link">&para;</a></h3>
 <p>This release brings a new shell interface (<code>shell.app</code>) which is fully integrated with Linux. In fact, it makes the experience much closer to simply running modern Linux on your Commodore! Unlike the previous versions, this one boots directly to the shell by default. The previous DOS-work-a-like shell is still available, but no longer needed for running Commodore programs. <code>shell.app</code> can run Commodore programs directly, simply, and right alongside Linux programs.</p>
 <p>Additionally, this release adds support for the new Commodore 64 Ultimate. Along with all the features present in the C64 version, the C64U includes Turbo Boost and easily launching content files (CRT images, MODs, SIDs, etc.) that are supported by the C64U using the new <code>run</code> command.</p>

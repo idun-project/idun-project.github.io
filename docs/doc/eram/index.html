@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -962,7 +962,7 @@
 <p>The initial setup following reset will have the first page of the last block selected- which we can write as "$ff/0". This page is special- it holds the Freemap, which is a list of the number of free pages in each of the 256 ERAM blocks. The Freemap is treated as a read-only page since it is updated automatically by the cartridge. Each time you select a block/page and write some data to it, the Freemap gets updated to reflect the pages you have used.</p>
 <p>Updating the value of either register will cause the Ready Bit to go low, temporarily. Depending on many factors, the delay before the Ready Bit goes high, and you can access the data, could be from a few Commodore machine cycles to multiple milliseconds. If you attempt to access the page data without waiting for the Ready Bit, you will read invalid data and any writes will be lost. So don't do this.</p>
 <p>In practice, you should first write the Block addr to $DEFF for the 16KiB Block you want to work with. Wait on the Ready bit to go high, and at that time the first page of the Block is available to read in $DFxx. To select a different page, write the Page addr to $DEFE and again wait on the Ready bit. If you want to write a page, then OR the Page addr with $80 before writing it to the Page addr.</p>
-<pre class="codehilite"><code>    lda #$01
+<div class="codehilite"><pre><span></span><code>    lda #$01
     sta $deff   ;select block #1
 -   bit $defe
     bvc -       ;waiting on ready
@@ -973,10 +973,10 @@
     ;now access the data in $dDFxx
     lda $df00
     ... and such ...
-</code></pre>
+</code></pre></div>
 
 <p>For the common use-case of accessing consecutive pages, you can normally just do "inc $defe", then wait on the Ready bit. You have to be cognizant of the rollover. Use this simple code to safely advance to the next Page while accounting for rollover.</p>
-<pre class="codehilite"><code>    lda $defe
+<div class="codehilite"><pre><span></span><code>    lda $defe
     cmp #$ff        ;check if last page of block
     bne +
     ;need to select next 16 KiB block in $deff
@@ -987,7 +987,7 @@
 w:  bit $defe
     bvc w
     ;all done; access the next page in $DFxx
-</code></pre>
+</code></pre></div>
 
 <h3 id="block-caching-and-performance">Block caching and performance<a class="headerlink" href="#block-caching-and-performance" title="Permanent link">&para;</a></h3>
 <p>The Block you are currently working with is always held in a cache. This allows reading/writing of all pages in the current Block with fast switching between the pages of the Block. However, anytime you change the Block addr, any modified data in the cache must be stored and then the newly selected Block has to be loaded to the cache. Depending on how many pages are used, this can be a slow operation. Therefore, you should only change the Block addr sparingly to not incur this overhead, except when necessary. In practice, you should use the APIs provided in order to get good performance without having to worry much about caching or deal with the hardware interface.</p>

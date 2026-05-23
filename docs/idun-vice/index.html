@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -854,26 +854,26 @@
 <p>This emulator can also work for development even if you lack the actual idun cartidge hardware. You can download the image for idun, burn it to an SD card, and use it to boot most versions of Raspberry Pi. You need a RPi with ARMv7, at least 512MB of RAM, and a 4GB SD card.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>To use the emulator on the Raspberry Pi connected with your idun cart, install the latest release from the idun package repository. If you are new to <code>pacman</code>, consider perusing the Arch Linux <a href="https://wiki.archlinux.org/title/Pacman">pacman primer</a>.</p>
-<pre class="codehilite"><code>sudo pacman -Sy idun-vice
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo pacman -Sy idun-vice
+</code></pre></div>
 
 <p>Connect a keyboard to your RPi, and start the emulator using the included launch script <code>idun-vice/emu.sh</code>. The emulator runs fullscreen using SDL2. Press F12 to access the Vice menu.</p>
 <p><em>Note</em>: <code>idun-vice/emu64.sh</code> is sort of ancillary. It exists mainly because the <code>go64</code> shell command doesn't work in the emulator. Instead, you can exit the x128 emulator (<code>emu.sh</code>), and start the x64sc emulator (<code>emu64.sh</code>), without upsetting the state of the cartridge.</p>
 <h3 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h3>
 <p>This GitHub repo is fully buildable on a RPi.</p>
-<pre class="codehilite"><code>git clone https://github.com/idun-project/idun-vice.git
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/idun-project/idun-vice.git
 cd idun-vice
 ./buildpkg.sh
-</code></pre>
+</code></pre></div>
 
 <p>If you want to build modified Vice binaries for other platforms, then start in directory <code>idun-vice/vice</code> and build things the normal way using <code>configure</code> and <code>make</code>, or follow the details for your platform in the Vice documentation.</p>
 <h3 id="using-without-idun-cartridge">Using without idun-cartridge<a class="headerlink" href="#using-without-idun-cartridge" title="Permanent link">&para;</a></h3>
 <ul>
 <li>You will need to edit <code>~/.config/idunrc.toml</code> and comment out the setting for <code>io.serial</code> such as shown below. This will stop the RPi continually trying to re-connect with the cartridge, otherwise it's unusable!</li>
 </ul>
-<pre class="codehilite"><code>[io]
+<div class="codehilite"><pre><span></span><code>[io]
 #serial     = &quot;/dev/ttyAMA0&quot;
-</code></pre>
+</code></pre></div>
 
 <ul>
 <li>You will also need to make an addition to <code>/etc/systemd/system/idun.service</code>. In the section under <code>[Service]</code>, add an additional line<ul>
@@ -883,9 +883,9 @@ cd idun-vice
 </li>
 <li>To connect to the RPi from a PC running the emulator, make sure <code>io.devsock</code> is set as shown below. Otherwise, only local connection is allowed!</li>
 </ul>
-<pre class="codehilite"><code>[io]
+<div class="codehilite"><pre><span></span><code>[io]
 devsock = &quot;0.0.0.0:25232&quot;   # allow remote emulator connection
-</code></pre>
+</code></pre></div>
 
 
 

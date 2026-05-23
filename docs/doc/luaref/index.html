@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -627,45 +627,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a Lua script and execute it in a tty from the idun-shell.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a Lua "server" that handles requests from your idun "client" application.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a "native" idun application in a combination of Lua and 6502 assembler.
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -673,17 +634,6 @@
     <span class="md-ellipsis">
       
         mini socket
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#idun-handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        idun handler
       
     </span>
   </a>
@@ -741,10 +691,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#system-sys-functions" class="md-nav__link">
+  <a href="#lua-sys-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        System (sys.) functions
+        Lua sys module
       
     </span>
   </a>
@@ -752,10 +702,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#user-usr-functions" class="md-nav__link">
+  <a href="#lua-usr-modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User (usr.) functions
+        Lua usr modules
       
     </span>
   </a>
@@ -912,45 +862,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a Lua script and execute it in a tty from the idun-shell.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a Lua "server" that handles requests from your idun "client" application.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Write a "native" idun application in a combination of Lua and 6502 assembler.
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -958,17 +869,6 @@
     <span class="md-ellipsis">
       
         mini socket
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#idun-handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        idun handler
       
     </span>
   </a>
@@ -1026,10 +926,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#system-sys-functions" class="md-nav__link">
+  <a href="#lua-sys-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        System (sys.) functions
+        Lua sys module
       
     </span>
   </a>
@@ -1037,10 +937,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#user-usr-functions" class="md-nav__link">
+  <a href="#lua-usr-modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User (usr.) functions
+        Lua usr modules
       
     </span>
   </a>
@@ -1075,47 +975,37 @@
 <hr />
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
 <p>Idun provides several methods by which Lua code running on the Raspberry Pi can provide coprocessing functionality to idun tools and applications. First, let's describe the three basic ways of integrating Lua code, from simplest to most complicated:</p>
-<h4 id="write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell">Write a Lua script and execute it in a tty from the idun-shell.<a class="headerlink" href="#write-a-lua-script-and-execute-it-in-a-tty-from-the-idun-shell" title="Permanent link">&para;</a></h4>
-<p>This is by far the easiest way to add applications written in Lua. The idun-shell has a <code>lua</code> command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua <code>print()</code> function would just work. To see this in action, switch to the <code>idun-base/apps</code> (usually mapped to <code>e:</code>) directory and type <code>lua sieve.lua</code>. The script is a generic thing that spits out prime numbers up to 10000. It only uses <code>print()</code> for output.</p>
-<p>To do a more interactive program that requires user input, you simply switch the Lua stdio to use the <a href="#mini-socket">minisock</a> API described below. Now, every character typed or printed is available on both the Lua and C128 side. To see an example of a script that works this way, simply type <code>help</code> or press <code>F1</code> in the shell. The help system is implemented as a <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/help.lua">Lua script</a>.</p>
-<h4 id="write-a-lua-server-that-handles-requests-from-your-idun-client-application">Write a Lua "server" that handles requests from your idun "client" application.<a class="headerlink" href="#write-a-lua-server-that-handles-requests-from-your-idun-client-application" title="Permanent link">&para;</a></h4>
-<p>Included with Idun is an <a href="#idun-handler">idun-handler</a> Lua object that makes it easy to create client/server applications where Lua does the "heavy lifting". For example, the <code>sidplay</code> command relies on a helpful <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">Lua server</a> to pre-process the SID files. </p>
-<h4 id="write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler">Write a "native" idun application in a combination of Lua and 6502 assembler.<a class="headerlink" href="#write-a-native-idun-application-in-a-combination-of-lua-and-6502-assembler" title="Permanent link">&para;</a></h4>
-<p>Finally, Idun supports creating applications in Lua in which the C128 is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. </p>
-<p>To communicate, messages are passed to the C128 using a "mailbox" interface, and these messages can be of arbitrary size and content. Even streaming data as fast as the C128 can handle it is possible. Likewise, there is an "event" interface that allows asynchronous events, like user input, to be forwarded to the Lua script. The two best, though simple, examples of this are e:mandelbrot.app and e:cube.app. These Lua/6502 assembler hybrid apps will even work in the idun-vice emulator.</p>
-<p>Of course, complicated rendering like drawing polygons on the VDC hi-res display, and complicated input like using the mouse, needs support on the C128 side. This is the role of the <a href="#m8-api">m8 ("mate") API</a> and <a href="#m8x-extensions">m8x ("mate extensions")</a>.</p>
+<ul>
+<li>Write a Lua script and execute it in a tty from the idun-shell.</li>
+</ul>
+<p>This is by far the easiest way to add applications written in Lua. The idun-shell has a <code>mlua</code> command that will accept the name of a Lua script and launch it in a terminal. So, a simple text program written in Lua and using the Lua <code>print()</code> function would just work. To see this in action, switch to the <code>idun-base/apps</code> (usually mapped to <code>e:</code>) directory and type <code>mlua sieve.lua</code>. The script is a generic thing that spits out prime numbers up to 10000. It only uses <code>print()</code> for output.</p>
+<p>To do a more interactive program that requires user input, you simply switch the Lua stdio to use the <a href="#mini-socket">minisock</a> API described below. Now, every character typed or printed is available on both the Lua and Commodore side. To see an example of a script that works this way, simply type <code>help</code> or press <code>F1</code> in the shell. The help system is implemented as a <a href="https://github.com/idun-project/idun-cartridge/blob/main/cbm/resc/help.lua">Lua script</a>.</p>
+<ul>
+<li>Write an Idun tool that calls a Lua module.</li>
+</ul>
+<p>It is quite easy to create a tool for Idun in which much of the functionality is contained in a Lua module that runs on the cartridge with full access to its modern Linux environment. For example, the <code>sidplay</code> command relies on a helpful <a href="https://github.com/idun-project/idun-cartridge/blob/main/cbm/resc/sidplay.lua">Lua module</a> to pre-process the SID files. The Lua functions inside the module can be called from assembly language using the <code>usrcall</code> API, including passing parameters into Lua from assembly. Likewise, data can be returned from the Lua function and accessed in assembly using the <code>maprecv</code> API. For more information on using this method, refer to <a href="#lua-usr-modules">Lua "usr" modules</a>.</p>
+<ul>
+<li>Write a Idun application in a combination of Lua and 6502 assembler.</li>
+</ul>
+<p>Finally, Idun supports creating applications in Lua in which the Commodore is mainly the front-end for rendering graphics, playing sound, and receiving user inputs. In theory, all of the application logic and data processing can be done in Lua. </p>
+<p>To communicate, messages are passed asynchronously to the Commodore using a "mailbox" interface, and these messages can be of arbitrary size and content. Likewise, there is an "event" interface that allows asynchronous events, like keyboard or joystick input, to be sent to the Lua program. The two best, though simple, examples of this are e:mandelbrot.app and e:cube.app. These Lua/6502 assembler hybrid apps will even work in the idun-vice emulator.</p>
+<p>Of course, complicated rendering like drawing polygons on the VDC hi-res display, and complicated input like using the mouse, needs support on the Commodore side. This is the role of the <a href="#m8-api">m8 ("mate") API</a> and <a href="#m8x-extensions">m8x ("mate extensions")</a>.</p>
 <h3 id="mini-socket">mini socket<a class="headerlink" href="#mini-socket" title="Permanent link">&para;</a></h3>
-<p>Under the hood of the Lua interface is a dedicated local socket connection that passes the data stream between the C128 and your script. The <code>minisock</code> is actually a standard Lua way to talk to a socket, and it is augmented by a second Lua object <code>redirect</code>.</p>
+<p>Under the hood of the Lua interface is a dedicated local socket connection that passes the data stream between the Commodore and your Lua program. The <code>minisock</code> is actually a standard Lua way to talk to a socket, and it is augmented by a second Lua object <code>redirect</code>.</p>
 <p>In the simplest case, the normal way of outputting text to <code>stdout</code> and inputting text from <code>stdin</code> is modified as so:</p>
 <ul>
 <li>Instead of <code>print(str)</code> or <code>io.write(str)</code>, you use <code>minisock.write(redirect.stdout, str)</code>.</li>
 <li>Instead of <code>io.read()</code>, you use <code>key = minisock.read(redirect.stdin, 10000)</code>. The number is a timeout value given in milliseconds; so, 10 seconds for this example. This is just the maximum time you want your script to block waiting on a keystroke from the user. It can be 0 ms to make it non-blocking, or a very big number if you want to block "forever". More practically, place it in a loop that polls for other things or does other work.</li>
 </ul>
-<p>Minisock can of course be used in a more structured way, such as for passing pre-defined requests and responses between assembler and Lua code. This is where idun-handler provides a helpful and simple solution.</p>
-<h3 id="idun-handler">idun handler<a class="headerlink" href="#idun-handler" title="Permanent link">&para;</a></h3>
-<p>The handler is included, so you can just <code>require("idun-handler")</code> in your script. Then, you implement a function to handle the requests that your assembler code will send to Lua. In <a href="https://github.com/idun-project/idun-cartridge/cbm/resc/sidplay.lua">sidplay.lua</a>, for example, the <code>handleRequest(req)</code> function supports 2 types of requests using this simple bit of Lua script:</p>
-<pre class="codehilite"><code>    -- Allowed requests: &quot;H&quot;=get sid header, &quot;P&quot;=get sid program
-    if req == &quot;H&quot; then
-        return sidhdr
-    elseif req == &quot;P&quot; then
-        -- Prepend with the size
-        local resp = string.pack(&quot;&lt;H&quot;, #sidprg)
-        return resp .. sidprg
-    else
-        return nil, 3   -- Bad request
-    end
-</code></pre>
-
-<p>Since this isn't the Web, you don't need fancy long names. An "H" request and a "P" request are sufficient, and these are sent as two-byte messages from the C128 ("H\n" or "P\n"). So, 8-bit efficiency is maintained.</p>
-<p>Likewise, the response to the "P" request is many kilobytes of SID tune data. However, the assembler side just has to copy all that data to RAM as fast as it can read it from the cartridge port.</p>
+<p>Minisock can of course be used in a more structured way, such as for passing pre-defined requests and responses between assembler and Lua code.</p>
 <h3 id="m8-api">m8 API<a class="headerlink" href="#m8-api" title="Permanent link">&para;</a></h3>
-<p>The m8 (say "Mate") API is what allows code written in Lua to run on the Raspberry Pi's processor, but call into 8-bit machine code that's running on the 6502 CPU in your Commodore 128. It's akin to "old school" programming on the Commodore using BASIC to call machine language routines, except the high-level script is Lua and runs on a powerful ARM coprocessor. To use m8, just add a line like <code>local m8 = require("m8api")</code> to your Lua program.</p>
+<p>The m8 (say "Mate") API is what allows code written in Lua to run on the Raspberry Pi's processor, but call into 8-bit machine code that's running on the 6502 CPU in your Commodore. It's akin to "old school" programming on the Commodore using BASIC to call machine language routines, except the high-level script is Lua and runs on a powerful ARM coprocessor. To use m8, just add a line like <code>local m8 = require("m8api")</code> to your Lua program.</p>
 <h4 id="low-level-m8-functions">Low-level m8 functions<a class="headerlink" href="#low-level-m8-functions" title="Permanent link">&para;</a></h4>
-<p>All of the functionality in m8 is ultimately based on just two low-level functions:</p>
-<pre class="codehilite"><code>1. m8.load({6502_ml_code}, load_addr, [start_addr])
-2. m8.intr({6502_ml_code})
-</code></pre>
-
+<p>All of the functionality in m8 is ultimately based on a couple low-level functions:</p>
+<ol>
+<li>m8.intr({6502_ml_code})</li>
+<li>m8.</li>
+</ol>
 <p>The <code>m8.load</code> function takes some ml code written for the 6502, and quickly loads it into the Commodore at the memory location specified by <code>load_addr</code>. An optional <code>start_addr</code>, if provided, causes a <code>jmp</code> to that address as soon as the code has been loaded. The size of the 6502_code blob that is downloaded to the Commodore is only limited by the RAM available to the 6502.</p>
 <p>The <code>m8.intr</code> function is used to invoke some inline ml code, which might be as simple as a <code>jsr</code> call to a subroutine in the Commodore memory. Such a subroutine may be a user routine loaded via <code>m8.load</code>, a routine in a running application or tool, an Idun Kernel routine, or even a  routine in Commodore ROM.</p>
 <p>Since the 6502_code that is provided to <code>m8.intr</code> may be <em>up to 512 bytes</em>, it can be much more complex than just calling a subroutine. Another common use-case would be to treat it as a traditional interrupt handler such that Lua code can both trigger a Commodore interrupt, and provide the handler to run in response, through a simple call to <code>m8.intr</code>.</p>
@@ -1126,11 +1016,35 @@
 <p><code>m8.writeln</code> is for outputting lines of text to the display for a full-screen Lua application. For console applications in Lua, you can just use minisock or the Lua <code>print()</code> function.</p>
 <p><code>m8.file.load_prg</code> is for loading/starting a native program from a Lua script.</p>
 <h3 id="m8x-extensions">m8x extensions<a class="headerlink" href="#m8x-extensions" title="Permanent link">&para;</a></h3>
-<p>m8x ("mate extensions") is the standard way to add application-dependent functionality to Lua apps. These extensions become part of the callable code in the m8 namespace created by the applications. So, it allows new functionality to be invoked on the assembler side. For an example, see: <a href="https://github.com/idun-project/idun-cartridge/samples/cube.app.d/">cube.app.d</a> and <a href="https://github.com/idun-project/idun-cartridge/samples/mandelbrot.app.d/">mandelbrot.app.d</a>.</p>
-<h3 id="system-sys-functions">System (sys.) functions<a class="headerlink" href="#system-sys-functions" title="Permanent link">&para;</a></h3>
-<p><strong>UNDER CONSTRUCTION</strong></p>
-<h3 id="user-usr-functions">User (usr.) functions<a class="headerlink" href="#user-usr-functions" title="Permanent link">&para;</a></h3>
-<p><strong>UNDER CONSTRUCTION</strong></p>
+<p>m8x ("mate extensions") is the standard way to add application-dependent functionality to Lua apps. These extensions become part of the callable code in the m8 namespace created by the applications. So, it allows new functionality to be invoked on the assembler side. For an example, see: <a href="https://github.com/idun-project/idun-cartridge/blob/main/samples/cube.app.d/">cube.app.d</a> and <a href="https://github.com/idun-project/idun-cartridge/blob/main/samples/mandelbrot.app.d/">mandelbrot.app.d</a>.</p>
+<h3 id="lua-sys-module">Lua sys module<a class="headerlink" href="#lua-sys-module" title="Permanent link">&para;</a></h3>
+<p>This module is builtin to the cartridge Lua environment and contains many functions. The functions can be utilized in 3 ways:</p>
+<ol>
+<li>called from within your Lua programs</li>
+<li>passed as "one-shot" commands from Linux programs using a local messaging socket</li>
+<li>called from assembly programs using the <code>syscall</code> API</li>
+</ol>
+<p>These are the available functions with description.</p>
+<ul>
+<li><code>sys.loader(load_type)</code> Load a native program on Commodore by invoking an extension ROM file loader and launcher.</li>
+<li><code>sys.chdir(dir_name)</code> Set the Idun device/directory</li>
+<li><code>sys.shell(cmd, args)</code> Command the shell.app to run an internal command, or launch and Idun or native program.</li>
+<li><code>sys.stop()</code> Injects a STOP key event; can be used to terminate running Idun programs that monitor STOP.</li>
+<li><code>sys.reboot(mode)</code> Reboot Idun cart with specified mode (C64/C128),</li>
+<li><code>sys.kvm_on()</code> Enable the Idun internal KVM; now keyboard and mouse will directly control Linux. Disable with <code>C=+k</code>.</li>
+</ul>
+<p>For use from assembly with <code>syscall</code>, not all of the functions are available. It is limited to:</p>
+<ol>
+<li><code>sys.loader()</code> - with MAP_SYS_LOAD_BINARY command</li>
+<li><code>sys.reboot()</code> - with MAP_SYS_REBOOT command</li>
+<li><code>sys.kvm_on()</code> - with MAP_SYS_KVM_SWITCH command</li>
+</ol>
+<h3 id="lua-usr-modules">Lua usr modules<a class="headerlink" href="#lua-usr-modules" title="Permanent link">&para;</a></h3>
+<p>As is described above, a Idun tool written in assembly language can make use of a "companion" Lua module. The functions of the module are invoked from assembly using <code>usrcall</code> and the function return values can be read using <code>maprecv</code>.</p>
+<p>Your module must be written in the standard Lua way, which means the final statement in your script should be <code>return &lt;module&gt;</code>. The module is a Lua table that includes some functions that you wish to use from your assembly code. Other local functions may be present in your script, but only those that are part of the module table will be available directly via <code>usrcall</code>.</p>
+<p>You must name your Lua module the same as your tool. So, a tool called "foo" would have file "foo.asm" and "foo.lua". Specifying  function id #0 to <code>usrcall</code> instructs it to load your module as the new "usr" module visible to Lua. So, this must be done prior to calling any of the functions. The functions can then be called by id #1..n, where the id is just the position of the function in an alphabetically sorted list of the available function names.</p>
+<p>Complex parameters and return values are supported by <code>usrcall</code>. These are byte-packed so as to make it very efficient for assembly language and very easy to deal with in Lua- just using the <code>string.pack()</code> and <code>string.unpack()</code> Lua functions. For both input parameter and results, a size prefix is automatically prepended by the API. This means that, on the Lua side, your function accepts a single parameter that is processed using <code>params = string.unpack("s2", packed)</code>. Once the size prefix is peeled off, you can make further calls to <code>string.unpack</code> on the <code>params</code> string to parse out whatever parameters your function requires. Return values work similarly, and use two builtin helper functions- <code>m8.ret()</code> and <code>m8.err()</code>.</p>
+<p>To return an error value from Lua, simply use <code>m8.err(error_code)</code>. This will wind up as the assembly code <code>errno</code> variable when you use <code>mapstat</code> to check the status of your Lua call. To send complex return values from your function, pack the values into a string using the <code>string.pack()</code> function, then pass with <code>m8.ret(packed)</code>. This will be the data you read on the assembly side using <code>maprecv</code>. Naturally, you must pay close attention to how your packed data is formatted so you can process its internal values in the byte stream you will receive on the assembly side.</p>
 
 
 

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -907,12 +907,12 @@
 <p><a href="https://youtu.be/EeYdJ8bXxik?feature=shared"><img src="https://img.youtube.com/vi/EeYdJ8bXxik/maxresdefault.jpg" width="400"></a></p>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
 <p>The main tool for using the Z80 compiler/assembler is <code>zcc</code>. This runs on the Raspberry Pi in the idun-cart and cross-compiles Z80 code for the C128. In most cases, you just need a command line like this to build your program:</p>
-<pre class="codehilite"><code>zcc +c128 &lt;.c files&gt; &lt;.asm files&gt; -o &lt;progname&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>zcc +c128 &lt;.c files&gt; &lt;.asm files&gt; -o &lt;progname&gt;
+</code></pre></div>
 
 <p>Any number or mix of both C and asm files is supported, and the .c files also support inline assembly code too. The entry point to your program is the <code>main()</code> function in any of the .c files. Once built, you can directly launch the Z80 program from the idun shell using <code>zload &lt;progname&gt;</code>.</p>
 <h2 id="how-to-install">How to Install<a class="headerlink" href="#how-to-install" title="Permanent link">&para;</a></h2>
-<p>Grab the latest SD card image for the idun-cart, which includes this package by default. Or, download the release from this repository using <code>wget</code> and install it on your cart using <code>sudo pacman -U idun-zcc-*</code>. You'll also need to update the main idun package (adds <code>zload</code>) and the content from the <code>idun-base</code> repository to get the sample code files.</p>
+<p>Install it on your cart using <code>sudo pacman -Sy idun-zcc</code>.</p>
 <h2 id="whats-included">What's Included<a class="headerlink" href="#whats-included" title="Permanent link">&para;</a></h2>
 <p>The C and asm source code for targeting the C128 is included in this repository with the patches needed to make binaries that are compatible with the idun-cart. Additionally, this provides a place to add/contribute new library code that works with the idun-cart.</p>
 <p>You also get all the supporting tools and documentation from the Z88DK project installed from the package. Technically, you can use it to build for other Z80 systems (about 100 systems supported). To learn more, definitely check out both the Z88DK <a href="https://z88dk.org">home page</a> and their <a href="https://github.com/z88dk">git repository</a>.</p>
@@ -927,7 +927,7 @@
 <li>Of course, the Z80 program has full control over the VDC, VIC-II, SID, MMU, and CIA chips while the program runs. It is likely possible to put these things in a state that causes the shell to crash on exit, though.</li>
 </ul>
 <h2 id="what-about-cpm">What about CP/M?<a class="headerlink" href="#what-about-cpm" title="Permanent link">&para;</a></h2>
-<p>You can (in theory) use this package as installed to also build Z80 programs for use with C128 CP/M. Just modify the compile command to use <code>zcc +cpm ...</code> This has not been tested.</p>
+<p>Yes! CP/M support on the idun-cartridge is called <strong>CPem</strong> and provided by the <a href="https://github.com/idun-project/idun-cpem">idun-cpem</a> project. You can use this package as installed to also build Z80 programs for use with <strong>CPem</strong>. Just modify the compile command using <code>zcc +cpm ...</code>. The resulting binary will be a "vanilla" CP/M text program with output to a VT-100 terminal. It should thus work on most CP/M systems in the same manner as it will under "CPem"; except, it will likely run <em>much, much, faster</em> with <strong>CPem</strong>.</p>
 <h2 id="todos">TODOs<a class="headerlink" href="#todos" title="Permanent link">&para;</a></h2>
 <p>Helpful enhancements include, but aren't limited to:</p>
 <ul>

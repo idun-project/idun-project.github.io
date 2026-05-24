@@ -347,10 +347,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resize-file-system-extend-root-partition" class="md-nav__link">
+  <a href="#configure-networking-after-connecting-cartridge-to-commodore" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resize file system / extend root partition
+        Configure Networking after connecting cartridge to Commodore
       
     </span>
   </a>
@@ -358,10 +358,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-networking-after-connecting-cartridge-to-commodore" class="md-nav__link">
+  <a href="#resize-file-system-extend-root-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Networking after connecting cartridge to Commodore
+        Resize file system / extend root partition
       
     </span>
   </a>
@@ -797,10 +797,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resize-file-system-extend-root-partition" class="md-nav__link">
+  <a href="#configure-networking-after-connecting-cartridge-to-commodore" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resize file system / extend root partition
+        Configure Networking after connecting cartridge to Commodore
       
     </span>
   </a>
@@ -808,10 +808,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-networking-after-connecting-cartridge-to-commodore" class="md-nav__link">
+  <a href="#resize-file-system-extend-root-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Networking after connecting cartridge to Commodore
+        Resize file system / extend root partition
       
     </span>
   </a>
@@ -863,17 +863,17 @@
 <p>From the Idun shell, you can access Linux to setup networking and other services. You will be logged in as user <code>idun</code> automatically, and you will have <code>sudo</code> ability. The default password is "idun", and the default root password is "Commodore".</p>
 <p>The idun-cartridge ships with <code>ssh</code> and the idun-filebrowser enabled. You should attach the cartridge to your network using wired Ethernet and/or setup the WiFi connection.</p>
 <p>If your network supports <code>.local</code> host names, then your cartridge should appear on the network as host "idunpi" or "idunpi.local". If not, then use the Linux prompt to discover the cartridge ip address (<code>ip addr</code>). Then, use <code>ssh</code> or browse to <code>http://idunpi.local:80</code> for the idun-filebrowser.</p>
+<h3 id="configure-networking-after-connecting-cartridge-to-commodore">Configure Networking after connecting cartridge to Commodore<a class="headerlink" href="#configure-networking-after-connecting-cartridge-to-commodore" title="Permanent link">&para;</a></h3>
+<ol>
+<li>If you have an Ethernet port on your Pi, or use a USB dongle that provides one, the networking over wired Ethernet should "just work." You can check the status and see your DHCP assigned IP with the command <code>ip addr</code>.</li>
+<li>If you intend to use WiFi, you can set it up by running <code>sudo setup-interfaces</code> from the shell. The interface you want is <code>wlan0</code>. It will show a list of access points and prompt you for your WiFi password. <em>Note</em>: You sometimes need to do a reboot (<code>sudo reboot</code>) after you complete the setup to ensure you are connected.</li>
+</ol>
 <h3 id="resize-file-system-extend-root-partition">Resize file system / extend root partition<a class="headerlink" href="#resize-file-system-extend-root-partition" title="Permanent link">&para;</a></h3>
 <p>Idun includes a command to expand your filesystem to use the full space on your SD card. It is a two step process that automatically reboots the RasPi.</p>
 <ol>
 <li>Run <code>sudo resize-fs</code> from the shell.</li>
 <li>Wait for the reboot to complete, which will leave you at the BASIC prompt.</li>
 <li>Reset the cartridge. The disk space displayed on the shell screen should reflect the change.</li>
-</ol>
-<h3 id="configure-networking-after-connecting-cartridge-to-commodore">Configure Networking after connecting cartridge to Commodore<a class="headerlink" href="#configure-networking-after-connecting-cartridge-to-commodore" title="Permanent link">&para;</a></h3>
-<ol>
-<li>If you have an Ethernet port on your Pi, or use a USB dongle that provides one, the networking over wired Ethernet should "just work." You can check the status and see your DHCP assigned IP with the command <code>ip addr</code>.</li>
-<li>If you intend to use WiFi, you can set it up by running <code>sudo setup interfaces</code> from the shell. The interface you want is <code>wlan0</code>. It will show a list of access points and prompt you for your WiFi password. <em>Note</em>: You sometimes need to do a reboot (<code>sudo reboot</code>) after you complete the setup to ensure you are connected.</li>
 </ol>
 <h3 id="build-open-source-code-optional">Build open source code (optional)<a class="headerlink" href="#build-open-source-code-optional" title="Permanent link">&para;</a></h3>
 <ol>

@@ -1,37 +1,32 @@
 ## idun-zcc
 
-This repository contains packaging scripts and C library patches to easily install the Z80 compiler, assembler, and C128 libs from the [Z88DK project](https://z88dk.org) on the idun-cartridge.
+Idun includes this [repository](https://github.com/idun-project/idun-zcc) with `C` library patches to utilize the Z80 compiler, assembler, and C128 libs from the [Z88DK project](https://z88dk.org) on the idun-cartridge.
 
-Using the installed tools, you can easily build C and Z80 asm programs for the Z80 directly on the cartridge, then launch those Z80 programs on your C128 from the idun Dos shell with the `zload` command.
+Using these tools, you can easily build `C` and Z80 asm programs for the Z80 directly on the cartridge, then launch those Z80 programs on your C128 from the Idun shell using the `zload` command. Click the graphic below for a demo video.
 
 [<img src="https://img.youtube.com/vi/EeYdJ8bXxik/maxresdefault.jpg" width="400">](https://youtu.be/EeYdJ8bXxik?feature=shared)
 
-
 How to Use
 ----------
-The main tool for using the Z80 compiler/assembler is `zcc`. This runs on the Raspberry Pi in the idun-cart and cross-compiles Z80 code for the C128. In most cases, you just need a command line like this to build your program:
+The main tool for using the Z80 compiler/assembler is `zcc`. This runs on the Raspberry Pi in the idun-cartridge and cross-compiles Z80 code for the C128 or for "vanilla" CP/M that you can run in [Idun CPem](https://github.com/idun-project/idun-cpem). In most cases, you just need a command line like this to build your program:
 
 ```
 zcc +c128 <.c files> <.asm files> -o <progname>
 ```
 
-Any number or mix of both C and asm files is supported, and the .c files also support inline assembly code too. The entry point to your program is the `main()` function in any of the .c files. Once built, you can directly launch the Z80 program from the idun shell using `zload <progname>`.
-
-How to Install
---------------
-Install it on your cart using `sudo pacman -Sy idun-zcc`.
+Any number or mix of both `C` and asm files is supported, and the `.c` files also support inline assembly code too! The entry point to your program is the `main()` function in any of the `.c` files. Once built, you can directly launch the Z80 program from the Idun shell using `zload <progname>`. When your program exits, you are dropped immediately back to the shell.
 
 What's Included
 ---------------
-The C and asm source code for targeting the C128 is included in this repository with the patches needed to make binaries that are compatible with the idun-cart. Additionally, this provides a place to add/contribute new library code that works with the idun-cart.
+The `C` and asm source code for targeting the C128 is included in this repository with the patches needed to make binaries that are compatible with the idun-cartridge. Additionally, the GitHub repository provides a place to add/contribute new library code that works with the idun-cartridge.
 
-You also get all the supporting tools and documentation from the Z88DK project installed from the package. Technically, you can use it to build for other Z80 systems (about 100 systems supported). To learn more, definitely check out both the Z88DK [home page](https://z88dk.org) and their [git repository](https://github.com/z88dk).
+You also get all the supporting tools and documentation from the Z88DK project. Technically, you can use it to build for other Z80 systems (about 100 systems supported). To learn more, definitely check out both the Z88DK [home page](https://z88dk.org) and their [repository](https://github.com/z88dk).
 
 Important Technical Notes
 -------------------------
-This works really well on the idun-cart, allowing near seamless and fast launching/switching between 6502 and Z80 programs. It is (imo) a far better user experience than CP/M ever was, at least on the C128. This is mainly accomplished with adherence to memory partitioning.
+This works really well on the idun-cartridge, allowing near seamless and fast launching/switching between 6502 and Z80 programs. It is (imo) a far better user experience than CP/M ever was, at least on the C128. This is mainly accomplished with adherence to memory partitioning.
 
-- The 6502 and idun software owns RAM bank 0, and uses RAM bank 1 for dynamically allocated high-speed cache.
+- The 6502 and Idun software owns RAM bank 0, and uses RAM bank 1 for dynamically allocated cache.
 - The Z80 programs run out of RAM bank 1, and can use 52K for code and data starting from $3000.
 - The `zload` command does all the setup necessary to load and launch the Z80 program plus cleanly return to the shell when the program exits.
 - An additional 8K of RAM 1 ($1000-$2FFF) is set aside for VIC-II use by the Z80 program. This is enough to support text mode with custom character sets, bitmap mode, or hardware sprites.
@@ -46,7 +41,7 @@ TODOs
 -----
 Helpful enhancements include, but aren't limited to:
 
-- [ ] Standard C library functions for file access (e.g. open, read, write, close). These would give Z80 programs easy access to virtual drives, files, and devices on the idun-cart.
+- [ ] Standard C library functions for file access (e.g. open, read, write, close). These would give Z80 programs easy access to virtual drives, files, and devices on the idun-cartridge.
 - [ ] Better VIC-II support, such as hardware sprite usage from C.
 - [ ] Porting over some reasonable text mode UI support.
 - [ ] Porting over or creating more demo and application sample code.

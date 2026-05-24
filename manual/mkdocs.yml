@@ -28,7 +28,6 @@ nav:
   - Included Samples: idun-base.md
   - Idun Shell: doc/shell.md
   - CP/M Support: idun-cpem.md
-  - Web File Access: idun-filebrowser.md
   - Audio Streaming: idunSID.md
   - Emulator: idun-vice.md
   - Programming:

@@ -1201,6 +1201,7 @@
 <li><a href="https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link">Download Image</a></li>
 <li>Use <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> or a similar program to write image to SD card.</li>
 </ol>
+<p>If you are going to use idun-cartridge on a C64 Ultimate, then you need to install the Ultimate configuration file before trying to use the cartridge. You can grab the file <a href="https://raw.githubusercontent.com/idun-project/idun-defaults/refs/heads/main/Idun_c64u_run_first.cfg">here</a> and transfer it to your Ultimate by any available means (i.e. network, USB). Then, <em>run that config file</em> from the Ultimate menu and <em>save the new configuration</em> to Ultimate's Flash.</p>
 <p>Your microSD is now ready to use with your idun-cartridge. To expand the file system or setup networking, follow the additional instructions in <a href="doc/setup-rpi/">setup-rpi.md</a>.</p>
 <h4 id="power">Power<a class="headerlink" href="#power" title="Permanent link">&para;</a></h4>
 <p>It is recommended that you power the RPi externally from a USB power supply. The jumper (JP1) that allows power to come from the Commodore is not installed by default, and only suited for the RPi Zero 2. Even then, it makes it too easy to turn off the Commodore and Raspberry Pi without first shutting it down via the button. Plus, it is nice to be able to access the cartridge using the web filebrowser, emulation, or <code>ssh</code> while the Commodore is switched off.</p>

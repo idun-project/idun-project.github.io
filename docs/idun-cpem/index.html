@@ -18,7 +18,7 @@
         <link rel="prev" href="../doc/shell/">
       
       
-        <link rel="next" href="../idun-filebrowser/">
+        <link rel="next" href="../idunSID/">
       
       
         
@@ -486,33 +486,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../idun-filebrowser/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web File Access
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../idunSID/" class="md-nav__link">
         
   
@@ -582,10 +555,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
             
   
   
@@ -603,8 +576,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -859,19 +832,17 @@
 
   <h1>CP/M Support</h1>
 
-<p>This repository contains CPem; a modified version of the excellent "RunCPM" emulator by Marcelo Dantas. CPem has been improved to work with the idun-cartridge and to support the real z80 CPU when running programs on a Commodore 128.</p>
+<p>Included with Idun is this <a href="https://github.com/idun-project/idun-cpem">repository</a>that contains CPem; a modified version of the excellent "RunCPM" emulator by Marcelo Dantas. CPem has been improved to work with the idun-cartridge and to support the real z80 CPU when running programs on a Commodore 128.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>You can install this software on your idun-cartridge using the following pacman command from the Linux prompt: <code>sudo pacman -Sy idun-cpem</code>. You also need the "cpm.app" that is part of the cartridge project. This is included from v1.2.1 of idun-cartridge onward.</p>
-<p>You can launch directly into CPem from the Commodore BASIC prompt using the command <code>go "cpm"</code>. You can also start CPem from the idun-shell by simply typing <code>cpm</code>.</p>
-<p>Once started, you will be in a CP/M v2.2 compatible OS that can run "vanilla" CP/M text programs. The environment is emulated on the Raspberry Pi's ARM processor, so CP/M programs run super fast. You can use all the standard CP/M commands, plus some additional built-in commands. To see the built-in commands, enter <code>?</code>. To see what CP/M software is available, you can enter <code>drives</code> to get a list of disk drives, then enter <code>vol a:</code>, <code>vol b:</code>, etc. to see what is on each drive. You can switch to drive B, for example, by entering <code>b:</code> and to user area 1 by entering either <code>user 1</code> or <code>b1:</code>.</p>
-<p>The terminal is VT-100 compatible. Therefore, CP/M programs that are setup to use VT-100 will work best. You can use CPem in 40-column mode and on the Commodore 64. However, be aware that many CP/M programs expect an 80-column text display. If you have weird looking text output from a CP/M program, you should investigate what kind of terminal it is setup to use. CP/M software compatibility problems that can be improved by modifying the CP/M software, its setup, or the idun-cartridge VT-100 emulation abilities can be reported here using GitHub's "Issues" reporting.</p>
+<p>You can launch directly into CPem from the Idun shell or BASIC prompt using the command <code>go "cpm"</code>. Once started, you will be in a CP/M v2.2 compatible OS that can run "vanilla" CP/M text programs. The environment is emulated on the Raspberry Pi's ARM processor, so CP/M programs run super fast. You can use all the standard CP/M commands, plus some additional built-in commands. To see the built-in commands, enter <code>?</code>. To see what CP/M software is available, you can enter <code>drives</code> to get a list of disk drives, then enter <code>vol a:</code>, <code>vol b:</code>, etc. to see what is on each drive. You can switch to drive B, for example, by entering <code>b:</code> and to user area 1 by entering either <code>user 1</code> or <code>b1:</code>.</p>
+<p>The terminal is VT-100 compatible. Therefore, CP/M programs that are setup to use VT-100 will work best. If you have weird looking text output from a CP/M program, you should investigate what kind of terminal it is setup to use. CP/M software compatibility problems that can be improved by modifying the CP/M software, its setup, or the idun-cartridge VT-100 emulation abilities can be reported here using GitHub's "Issues" reporting.</p>
 <h2 id="running-programs-on-real-z80">Running programs on real Z80<a class="headerlink" href="#running-programs-on-real-z80" title="Permanent link">&para;</a></h2>
-<p>If you are using the idun-cartridge on a Commodore 128, then you have the best of both worlds- fast, emulated performance along with the ability to launch programs on the C128's Z80 CPU. CPem's command processor will assume that any command with a ".Z80" extension is a native program intended to run on the C128. Such programs are identical to the programs also supported by the <code>zload</code> command used to launch them from idun-shell. These programs are most easily created using the ZCC cross-compiler from <a href="https://github.com/idun-project/idun-zcc">idun-zcc</a>. Some sample programs are available on drive <code>c1:</code>.</p>
+<p>If you are using the idun-cartridge on a Commodore 128, then you have the best of both worlds- fast, emulated performance along with the ability to launch (and develop!) programs on the C128's Z80 CPU. CPem's command processor will assume that any command with a ".Z80" extension is a native program intended to run on the C128. Such programs are identical to the programs also supported by the <code>zload</code> command used to launch them from Idun shell. These programs are most easily created using the ZCC cross-compiler from <a href="https://github.com/idun-project/idun-zcc">idun-zcc</a>. Some sample programs are available on drive <code>c1:</code>.</p>
 <h2 id="development-tools">Development Tools<a class="headerlink" href="#development-tools" title="Permanent link">&para;</a></h2>
 <p>CP/M might be best remembered for the large selection of software development tools it offered. Default drive <code>A0:</code> includes Z80 assemblers and <code>mbasic</code>. Other drives include C, Pascal, and BASIC compilers. Plus there is BBCBASIC and a Forth language compiler. All of these CP/M dev tools run very fast and can thus provide an enjoyable way to learn as much as you ever wanted to know about CP/M programming.</p>
 <p>The ZCC cross-compiler that is also installed on the idun-cartridge can build both native c128 and CP/M programs. ZCC is based on the excellent Z88DK project. It has an extensive library and provides a more "modern" C programming experience. </p>
 <h2 id="access-cpem-remotely">Access CPem remotely<a class="headerlink" href="#access-cpem-remotely" title="Permanent link">&para;</a></h2>
-<p>When you installed the idun-cpem package, it will have created a new <code>cpm</code> user account. The reason this account exists is to turn the idun-cartridge into a remote CP/M terminal that you can access from your PC using ssh. Just login using <code>ssh cpm@idunpi</code> (default password <code>idun</code>). This user account drops you directly into CPem. If you only have a 40-column display for your Commodore, then you might find the PC terminal to be a good alternative. It's also very convenient since you can leave the cartridge powered up and use it this way when your Commodore is turned off.</p>
+<p>This package also creates a <code>cpm</code> user account. The reason this account exists is to turn the idun-cartridge into a remote CP/M terminal that you can access from your PC using ssh. Just login using <code>ssh cpm@idunpi.local</code> (default password <code>idun</code>). This user account drops you directly into CPem. You can leave the cartridge powered up by an external USB power supply, and then use CP/M this way with your Commodore turned off.</p>
 <h2 id="future-possibilities">Future possibilities...<a class="headerlink" href="#future-possibilities" title="Permanent link">&para;</a></h2>
 <p>BIOS extensions and/or driver libraries to allow CP/M programs running on the emulated (accelerated) Z80 to directly access the Commodore's VIC-II or VDC to display text and graphics.</p>
 

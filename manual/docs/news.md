@@ -17,7 +17,7 @@ The documentation site has also received a refresh to include all the enhancemen
 
 #### Installation
 
-Since this version is built on an entirely new OS, you must install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1tYmL1zDgZj2KxWQS5eT54sy9L9NNPKM7/view?usp=sharing) and flashing to your SD card.
+Since this version is built on an entirely new OS, you must install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link) and flashing to your SD card.
 
 #### Notes and Fixes
 

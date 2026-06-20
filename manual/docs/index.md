@@ -48,9 +48,9 @@ It is recommended that you power the RPi externally from a USB power supply. The
 
 <img align="right" src="doc/cart_mode_sw2.jpg" />
 
-The idun-cartridge has a single "big red button" with dual use. Press and release immediately to Reset everything, including rebooting your Commodore. Press and hold for at least 5 seconds to shutdown your cartridge, which is necessary before powering it down. If you power your cartridge from an external USB power supply, as is recommended, then you will rearely need to perform any shutdown. The cartridge can run for months without requiring any reboot or power-cycle.
+The idun-cartridge has a single "big red button" with dual use. Press and release immediately to Reset everything, including rebooting your Commodore. Press and hold for at least 5 seconds to shutdown your cartridge, which is necessary before powering it down. If you power your cartridge from an external USB power supply, as is recommended, then you will rarely need to perform any shutdown. The cartridge can run for months without requiring any reboot or power-cycle.
 
-As of release v1.2.0, the idun-cartridge has two different modes, controlled by the setting of the Mode toggle switch. When the switch is "Off" (switch position farther from exp. port), the idun-cartridge works on the C128 in its native mode. However, when switched to "Mode", a different software stack is selected as specified by the [mode] settings in the configuration file.
+As of release v1.2.0, the idun-cartridge has two different modes, controlled by the setting of the Mode toggle switch. When the switch is "Off" (switch position farther from exp. port), the idun-cartridge works on the C128 in its native mode. However, when switched to "Mode", a different software stack is selected as specified by the settings in the configuration file.
 
 With the default configuration file, setting the switch to the "Mode" position enables C64 support. This means that the cartridge can be used on a C64 and that it will boot a C128 into its C64 mode. If you are primarily wanting to play C64 games, then you can most easily do so by launching the arcade.app using the command `go "arcade"`.
 

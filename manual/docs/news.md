@@ -1,3 +1,61 @@
+### Idun v1.3.1 Release
+
+This release marks the first "official" inclusion of modern graphical Linux applications running directly on the cartridge via the HDMI output. These are desktop applications specifically chosen and custom-configured for Idun, and launchable through a Kiosk mechanism that creates a GPU-accelerated Wayland display.
+
+Before you can use the applications, you need to connect the cartridge HDMI to a suitable display. You will also want sound, which can be either through HDMI or the 3.5mm stereo audio out (see Notes below about configuring the audio). The applications use the Commodore keyboard and mouse (mouse optional, not required).
+
+Graphical applications use the kiosk functionality so that you can launch them from the Linux shell and be automatically logged in with the same account. You **must** initialize this functionality by running the command **"kiosk"** from the shell at least one time. It will show the output below.
+```
+Available kiosk applications:
+
+  xterm              cross-platform, GPU-accelerated terminal emulator
+  thor               Blazing fast terminal file manager written in Rust, based on async I/O
+  syncterm           SyncTERM retro bbs terminal emulator
+  ocp                Open Cubic Player (for retro chip tunes)
+  vice               (description unavailable)
+
+5 application(s) available.
+```
+
+Launch the application by typing its name in the shell. If you need to recall the list, just run "kiosk" again at any time.
+
+There is plenty to say about each application, but they all have their own documentation online. I will mention here that "thor" is based on "yazi" and is highly-extensible. I have already integrated it with the cartridge features and will continue to add to this in future releases. It is called "thor" because it will give you "God-like control" over the cartridge as the integration matures and you master its usage.
+
+#### Installation
+
+It is highly recommend you install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link) and flashing to your SD card. Future releases will be more automated, but this release is backfilling some "holes" in v1.3.0.
+
+If you really, really want to go the manual update route, follow this recipe. I make no promises...
+1. `sudo setup-devd udev`
+2. `sudo apk add seatd`
+3. `sudo rc-update add seatd default`
+4. Edit `/etc/apk/repositories` and replace both "v3.23" paths with "v3.24".
+5. `sudo apk update`
+6. `sudo apk upgrade --available`
+7. `sudo reboot`
+
+#### Notes and Fixes
+
+- **New** Linux applications/kiosk.
+- **Update** Improved ANSI graphics handling in shell, especially for Mystic BBS systems. Use `mode ans` before you connect with `telnet`.
+- **Update** Improved configuration settings around Mode switch and boot mode selection. Check the comments in `idunrc.toml` under the [firmware], [booter], and [shell] sections.
+- **Update** The C= key registers as ALT for Linux apps.
+- **Update** Added 75ms keypress delay to internal KVM. Helps with slow responders.
+- **Fix** Not explicitly disabling Ultimate Turbo when launching games from `arcade.app`.
+- **Fix** Very long output to shell causing hangs.
+= **Fix** Broken file permissions on `idunrc.toml`.
+- **Fix** "!" key not working for internal KVM.
+- **Fix** `resize-fs` command required Internet connection.
+
+**Known Issues**
+- USB keyboards controlling the Commodore is broken and needs to be modified for Alpine. It will work fine as a Linux keyboard.
+
+**Notes**
+- Don't forget to run `kiosk` first. Only required once after an update.
+- `ocp` can be used to play SID files too. BUT, you **must** change the sidconfig under the setup options to use "crSID" mode for the Pi Zero 2, lest it choke itself on the computations with the default "residfp" mode.
+- Analog audio is the default. You can change between analog and hdmi out with a simple file edit. Use `sudo nano /etc/asound.conf`.
+- Check the "Setup" documentation for resizing your SD card filesystem and setting up the network.
+
 ### Idun v1.3.0 Release
 
 This release includes the migration to 64-bit Alpine Linux OS, plus enhancements, fixes, and some new features. Because of the new OS, Idun now works on the full range of Raspberry Pi devices, and with slightly better performance.

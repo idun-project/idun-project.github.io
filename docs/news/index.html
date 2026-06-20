@@ -963,14 +963,16 @@
 <p>There is plenty to say about each application, but they all have their own documentation online. I will mention here that "thor" is based on "yazi" and is highly-extensible. I have already integrated it with the cartridge features and will continue to add to this in future releases. It is called "thor" because it will give you "God-like control" over the cartridge as the integration matures and you master its usage.</p>
 <h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
 <p>It is highly recommend you install this upgrade by downloading the <a href="https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link">SD card image</a> and flashing to your SD card. Future releases will be more automated, but this release is backfilling some "holes" in v1.3.0.</p>
-<p>If you really, really want to go the manual update route, follow this recipe. I make no promises...
-1. <code>sudo setup-devd udev</code>
-2. <code>sudo apk add seatd</code>
-3. <code>sudo rc-update add seatd default</code>
-4. Edit <code>/etc/apk/repositories</code> and replace both "v3.23" paths with "v3.24".
-5. <code>sudo apk update</code>
-6. <code>sudo apk upgrade --available</code>
-7. <code>sudo reboot</code></p>
+<p>If you really, really want to go the manual update route, follow this recipe. I make no promises.</p>
+<ol>
+<li><code>sudo setup-devd udev</code></li>
+<li><code>sudo apk add seatd</code></li>
+<li><code>sudo rc-update add seatd default</code></li>
+<li>Edit <code>/etc/apk/repositories</code> and replace both "v3.23" paths with "v3.24".</li>
+<li><code>sudo apk update</code></li>
+<li><code>sudo apk upgrade --available</code></li>
+<li><code>sudo reboot</code></li>
+</ol>
 <h4 id="notes-and-fixes">Notes and Fixes<a class="headerlink" href="#notes-and-fixes" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>New</strong> Linux applications/kiosk.</li>
@@ -986,11 +988,13 @@
 </ul>
 <p><strong>Known Issues</strong>
 - USB keyboards controlling the Commodore is broken and needs to be modified for Alpine. It will work fine as a Linux keyboard.</p>
-<p><strong>Notes</strong>
-- Don't forget to run <code>kiosk</code> first. Only required once after an update.
-- <code>ocp</code> can be used to play SID files too. BUT, you <strong>must</strong> change the sidconfig under the setup options to use "crSID" mode for the Pi Zero 2, lest it choke itself on the computations with the default "residfp" mode.
-- Analog audio is the default. You can change between analog and hdmi out with a simple file edit. Use <code>sudo nano /etc/asound.conf</code>.
-- Check the "Setup" documentation for resizing your SD card filesystem and setting up the network.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Don't forget to run <code>kiosk</code> first. Only required once after an update.</li>
+<li><code>ocp</code> can be used to play SID files too. BUT, you <strong>must</strong> change the sidconfig under the setup options to use "crSID" mode for the Pi Zero 2, lest it choke itself on the computations with the default "residfp" mode.</li>
+<li>Analog audio is the default. You can change between analog and hdmi out with a simple file edit. Use <code>sudo nano /etc/asound.conf</code>.</li>
+<li>Check the "Setup" documentation for resizing your SD card filesystem and setting up the network.</li>
+</ul>
 <h3 id="idun-v130-release">Idun v1.3.0 Release<a class="headerlink" href="#idun-v130-release" title="Permanent link">&para;</a></h3>
 <p>This release includes the migration to 64-bit Alpine Linux OS, plus enhancements, fixes, and some new features. Because of the new OS, Idun now works on the full range of Raspberry Pi devices, and with slightly better performance.</p>
 <p>For those interested in development, the Lua integration has been made more powerful and easy to use. It is now possible to write a shell tool for Idun in assembly language that can call the functions in a companion Lua module using a simple RPC-style approach. Thus, it is easy to separate what needs to run on the Raspberry Pi and just write functions in Lua that receive arguments and return results to the Commodore program. The <code>sidplay</code> tool, as one example, has been updated to take advantage of this new approach.</p>

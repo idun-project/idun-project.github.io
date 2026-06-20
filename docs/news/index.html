@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#idun-v130-release" class="md-skip">
+        <a href="#idun-v131-release" class="md-skip">
           Skip to content
         </a>
       
@@ -309,15 +309,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#idun-v130-release" class="md-nav__link">
+  <a href="#idun-v131-release" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Idun v1.3.0 Release
+        Idun v1.3.1 Release
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+    <nav class="md-nav" aria-label="Idun v1.3.1 Release">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -333,6 +333,45 @@
         
           <li class="md-nav__item">
   <a href="#notes-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v130-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.3.0 Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-fixes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Notes and Fixes
@@ -776,15 +815,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#idun-v130-release" class="md-nav__link">
+  <a href="#idun-v131-release" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Idun v1.3.0 Release
+        Idun v1.3.1 Release
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+    <nav class="md-nav" aria-label="Idun v1.3.1 Release">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -800,6 +839,45 @@
         
           <li class="md-nav__item">
   <a href="#notes-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idun-v130-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idun v1.3.0 Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idun v1.3.0 Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-fixes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Notes and Fixes
@@ -866,6 +944,53 @@
 
   <h1>NEWS</h1>
 
+<h3 id="idun-v131-release">Idun v1.3.1 Release<a class="headerlink" href="#idun-v131-release" title="Permanent link">&para;</a></h3>
+<p>This release marks the first "official" inclusion of modern graphical Linux applications running directly on the cartridge via the HDMI output. These are desktop applications specifically chosen and custom-configured for Idun, and launchable through a Kiosk mechanism that creates a GPU-accelerated Wayland display.</p>
+<p>Before you can use the applications, you need to connect the cartridge HDMI to a suitable display. You will also want sound, which can be either through HDMI or the 3.5mm stereo audio out (see Notes below about configuring the audio). The applications use the Commodore keyboard and mouse (mouse optional, not required).</p>
+<p>Graphical applications use the kiosk functionality so that you can launch them from the Linux shell and be automatically logged in with the same account. You <strong>must</strong> initialize this functionality by running the command <strong>"kiosk"</strong> from the shell at least one time. It will show the output below.</p>
+<div class="codehilite"><pre><span></span><code>Available kiosk applications:
+
+  xterm              cross-platform, GPU-accelerated terminal emulator
+  thor               Blazing fast terminal file manager written in Rust, based on async I/O
+  syncterm           SyncTERM retro bbs terminal emulator
+  ocp                Open Cubic Player (for retro chip tunes)
+  vice               (description unavailable)
+
+5 application(s) available.
+</code></pre></div>
+
+<p>Launch the application by typing its name in the shell. If you need to recall the list, just run "kiosk" again at any time.</p>
+<p>There is plenty to say about each application, but they all have their own documentation online. I will mention here that "thor" is based on "yazi" and is highly-extensible. I have already integrated it with the cartridge features and will continue to add to this in future releases. It is called "thor" because it will give you "God-like control" over the cartridge as the integration matures and you master its usage.</p>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
+<p>It is highly recommend you install this upgrade by downloading the <a href="https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link">SD card image</a> and flashing to your SD card. Future releases will be more automated, but this release is backfilling some "holes" in v1.3.0.</p>
+<p>If you really, really want to go the manual update route, follow this recipe. I make no promises...
+1. <code>sudo setup-devd udev</code>
+2. <code>sudo apk add seatd</code>
+3. <code>sudo rc-update add seatd default</code>
+4. Edit <code>/etc/apk/repositories</code> and replace both "v3.23" paths with "v3.24".
+5. <code>sudo apk update</code>
+6. <code>sudo apk upgrade --available</code>
+7. <code>sudo reboot</code></p>
+<h4 id="notes-and-fixes">Notes and Fixes<a class="headerlink" href="#notes-and-fixes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>New</strong> Linux applications/kiosk.</li>
+<li><strong>Update</strong> Improved ANSI graphics handling in shell, especially for Mystic BBS systems. Use <code>mode ans</code> before you connect with <code>telnet</code>.</li>
+<li><strong>Update</strong> Improved configuration settings around Mode switch and boot mode selection. Check the comments in <code>idunrc.toml</code> under the [firmware], [booter], and [shell] sections.</li>
+<li><strong>Update</strong> The C= key registers as ALT for Linux apps.</li>
+<li><strong>Update</strong> Added 75ms keypress delay to internal KVM. Helps with slow responders.</li>
+<li><strong>Fix</strong> Not explicitly disabling Ultimate Turbo when launching games from <code>arcade.app</code>.</li>
+<li><strong>Fix</strong> Very long output to shell causing hangs.
+= <strong>Fix</strong> Broken file permissions on <code>idunrc.toml</code>.</li>
+<li><strong>Fix</strong> "!" key not working for internal KVM.</li>
+<li><strong>Fix</strong> <code>resize-fs</code> command required Internet connection.</li>
+</ul>
+<p><strong>Known Issues</strong>
+- USB keyboards controlling the Commodore is broken and needs to be modified for Alpine. It will work fine as a Linux keyboard.</p>
+<p><strong>Notes</strong>
+- Don't forget to run <code>kiosk</code> first. Only required once after an update.
+- <code>ocp</code> can be used to play SID files too. BUT, you <strong>must</strong> change the sidconfig under the setup options to use "crSID" mode for the Pi Zero 2, lest it choke itself on the computations with the default "residfp" mode.
+- Analog audio is the default. You can change between analog and hdmi out with a simple file edit. Use <code>sudo nano /etc/asound.conf</code>.
+- Check the "Setup" documentation for resizing your SD card filesystem and setting up the network.</p>
 <h3 id="idun-v130-release">Idun v1.3.0 Release<a class="headerlink" href="#idun-v130-release" title="Permanent link">&para;</a></h3>
 <p>This release includes the migration to 64-bit Alpine Linux OS, plus enhancements, fixes, and some new features. Because of the new OS, Idun now works on the full range of Raspberry Pi devices, and with slightly better performance.</p>
 <p>For those interested in development, the Lua integration has been made more powerful and easy to use. It is now possible to write a shell tool for Idun in assembly language that can call the functions in a companion Lua module using a simple RPC-style approach. Thus, it is easy to separate what needs to run on the Raspberry Pi and just write functions in Lua that receive arguments and return results to the Commodore program. The <code>sidplay</code> tool, as one example, has been updated to take advantage of this new approach.</p>
@@ -878,9 +1003,9 @@ Another area that has been reworked is the internal KVM switching- which allows 
 <li><code>share</code> - A command for enabling any of the 3 file-sharing options avaialble (Web, WebDAV, and Windows). Web-based sharing is still the default, but is now connected on port 80 by using  <code>http://idunpi.local</code> in your browser. The other two servers are easily enabled if you want integration with Windows Explorer or the macOS Finder.</li>
 </ol>
 <p>The documentation site has also received a refresh to include all the enhancements in this release.</p>
-<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
+<h4 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h4>
 <p>Since this version is built on an entirely new OS, you must install this upgrade by downloading the <a href="https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link">SD card image</a> and flashing to your SD card.</p>
-<h4 id="notes-and-fixes">Notes and Fixes<a class="headerlink" href="#notes-and-fixes" title="Permanent link">&para;</a></h4>
+<h4 id="notes-and-fixes_1">Notes and Fixes<a class="headerlink" href="#notes-and-fixes_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>New</strong> Holding down the C= key during reset causes the cartridge to boot into Idun's BASIC interface instead of the Idun shell. Use the <code>go</code> comamnd from BASIC to launch shell or other Idun apps (Issue #32).</li>
 <li><strong>New</strong> Internal KVM (activation using C=+k) now supports the Commodore mouse (1351 style).</li>

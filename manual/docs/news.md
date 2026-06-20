@@ -25,7 +25,8 @@ There is plenty to say about each application, but they all have their own docum
 
 It is highly recommend you install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link) and flashing to your SD card. Future releases will be more automated, but this release is backfilling some "holes" in v1.3.0.
 
-If you really, really want to go the manual update route, follow this recipe. I make no promises...
+If you really, really want to go the manual update route, follow this recipe. I make no promises.
+
 1. `sudo setup-devd udev`
 2. `sudo apk add seatd`
 3. `sudo rc-update add seatd default`
@@ -51,6 +52,7 @@ If you really, really want to go the manual update route, follow this recipe. I 
 - USB keyboards controlling the Commodore is broken and needs to be modified for Alpine. It will work fine as a Linux keyboard.
 
 **Notes**
+
 - Don't forget to run `kiosk` first. Only required once after an update.
 - `ocp` can be used to play SID files too. BUT, you **must** change the sidconfig under the setup options to use "crSID" mode for the Pi Zero 2, lest it choke itself on the computations with the default "residfp" mode.
 - Analog audio is the default. You can change between analog and hdmi out with a simple file edit. Use `sudo nano /etc/asound.conf`.

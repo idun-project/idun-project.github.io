@@ -1,3 +1,34 @@
+### Idun v1.3.2 Release
+
+This release primarily builds on the functionality of Thor, and other kiosk applications, which were added last month. It corrects several bugs, including one that prevented use of the RaspPi 5 with the cartridge. There's also a new Commodore command for retrieving file metadata.
+
+For Kiosk UI help, check the newly added section in the [setup docs](https://idun-project.github.io/docs/doc/setup-rpi/)
+
+#### Installation
+
+The recommended installation is to run `sudo apk upgrade` from the shell.
+
+There are many changes to kiosk configuration too. Therefore, if you will use kiosk apps, you should definitely run `kiosk --replace-config`.
+
+Alternatively (or if you are NOT already on v1.3.1), you can download the updated [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link)
+#### Change Notes
+
+- **New** Added `kiosk app <package>` for easily installing new kiosk commands
+- **New** Kiosk includes a top bar GUI and hotkeys (Alt+n, Alt+m) for shuffling between multiple full-screen apps
+- **New** Retrieve file metadata for Commodore files using `fstat` command
+- **Update** The `xterm` command now uses "foot" for its terminal
+- **Update** Thor supports screenshot images for .prg and .crt programs
+- **Update** Thor supports loading of P64 program files
+- **Update** Thor supports mp3 file preview with album art
+- **Update** Thor supports Markdown file preview
+- **Fix** Flow control lockup affecting RaspPi 5 only
+- **Fix** Reset switch issues affecting RaspPi 5 only
+- **Fix** Issue #39 - BASIC SAVE command not saving to virtual drive
+- **Fix** Kvm keybaord correctly handles modifier keys
+- **Fix** Qt5 apps should work with `kiosk`
+- **Fix** Command `del` failing in some situations; disk cmd chan close bug
+
+
 ### Idun v1.3.1 Release
 
 This release marks the first "official" inclusion of modern graphical Linux applications running directly on the cartridge via the HDMI output. These are desktop applications specifically chosen and custom-configured for Idun, and launchable through a Kiosk mechanism that creates a GPU-accelerated Wayland display.
@@ -35,7 +66,7 @@ If you really, really want to go the manual update route, follow this recipe. I 
 6. `sudo apk upgrade --available`
 7. `sudo reboot`
 
-#### Notes and Fixes
+#### Change Notes
 
 - **New** Linux applications/kiosk.
 - **Update** Improved ANSI graphics handling in shell, especially for Mystic BBS systems. Use `mode ans` before you connect with `telnet`.
@@ -79,7 +110,7 @@ The documentation site has also received a refresh to include all the enhancemen
 
 Since this version is built on an entirely new OS, you must install this upgrade by downloading the [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link) and flashing to your SD card.
 
-#### Notes and Fixes
+#### Change Notes
 
 - **New** Holding down the C= key during reset causes the cartridge to boot into Idun's BASIC interface instead of the Idun shell. Use the `go` comamnd from BASIC to launch shell or other Idun apps (Issue #32).
 - **New** Internal KVM (activation using C=+k) now supports the Commodore mouse (1351 style).

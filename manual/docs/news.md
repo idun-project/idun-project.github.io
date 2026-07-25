@@ -6,11 +6,11 @@ For Kiosk UI help, check the newly added section in the [setup docs](https://idu
 
 #### Installation
 
-The recommended installation is to run `sudo apk upgrade` from the shell.
+The recommended installation is to run `sudo apk -U upgrade` from the shell.
 
-There are many changes to kiosk configuration too. Therefore, if you will use kiosk apps, you should definitely run `kiosk --replace-config`.
+There are many changes to kiosk configuration. Therefore, if you will use kiosk apps, you should definitely also run `kiosk --replace-config`.
 
-Alternatively (or if you are NOT already on v1.3.1), you can download the updated [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link)
+Alternatively, if you are **not already on v1.3.1**, you can download the updated [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link)
 #### Change Notes
 
 - **New** Added `kiosk app <package>` for easily installing new kiosk commands

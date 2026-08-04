@@ -25,7 +25,10 @@ nav:
   - Home: index.md
   - NEWS: news.md
   - Setup: doc/setup-rpi.md
-  - Included Samples: idun-base.md
+  - Software:
+      - Updates: doc/install-updates.md
+      - Additions: doc/software-packages.md
+  - Retro-Content: rapper.md
   - Idun Shell: doc/shell.md
   - CP/M Support: idun-cpem.md
   - Audio Streaming: idunSID.md

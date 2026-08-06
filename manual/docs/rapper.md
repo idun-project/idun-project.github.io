@@ -38,7 +38,7 @@ While the connection is safely paused, `rap` sandboxes and executes `RAPPER.LUA`
 * **Rapper Dependencies** Ensures required `rappers` are already present in `$HOME`.
 * **System Dependencies** Detects your native Linux package manager (`apk` or `pacman`) and offers to install any missing software.
 
-If any check fails—or if you reject a system dependency—`rap` severs the connection cleanly. You save bandwidth, time, and unnecessary downloads without downloading a single unnecessary byte of the payload. If everything checks out, `rap` unpauses the stream, hands control back to the downloader, displays s progress bar, extracts all the package files. After this it runs an optional post-install routine written in simple Lua script.
+If any check fails—or if you reject a system dependency—`rap` severs the connection cleanly. You save bandwidth, time, and unnecessary downloads without downloading a single unnecessary byte of the payload. If everything checks out, `rap` unpauses the stream, hands control back to the downloader, and continues installation. After this it runs an optional post-install routine that package maintainers write using simple Lua script.
 
 ## Hosting rappers on Internet Archive
 
@@ -76,7 +76,7 @@ rap install archive.org/details/my_retro_collection
 
 ## Using rap
 
-`rap` is your client CLI tool for downloading, installing, querying, and managing packages.
+`rap` is your client CLI tool for downloading, installing, upgrading, querying, and managing packages.
 
 ### Command Syntax
 
@@ -88,6 +88,7 @@ rap <command> [arguments]
 | :--- | :--- | :--- |
 | `install` / `add` | `<url\|file>` `[--path <dest>]` | Downloads/verifies metadata, checks dependencies, and installs the package. |
 | `uninstall` / `remove` | `<name>` | Runs pre-remove hooks, purges the package directory, and updates the cache. |
+| `upgrade` | `[name]` | Upgrades the named package, or all packages, when new revisions exist. |
 | `info` | `<name>` | Displays local metadata and fetches live remote Archive.org metadata if available. |
 | `list` | `[--rebuild]` | Lists all installed `rappers` and their release numbers. |
 
@@ -120,6 +121,12 @@ Clean Overwrites & Downgrade Protection
 * **Downgrades:** Accidental downgrades are blocked. If you attempt to install release `0` over release `1`, `rap` halts execution and instructs you to run `rap remove <name>` first.
 
 ### Managing Installed Packages
+
+Upgarding Packages -
+The `upgrade` command is used to upgrade a single package when you provide its name, or all of your installed packages. `rap` will query the metadata from the original installation URL to determine if a newer revision is available.
+```bash
+rap upgrade
+```
 
 Viewing Package Details -
 The `info` command parses local metadata and natively queries Archive.org APIs for extra metadata (uploader, title, curation date) if applicable:

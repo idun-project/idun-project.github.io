@@ -38,22 +38,11 @@ rap install https://example.com/packages/cpem-disks-r1.tar.zst
 rap install archive.org/details/cpm_the_basics_5_drives
 ```
 
-Viewing Package Details -
-The `info` command parses local metadata and natively queries Archive.org APIs for extra metadata (uploader, title, curation date) if applicable:
-```bash
-rap info cpem-disks
-```
-
-Listing Installed Packages -
-`rap` maintains a fast lookup cache at `~/.cache/rapper/installed.list`. If the cache is deleted, `rap list --rebuild` can be used to automatically search `$HOME` for installed `.rapper` manifests, and rebuild the cache.
+Listing Installed Packages - 
+`rap` maintains a fast lookup cache at `~/.cache/rapper/installed.list`.
 ```bash
 rap list
+rap list --rebuild      # Rebuild cache file if needed.
 ```
 
-Removing Packages -
-Executing `remove` invokes any custom `remove()` Lua hooks (to clean up custom symlinks or configs) and safely purges the package directory:
-```bash
-rap remove cpem-disks
-```
-
-You will notice that `rap` usually works from a URL. These URL's are published by the community as they become available. For the latest details, check the `#rappers` channel on the Discord.
+You will notice that `rap` usually works from a URL. These URL's are published by the community as they become available. For the latest details, check the `#rappers` channel on the Discord. You may also want to view complete instructions on [`rap`](../rapper.md#using-rap).

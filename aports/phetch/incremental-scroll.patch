@@ -1,0 +1,419 @@
+--- a/src/terminal.rs
++++ b/src/terminal.rs
+@@ -18,6 +18,34 @@
+ pub use termion::clear::CurrentLine as ClearCurrentLine;
+ pub use termion::clear::UntilNewline as ClearUntilNewline;
+ 
++/// CSI sequence: set the vertical scrolling region (DECSTBM) to the
++/// 1-based, inclusive row range `top..=bottom`. While a region is set,
++/// scroll-up/scroll-down and line feeds at the margins only shift the
++/// rows inside it, leaving everything else (such as a status bar on the
++/// last row) untouched. This is what lets us scroll without repainting
++/// the whole screen -- the expensive operation on a remote/retro
++/// terminal, where each cell may be an 8x8 bitmap blit.
++pub fn set_scroll_region(top: u16, bottom: u16) -> String {
++    format!("\x1b[{};{}r", top, bottom)
++}
++
++/// CSI sequence: reset the scrolling region back to the full screen.
++pub fn reset_scroll_region() -> &'static str {
++    "\x1b[r"
++}
++
++/// CSI sequence: scroll the contents of the current scrolling region
++/// up by `n` lines, revealing `n` blank lines at the bottom. (SU)
++pub fn scroll_up(n: u16) -> String {
++    format!("\x1b[{}S", n)
++}
++
++/// CSI sequence: scroll the contents of the current scrolling region
++/// down by `n` lines, revealing `n` blank lines at the top. (SD)
++pub fn scroll_down(n: u16) -> String {
++    format!("\x1b[{}T", n)
++}
++
+ type Result<T> = std::result::Result<T, io::Error>;
+ 
+ lazy_static! {
+--- a/src/text.rs
++++ b/src/text.rs
+@@ -83,6 +83,7 @@
+     }
+ 
+     fn respond(&mut self, c: Key) -> Action {
++        let old_offset = self.offset;
+         match c {
+             Key::Home => {
+                 self.offset = 0;
+@@ -96,7 +97,7 @@
+             Key::Down | Key::Ctrl('n') | Key::Char('n') | Key::Ctrl('j') | Key::Char('j') => {
+                 if self.offset < self.final_scroll() {
+                     self.offset += 1;
+-                    Action::Redraw
++                    self.scrolled_redraw(old_offset)
+                 } else {
+                     Action::None
+                 }
+@@ -104,7 +105,7 @@
+             Key::Up | Key::Ctrl('p') | Key::Char('p') | Key::Ctrl('k') | Key::Char('k') => {
+                 if self.offset > 0 {
+                     self.offset -= 1;
+-                    Action::Redraw
++                    self.scrolled_redraw(old_offset)
+                 } else {
+                     Action::None
+                 }
+@@ -116,7 +117,7 @@
+                     } else {
+                         self.offset = 0;
+                     }
+-                    Action::Redraw
++                    self.scrolled_redraw(old_offset)
+                 } else {
+                     Action::None
+                 }
+@@ -126,7 +127,7 @@
+                 if self.offset > self.final_scroll() {
+                     self.offset = self.final_scroll();
+                 }
+-                Action::Redraw
++                self.scrolled_redraw(old_offset)
+             }
+             _ => Action::Keypress(c),
+         }
+@@ -153,15 +154,7 @@
+             if line == ".\r" || line == "." {
+                 continue;
+             }
+-            if !self.wide {
+-                out.push_str(&indent);
+-            }
+-            let line = line.trim_end_matches('\r').replace('\t', "    ");
+-            out.push_str(&line);
+-
+-            // clear rest of line
+-            out.push_str(&format!("{}", terminal::ClearUntilNewline));
+-
++            out.push_str(&self.render_text_line(Some(line), indent.as_ref()));
+             out.push_str("\r\n");
+         }
+ 
+@@ -274,6 +267,66 @@
+             Cow::from("")
+         }
+     }
++
++    /// Render a single document line for display: optional left margin,
++    /// the line text (carriage returns stripped, tabs expanded), and a
++    /// clear-to-end-of-line. `None` (past the end of the document) or
++    /// Gopher's "." terminator yields a blank, cleared line.
++    fn render_text_line(&self, line: Option<&str>, indent: &str) -> String {
++        let mut out = String::new();
++        match line {
++            Some(line) if line != ".\r" && line != "." => {
++                if !self.wide {
++                    out.push_str(indent);
++                }
++                let line = line.trim_end_matches('\r').replace('\t', "    ");
++                out.push_str(&line);
++            }
++            _ => {}
++        }
++        out.push_str(terminal::ClearUntilNewline.as_ref());
++        out
++    }
++
++    /// Build an incremental scroll update. Rather than repainting the
++    /// whole screen on every scroll -- painfully slow on a remote or
++    /// retro VT100 emulator -- shift the body with a VT100 scrolling
++    /// region and only draw the line(s) the scroll exposed. Falls back
++    /// to a full `Redraw` when there is no overlap to reuse (a jump or a
++    /// full page) or the screen is too small to bother.
++    fn scrolled_redraw(&self, old_offset: usize) -> Action {
++        let (_cols, rows) = self.size;
++        let body = rows.saturating_sub(1); // last row is the status bar
++        let delta = self.offset as isize - old_offset as isize;
++        let n = delta.unsigned_abs();
++        if body < 2 || n == 0 || n >= body {
++            return Action::Redraw;
++        }
++
++        let wrap = self.config.read().unwrap().wrap;
++        let indent = self.indent_str(wrap);
++        let lines = wrap_text(&self.encoded_response, wrap);
++
++        let mut out = String::new();
++        out.push_str(&terminal::set_scroll_region(1, body as u16));
++        let (first_row, first_doc) = if delta > 0 {
++            // scrolled forward: body moves up, new lines appear at the bottom
++            out.push_str(&terminal::scroll_up(n as u16));
++            (body - n + 1, self.offset + body - n)
++        } else {
++            // scrolled back: body moves down, new lines appear at the top
++            out.push_str(&terminal::scroll_down(n as u16));
++            (1, self.offset)
++        };
++        for i in 0..n {
++            out.push_str(&format!("{}", terminal::Goto(1, (first_row + i) as u16)));
++            out.push_str(
++                &self.render_text_line(lines.get(first_doc + i).copied(), indent.as_ref()),
++            );
++        }
++        out.push_str(terminal::reset_scroll_region());
++        Action::Draw(out)
++    }
+ }
+ 
+ /// Splits a chunk of text into a vector of strings with at most
+--- a/src/menu.rs
++++ b/src/menu.rs
+@@ -365,67 +365,76 @@
+         } else {
+             self.spans.len()
+         };
+-        let iter = self.lines().skip(self.offset).take(limit);
+-        let indent = self.indent();
+-        let left_margin = " ".repeat(indent);
+-
+-        for line in iter {
+-            out.push_str(&left_margin);
+-            let config = self.config.read().unwrap();
+ 
+-            if line.typ == Type::Info {
+-                out.push_str("      ");
+-            } else {
+-                if line.link == self.link && self.show_cursor() {
+-                    out.push_str(&config.theme.ui_cursor);
+-                    out.push('*');
+-                    out.push_str(reset_color!());
+-                } else {
+-                    out.push(' ');
+-                }
+-                out.push(' ');
+-                out.push_str(&config.theme.ui_number);
+-                if line.link < 9 {
+-                    out.push(' ');
+-                }
+-                let num = (line.link + 1).to_string();
+-                out.push_str(&num);
+-                out.push_str(". ");
+-                out.push_str(reset_color!());
+-            }
++        for line in self.lines().skip(self.offset).take(limit) {
++            out.push_str(&self.render_menu_line(&line));
++            out.push_str("\r\n");
++        }
+ 
+-            // truncate long lines, instead of wrapping
+-            let text = line.text_truncated();
++        // clear remainder of screen
++        out.push_str(terminal::ClearAfterCursor.as_ref());
+ 
+-            // color the line
+-            if line.typ.is_media() {
+-                out.push_str(&config.theme.item_media);
+-            } else if line.typ.is_download() {
+-                out.push_str(&config.theme.item_download);
+-            } else if !line.typ.is_supported() {
+-                out.push_str(&self.config.read().unwrap().theme.item_unsupported);
++        out
++    }
++
++    /// Render a single menu line: left margin, the selection cursor
++    /// (`*`) or a blank, the link number, and the colorized, truncated
++    /// text, ending with a clear-to-end-of-line. There is no trailing
++    /// CR/LF, so the same routine serves both a full redraw and the
++    /// per-row repaints done after an incremental scroll.
++    fn render_menu_line(&self, line: &Line<'_, '_>) -> String {
++        let mut out = String::new();
++        out.push_str(&" ".repeat(self.indent()));
++        let config = self.config.read().unwrap();
++
++        if line.typ == Type::Info {
++            out.push_str("      ");
++        } else {
++            if line.link == self.link && self.show_cursor() {
++                out.push_str(&config.theme.ui_cursor);
++                out.push('*');
++                out.push_str(reset_color!());
+             } else {
+-                out.push_str(match line.typ {
+-                    Type::Text => &config.theme.item_text,
+-                    Type::Menu => &config.theme.item_menu,
+-                    Type::Info => &config.theme.ui_menu,
+-                    Type::HTML => &config.theme.item_external,
+-                    Type::Error => &config.theme.item_error,
+-                    Type::Telnet => &config.theme.item_telnet,
+-                    Type::Search => &config.theme.item_search,
+-                    _ => &config.theme.item_error,
+-                });
++                out.push(' ');
+             }
+-            out.push_str(&text);
++            out.push(' ');
++            out.push_str(&config.theme.ui_number);
++            if line.link < 9 {
++                out.push(' ');
++            }
++            let num = (line.link + 1).to_string();
++            out.push_str(&num);
++            out.push_str(". ");
+             out.push_str(reset_color!());
++        }
+ 
+-            // clear rest of line
+-            out.push_str(terminal::ClearUntilNewline.as_ref());
+-            out.push_str("\r\n");
++        // truncate long lines, instead of wrapping
++        let text = line.text_truncated();
++
++        // color the line
++        if line.typ.is_media() {
++            out.push_str(&config.theme.item_media);
++        } else if line.typ.is_download() {
++            out.push_str(&config.theme.item_download);
++        } else if !line.typ.is_supported() {
++            out.push_str(&self.config.read().unwrap().theme.item_unsupported);
++        } else {
++            out.push_str(match line.typ {
++                Type::Text => &config.theme.item_text,
++                Type::Menu => &config.theme.item_menu,
++                Type::Info => &config.theme.ui_menu,
++                Type::HTML => &config.theme.item_external,
++                Type::Error => &config.theme.item_error,
++                Type::Telnet => &config.theme.item_telnet,
++                Type::Search => &config.theme.item_search,
++                _ => &config.theme.item_error,
++            });
+         }
++        out.push_str(&text);
++        out.push_str(reset_color!());
+ 
+-        // clear remainder of screen
+-        out.push_str(terminal::ClearAfterCursor.as_ref());
++        // clear rest of line
++        out.push_str(terminal::ClearUntilNewline.as_ref());
+ 
+         out
+     }
+@@ -487,6 +496,58 @@
+         }
+     }
+ 
++    /// Build an incremental scroll update for a small (typically
++    /// arrow-key) scroll. Instead of repainting the whole menu -- slow
++    /// over a remote/retro VT100 link, where redrawing every cell can
++    /// mean an 8x8 bitmap blit -- shift the body with a VT100 scrolling
++    /// region and only redraw the newly exposed line(s), then fix up the
++    /// selection cursor. Falls back to a full `Redraw` when there is no
++    /// overlap to reuse (a jump or a page) or the screen is tiny.
++    fn scrolled_redraw(&self, old_offset: usize, old_link: usize) -> Action {
++        let body = self.rows().saturating_sub(1); // last row is the status bar
++        let delta = self.offset as isize - old_offset as isize;
++        let n = delta.unsigned_abs();
++        if body < 2 || n == 0 || n >= body {
++            return Action::Redraw;
++        }
++
++        let mut out = String::new();
++        out.push_str(&terminal::set_scroll_region(1, body as u16));
++        let (first_row, first_doc) = if delta > 0 {
++            // scrolled forward: body moves up, new lines appear at the bottom
++            out.push_str(&terminal::scroll_up(n as u16));
++            (body - n + 1, self.offset + body - n)
++        } else {
++            // scrolled back: body moves down, new lines appear at the top
++            out.push_str(&terminal::scroll_down(n as u16));
++            (1, self.offset)
++        };
++        for i in 0..n {
++            out.push_str(&format!("{}", terminal::Goto(1, (first_row + i) as u16)));
++            if let Some(line) = self.line(first_doc + i) {
++                out.push_str(&self.render_menu_line(&line));
++            } else {
++                out.push_str(terminal::ClearUntilNewline.as_ref());
++            }
++        }
++        out.push_str(terminal::reset_scroll_region());
++
++        // The selection cursor (`*`) is baked into the body text, so the
++        // terminal scroll carries it along with its line. If the selected
++        // link changed during this scroll, erase the old `*` and draw the
++        // new one; both are no-ops when the link isn't on screen.
++        if old_link != self.link {
++            if let Some(s) = self.clear_cursor(old_link) {
++                out.push_str(&s);
++            }
++        }
++        if let Some(s) = self.draw_cursor() {
++            out.push_str(&s);
++        }
++
++        Action::Draw(out)
++    }
++
+     /// Scroll down by a page, if possible.
+     fn action_page_down(&mut self) -> Action {
+         // If there are fewer menu items than screen lines, just
+@@ -573,15 +634,17 @@
+     }
+ 
+     fn action_up(&mut self) -> Action {
++        let old_offset = self.offset;
++        let old_link = self.link;
+         // no links, just scroll up
+         if self.link == 0 {
+             return if self.offset > 0 {
+                 self.offset -= 1;
+-                Action::Redraw
++                self.scrolled_redraw(old_offset, old_link)
+             } else if !self.links.is_empty() {
+                 self.link = self.links.len() - 1;
+                 self.scroll_to(self.link);
+-                Action::Redraw
++                self.scrolled_redraw(old_offset, old_link)
+             } else {
+                 Action::None
+             };
+@@ -631,7 +694,7 @@
+                     }
+                 }
+             }
+-            Action::Redraw
++            self.scrolled_redraw(old_offset, old_link)
+         } else {
+             Action::None
+         }
+@@ -673,6 +736,8 @@
+     }
+ 
+     fn action_down(&mut self) -> Action {
++        let old_offset = self.offset;
++        let old_link = self.link;
+         let new_link = self.link + 1;
+ 
+         // no links or final link selected already
+@@ -680,12 +745,12 @@
+             // if there are more rows, scroll down
+             if self.spans.len() >= self.rows() && self.offset < self.final_offset() {
+                 self.offset += 1;
+-                return Action::Redraw;
++                return self.scrolled_redraw(old_offset, old_link);
+             } else if !self.links.is_empty() {
+                 // wrap around
+                 self.link = 0;
+                 self.offset = 0;
+-                return Action::Redraw;
++                return self.scrolled_redraw(old_offset, old_link);
+             }
+         }
+ 
+@@ -734,7 +799,7 @@
+                         }
+                     }
+                 }
+-                Action::Redraw
++                self.scrolled_redraw(old_offset, old_link)
+             } else {
+                 Action::None
+             }

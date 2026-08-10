@@ -1,0 +1,62 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+
+pkgname="opencubicplayer"
+pkgver=3.3.1
+pkgrel=1
+pkgdesc="Open Cubic Player (for retro chip tunes)"
+arch="aarch64"
+url="https://stian.cubic.org/project-ocp.php"
+license="GPL"
+subpackages="$pkgname-doc"
+depends="alsa-lib
+bzip2
+cjson
+ncurses
+zlib
+libdiscid
+libancient
+cjson
+libgme"
+makedepends="libdiscid-dev cjson-dev libgme-dev"
+source=
+builddir="$srcdir/opencubicplayer"
+options="!check !checkroot"
+
+fetch() {
+    mkdir -p "$srcdir"
+
+    if [ ! -d "$srcdir/opencubicplayer" ]; then
+        git clone \
+            https://github.com/mywave82/opencubicplayer.git \
+            "$srcdir/opencubicplayer"
+    fi
+
+    cd "$srcdir/opencubicplayer"
+    git fetch --tags
+    git checkout "v$pkgver"
+}
+
+prepare() {
+        git submodule init
+        git submodule update --init --recursive
+}
+
+build() {
+        ./configure --prefix=/usr --sysconfdir=/etc --with-builtin=core cross_compiling=yes\
+        --without-x11\
+        --without-sdl\
+        --without-sdl2\
+        --without-sdl3\
+        --without-update-desktop-database\
+        --without-update-mime-database\
+		--without-desktop_file_install\
+        --with-unifont-ttf=/usr/share/fonts/Unifont/Unifont.ttf\
+        --with-unifont-csur-ttf=/usr/share/fonts/Unifont/Unifont_CSUR.ttf\
+        --with-unifont-upper-ttf=/usr/share/fonts/Unifont/Unifont_Upper.ttf
+        make DESTDIR="$pkgdir" subdirs ocp ocp.hlp
+        make DESTDIR="$pkgdir" libocp.so
+}
+
+package() {
+        make DESTDIR="$pkgdir" install
+}

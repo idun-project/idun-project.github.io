@@ -1,0 +1,36 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname=pt2-clone
+pkgver=1.92
+pkgrel=0
+pkgdesc='A highly accurate clone of the classic ProTracker 2.3D software for Amiga'
+arch="aarch64"
+url="https://16-bits.org/pt2.php"
+license="BSD-3-Clause"
+subpackages="$pkgname-doc"
+depends="alsa-lib sdl2-compat"
+makedepends="cmake samurai"
+install="$pkgname.post-install"
+options="!check"
+source="$pkgname-$pkgver.tar.gz::https://github.com/8bitbubsy/pt2-clone/archive/refs/tags/v$pkgver.tar.gz"
+
+build() {
+  cd $builddir
+  cmake \
+	 -B build \
+	 -S . \
+	 -W no-dev \
+	 -D CMAKE_BUILD_TYPE=Release \
+	 -D CMAKE_INSTALL_PREFIX=/usr
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+  install -vDm644 -t "$pkgdir/usr/share/$pkgname" release/other/protracker.ini
+  # documentation
+  install -vDm644 -t "$pkgdir/usr/share/doc/$pkgname" README.md release/*.txt LICENSE*
+  install -vDm644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE*
+}
+sha512sums="
+d067668e147262ac403ade4ed1e525cbf9bca3717c08a86d73d5b4c1136a66175e1cb3a8a1d31758efa27dbc281c8c776c0c5e35e6de7d77cc710b72c6562afd  pt2-clone-1.92.tar.gz
+"

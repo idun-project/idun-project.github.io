@@ -1,0 +1,39 @@
+# Maintainer: Your Name <you@example.com>
+pkgname=syncterm
+pkgver=1.9
+pkgrel=0
+pkgdesc="SyncTERM retro bbs terminal emulator"
+url="http://syncterm.bbs.io/"
+arch="aarch64"
+license="GPL-2.0-or-later"
+subpackages="$pkgname-doc"
+depends="libjxl"
+makedepends="cmake samurai alsa-lib-dev wayland-dev libjxl-dev"
+source="syncterm-$pkgver-src.tgz"
+builddir="$srcdir/syncterm-${pkgver}rc3"
+
+build() {
+	cd $builddir
+	cmake -B build \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DWITHOUT_CRYPTLIB=ON \
+		-DWITHOUT_COREAUDIO=ON \
+		-DWITHOUT_QUARTZ=ON \
+		-DWITHOUT_WAYLAND=OFF \
+		-DWITHOUT_X11=ON \
+		-DWITHOUT_GDI=ON \
+		-DWITHOUT_RETRO=ON \
+		-DWITHOUT_OSS=ON \
+		-DWITHOUT_PORTAUDIO=ON \
+		-DWITHOUT_PULSEAUDIO=ON
+				
+	cmake --build build
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+}
+sha512sums="
+1bac026dbaa63c11876fe8610c3157c1102671d02912e63da6b056403c9e1e9a9e610bd4ed19425393a4affa0b52292ec753d6a154c0e539812aa0785d3ab248  syncterm-1.9-src.tgz
+"

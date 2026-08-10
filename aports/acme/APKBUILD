@@ -1,0 +1,49 @@
+# Maintainer: Brian H <brian@focus42llc.com>
+pkgname=acme
+pkgver=0.97
+pkgrel=0
+pkgdesc="Assembler for the 6502, 6510, 65c02 and 65816 processors"
+url="https://sourceforge.net/projects/acme-crossass/"
+arch="aarch64"
+license="GPL-2.0-or-later"
+depends=""
+makedepends="git"
+giturl="https://github.com/UffeJakobsen/acme.git"
+# IMPORTANT: replace this with the real commit hash for tag 0.97
+commit="d2683cc64dcb1afc643388100b14e575f8bfb1bd"
+#source="src/$pkgname-0_git$(date +%Y%m%d).tar.gz"
+options="!check"
+builddir="$srcdir/$pkgname"
+
+prepare() {
+    default_prepare
+
+    cd "$srcdir"
+    if [ ! -d "$pkgname" ]; then
+        git clone "$giturl" "$pkgname"
+    fi
+    cd "$pkgname"
+    git checkout "$commit"
+    
+	cd "$builddir/src"
+	sed -i "s/^CFLAGS *=.*/CFLAGS = $CFLAGS -w/" Makefile
+	sed -i "s/^LIBS *=.*/LIBS = $LDFLAGS -lm/" Makefile
+}
+
+build() {
+	make -C "$builddir/src"
+}
+
+package() {
+	cd "$builddir"
+
+	install -Dm755 src/acme "$pkgdir/usr/bin/acme"
+	install -d "$pkgdir/usr/share/doc/acme"
+	install docs/*.txt "$pkgdir/usr/share/doc/acme/"
+	# Joe syntax highlighting
+	install -Dm644 contrib/joe_syntax/acme.jsf \
+		"$pkgdir/usr/share/joe/syntax/acme.jsf"
+	install -Dm644 contrib/joe_syntax/INSTALL \
+		"$pkgdir/usr/share/doc/acme/joe.txt"
+	chmod 644 "$pkgdir/usr/share/doc/acme/"*
+}

@@ -1,0 +1,34 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+
+pkgname=ueberzugpp
+pkgver=2.9.8
+pkgrel=0
+pkgdesc="Command line utility which allows to display images in the terminal, written in C++"
+arch="aarch64"
+url="https://github.com/jstkdng/ueberzugpp"
+license="GPL-3.0-or-later"
+provides="ueberzug"
+subpackages="$pkgname-doc"
+makedepends="cmake samurai extra-cmake-modules wayland-dev wayland-protocols
+vips-dev libsixel-dev chafa-dev onetbb-dev openssl-dev"
+depends="vips libsixel chafa wayland onetbb"
+source="${pkgname}-${pkgver}.tar.gz::https://github.com/jstkdng/${pkgname}/archive/v${pkgver}.tar.gz"
+options="!check"
+
+build() {
+  cmake -B build \
+    -DCMAKE_BUILD_TYPE='Release' \
+    -DCMAKE_INSTALL_PREFIX='/usr' \
+    -DENABLE_WAYLAND=ON \
+    -DENABLE_X11=OFF \
+    -DENABLE_OPENCV=OFF \
+    -Wno-dev
+  cmake --build build -j "$(nproc)"
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
+sha512sums="
+4eae090a1e59c961624c5c15b210454f2cb269b065ba24ddda2af10940d1bd73e210741f0e389be404f59a501e156b32e7d535e8671af4e57a516eb4352fd051  ueberzugpp-2.9.8.tar.gz
+"

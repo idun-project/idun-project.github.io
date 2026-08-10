@@ -1,0 +1,42 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname=rio
+pkgver=0.4.5
+pkgrel=0
+pkgdesc="A hardware-accelerated GPU terminal emulator."
+url="https://raphamorim.io/rio"
+arch="aarch64"
+license="MIT"
+depends="$pkgname-terminfo"
+makedepends="expat-dev freetype-dev fontconfig-dev libxcb-dev"
+subpackages="$pkgname-terminfo"
+source="$pkgname-$pkgver.tar.gz::https://github.com/raphamorim/rio/archive/refs/tags/v$pkgver.tar.gz"
+
+build() {
+    # Force dynamic linking for MUSL
+    export RUSTFLAGS="-C target-feature=-crt-static"
+    # Fix the Cargo profile override syntax
+    export CARGO_PROFILE_RELEASE_LTO="false"
+    # Strip the release binary via a target-specific flag
+    export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_STRIP="true"
+
+    cargo build --release --locked --features=wayland,wgpu
+    # Compile the terminfo file
+    tic -e rio -x -o terminfo misc/rio.terminfo
+}
+
+check() {
+	cargo test --release --locked
+}
+
+package() {
+	install -Dm755 target/release/rio "$pkgdir"/usr/bin/rio
+	install -Dm644 terminfo/r/rio "$pkgdir"/usr/share/terminfo/r/rio
+}
+
+terminfo() {
+	amove usr/share/terminfo
+}
+
+sha512sums="
+1e0ce733a4d027f1c4f7a6a6ffcfe5504d072aa1af9b1e0c392633401dcfa75424e6b816f34ea1fa5bef31331c70b8358d8f4159b29e67e520a54cc4620df707  rio-0.4.5.tar.gz
+"

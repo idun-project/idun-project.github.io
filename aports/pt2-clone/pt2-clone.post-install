@@ -1,0 +1,4 @@
+#!/bin/sh
+
+HOME=/home/idun
+install -o idun -g idun -Dm 644 "/usr/share/pt2-clone/protracker.ini" "$HOME/.config/protracker/protracker.ini"

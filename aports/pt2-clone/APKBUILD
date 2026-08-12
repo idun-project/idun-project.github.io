@@ -1,7 +1,7 @@
 # Maintainer: Brian Holdsworth <brian@focus42llc.com>
 pkgname=pt2-clone
 pkgver=1.92
-pkgrel=0
+pkgrel=1
 pkgdesc='A highly accurate clone of the classic ProTracker 2.3D software for Amiga'
 arch="aarch64"
 url="https://16-bits.org/pt2.php"
@@ -34,4 +34,5 @@ package() {
 }
 sha512sums="
 d067668e147262ac403ade4ed1e525cbf9bca3717c08a86d73d5b4c1136a66175e1cb3a8a1d31758efa27dbc281c8c776c0c5e35e6de7d77cc710b72c6562afd  pt2-clone-1.92.tar.gz
+ad4fb6944b8c570c9e3f9b14d3aeab22ef5c8b01c097c7f4ff7ecf36a6f5c37fdb4f3ac9d02c65559d53aa613b762dedd78da4e4f99e90c52fb7809f3998827e  full_screen.patch
 "

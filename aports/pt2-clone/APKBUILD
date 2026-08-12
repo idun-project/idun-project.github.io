@@ -11,7 +11,8 @@ depends="alsa-lib sdl2-compat"
 makedepends="cmake samurai"
 install="$pkgname.post-install"
 options="!check"
-source="$pkgname-$pkgver.tar.gz::https://github.com/8bitbubsy/pt2-clone/archive/refs/tags/v$pkgver.tar.gz"
+source="$pkgname-$pkgver.tar.gz::https://github.com/8bitbubsy/pt2-clone/archive/refs/tags/v$pkgver.tar.gz
+full_screen.patch"
 
 build() {
   cd $builddir

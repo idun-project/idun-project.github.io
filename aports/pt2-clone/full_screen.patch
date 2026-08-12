@@ -1,0 +1,27 @@
+diff --git a/release/other/protracker.ini b/release/other/protracker.ini
+index 16ef106..96632d2 100644
+--- a/release/other/protracker.ini
++++ b/release/other/protracker.ini
+@@ -40,13 +40,13 @@
+ ;         ...and so on up to 16X
+ ;         (width = 320*x, height = 255*x)
+ ;
+-VIDEOSCALE=AUTO
++VIDEOSCALE=3X
+ 
+ ; Start in fullscreen mode
+ ;        Syntax: TRUE or FALSE
+ ; Default value: FALSE
+ ;
+-FULLSCREEN=FALSE
++FULLSCREEN=TRUE
+ 
+ ; Filtering of upscaled pixels
+ ;        Syntax: NEAREST, LINEAR, BEST
+@@ -299,4 +299,4 @@ STEREOSEPARATION=20
+ ;
+ BUFFERSIZE=1024
+ 
+-; End of config file
+\ No newline at end of file
++; End of config file

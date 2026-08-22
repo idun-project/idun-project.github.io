@@ -1,12 +1,13 @@
 # Contributor: Leo V <leo-v.email@proton.me>
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
 pkgname=sdlpop
 pkgver=1.23
 pkgrel=0
 pkgdesc="Open-source port of Prince of Persia based on disassembly"
 url="https://github.com/NagyD/SDLPoP"
-arch="all"
+arch="aarch64"
 license="GPL-3.0-or-later"
-depends=""
+depends="sdl3 sld2-compat"
 makedepends="build-base sdl2-compat-dev sdl2_image-dev"
 source="$pkgname-$pkgver.tar.gz::https://github.com/NagyD/SDLPoP/archive/refs/tags/v$pkgver.tar.gz"
 builddir="$srcdir/SDLPoP-$pkgver"
@@ -18,16 +19,15 @@ build() {
 }
 
 package() {
-	# 1. Install the engine binary and required data assets
-	mkdir -p "$pkgdir"/usr/share/sdlpop
+	# Install the engine binary and required data assets
 	install -Dm755 "$builddir"/prince "$pkgdir"/usr/share/sdlpop/prince
+	install -m644 "$builddir"/SDLPoP.ini "$pkgdir"/usr/share/sdlpop/
 	
-	cp -r "$builddir"/data "$pkgdir"/usr/share/sdlpop/
-	cp -r "$builddir"/mods "$pkgdir"/usr/share/sdlpop/
-	cp -r "$builddir"/doc "$pkgdir"/usr/share/sdlpop/
-	cp "$builddir"/SDLPoP.ini "$pkgdir"/usr/share/sdlpop/
-
-	# 2. Dynamically create and embed the wrapper script into /usr/bin/prince
+	# cp -r "$builddir"/data "$pkgdir"/usr/share/sdlpop/
+	# cp -r "$builddir"/mods "$pkgdir"/usr/share/sdlpop/
+	# cp -r "$builddir"/doc "$pkgdir"/usr/share/sdlpop/
+	
+	# Dynamically create and embed the wrapper script into /usr/bin/prince
 	mkdir -p "$pkgdir"/usr/bin
 	cat << 'EOF' > "$pkgdir"/usr/bin/prince
 #!/bin/sh

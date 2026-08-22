@@ -7,8 +7,9 @@ pkgdesc="Open-source port of Prince of Persia based on disassembly"
 url="https://github.com/NagyD/SDLPoP"
 arch="aarch64"
 license="GPL-3.0-or-later"
-depends="sdl3 sld2-compat"
+depends="sdl3 sdl2-compat"
 makedepends="build-base sdl2-compat-dev sdl2_image-dev"
+subpackages="$pkgname-doc"
 source="$pkgname-$pkgver.tar.gz::https://github.com/NagyD/SDLPoP/archive/refs/tags/v$pkgver.tar.gz"
 builddir="$srcdir/SDLPoP-$pkgver"
 options="!check"
@@ -23,9 +24,10 @@ package() {
 	install -Dm755 "$builddir"/prince "$pkgdir"/usr/share/sdlpop/prince
 	install -m644 "$builddir"/SDLPoP.ini "$pkgdir"/usr/share/sdlpop/
 	
-	# cp -r "$builddir"/data "$pkgdir"/usr/share/sdlpop/
-	# cp -r "$builddir"/mods "$pkgdir"/usr/share/sdlpop/
-	# cp -r "$builddir"/doc "$pkgdir"/usr/share/sdlpop/
+	cp -r "$builddir"/data "$pkgdir"/usr/share/sdlpop/
+	cp -r "$builddir"/mods "$pkgdir"/usr/share/sdlpop/
+	mkdir -p "$pkgdir"/usr/share/doc/sdlpop
+	cp -r "$builddir"/doc "$pkgdir"/usr/share/doc/sdlpop/
 	
 	# Dynamically create and embed the wrapper script into /usr/bin/prince
 	mkdir -p "$pkgdir"/usr/bin
@@ -35,7 +37,7 @@ cd /usr/share/sdlpop || exit 1
 exec ./prince "$@"
 EOF
 
-	# 3. Ensure the newly created script has execute permissions
+	# Ensure the newly created script has execute permissions
 	chmod 755 "$pkgdir"/usr/bin/prince
 }
 

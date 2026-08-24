@@ -1,0 +1,71 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname=devilutionx
+pkgver=1.5.5
+pkgrel=0
+pkgdesc="Diablo devolved for Linux"
+url="https://github.com/diasurgical/devilutionX"
+arch="aarch64"
+license="Unlicense"
+depends="sdl3 sdl2-compat sdl2_image simpleini"
+makedepends="
+	bzip2-dev
+	cmake
+	flac-dev
+	fmt-dev
+	gettext-dev
+	lame-dev
+	libpng-dev
+	libsodium-dev
+	samurai
+	sdl2-compat-dev
+	sdl2_image-dev
+	zlib-dev
+"
+subpackages="$pkgname-fonts $pkgname-voices"
+builddir="$srcdir/$pkgname-src-$pkgver"
+
+source="
+	https://github.com/diasurgical/devilutionX/releases/download/$pkgver/devilutionx-src.tar.xz
+	https://github.com/diasurgical/devilutionX-assets/releases/download/v4/fonts.mpq
+	https://github.com/diasurgical/devilutionX-assets/releases/download/v4/pl.mpq
+	https://github.com/diasurgical/devilutionX-assets/releases/download/v4/ru.mpq
+"
+
+build() {
+	export CXXFLAGS="$CXXFLAGS -DFMT_DEPRECATED_HEAVY_CORE=1"
+	cmake -B build -G Ninja \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+		-DBUILD_TESTING=OFF \
+		-DCPACK=ON
+	cmake --build build
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+}
+
+fonts() {
+	pkgdesc="Additional fonts for DevilutionX"
+	depends="$pkgname"
+
+	install -Dm644 "$srcdir"/fonts.mpq \
+		"$subpkgdir"/usr/share/diasurgical/devilutionx/fonts.mpq
+}
+
+voices() {
+	pkgdesc="Additional voices for DevilutionX"
+	depends="$pkgname"
+
+	install -Dm644 "$srcdir"/pl.mpq \
+		"$subpkgdir"/usr/share/diasurgical/devilutionx/pl.mpq
+	install -Dm644 "$srcdir"/ru.mpq \
+		"$subpkgdir"/usr/share/diasurgical/devilutionx/ru.mpq
+}
+sha512sums="
+e62d11f9970625f5d20a0b9a46a2c90b6d837e02ca1d7665b0d8e21049d745237ed2b6f17c40e606178ae987a4e5a9a6d711844fef7c173c71c1192689697bb1  devilutionx-src.tar.xz
+3c72233a1be0847e7f0b785ccfec33cae1b6010f90f30633484d780b6e4ace884db4e80c26433bbd919724d967e249d3754967f24c6b68a3f918e49ed987c31e  fonts.mpq
+41cf2b57509a51c02ba44c30d0dc8a791254174a1d7d4ab41326cca695236023cbda8090d87daf463e40763f3021d14636974c61c94b337ca3b6d657ad56d344  pl.mpq
+65e342485b1dfb12d495b376a88aa800a942a123b9d61ebf08b9278ea80681f70a19ce22c851b4e68dc5a37c80e68a91974468afe12d63038916a2a3cd10da5f  ru.mpq
+"

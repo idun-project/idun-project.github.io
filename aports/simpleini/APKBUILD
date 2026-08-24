@@ -1,0 +1,42 @@
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname="simpleini"
+pkgver="4.26"
+pkgrel=0
+pkgdesc="Cross-platform API to read and write INI-style configuration files"
+url="https://github.com/brofield/simpleini"
+arch="aarch64"
+license="MIT"
+makedepends="cmake gtest-dev samurai"
+source="$pkgname-$pkgver.tar.gz::https://github.com/brofield/simpleini/archive/refs/tags/v$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+
+prepare() {
+    default_prepare
+    
+    # Strip glibc-specific malloc wrapping that breaks on musl
+    sed -i 's/-Wl,--wrap=malloc//g' tests/CMakeLists.txt
+}
+
+build() {
+	cmake -B build \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DINSTALL_GTEST=OFF \
+		-DSIMPLEINI_USE_SYSTEM_GTEST=ON
+	cmake --build build
+}
+
+check() {
+	cd build
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+
+	install -Dm644 LICENCE.txt \
+		"$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
+}
+sha512sums="
+a62c5748efe2473aae5bddab96ba9114d981a72f5b0d1a44d563daa085d5c231ed8c447794691d9bd67e1e0c6bfb44e4a8736be75fee59967d0c67ce3a59bb6e  simpleini-4.26.tar.gz
+"

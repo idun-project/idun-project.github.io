@@ -1,0 +1,54 @@
+# Contributor: Brian Holdsworth <brian@focus42llc.com>
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname="exult"
+pkgver="1.12.1"
+pkgrel=0
+pkgdesc="A project to recreate Ultima 7 for modern operating systems"
+url="https://exult.sourceforge.io"
+arch="aarch64"
+license="GPL-2.0-only"
+depends="sdl3 sdl2-compat sdl2_image fluidsynth"
+makedepends="
+    fluidsynth-dev
+    libogg-dev
+    libvorbis-dev
+    sdl2-compat-dev
+    sdl2_image-dev
+    unzip
+"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/exult/exult/archive/refs/tags/v$pkgver.tar.gz
+        exult_audio.zip::http://prdownloads.sourceforge.net/exult/exult_audio.zip"
+builddir="$srcdir/$pkgname-$pkgver"
+
+prepare() {
+    default_prepare
+    cd "$builddir"
+    autoreconf -v -i
+}
+
+build() {
+    cd "$builddir"
+    ./configure \
+        --build=$CBUILD \
+        --host=$CHOST \
+        --disable-mt32emu \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --mandir=/usr/share/man \
+        --localstatedir=/var
+    make
+}
+
+package() {
+    cd "$builddir"
+    make DESTDIR="$pkgdir" install
+
+    install -dm755 "$pkgdir"/usr/share/exult/music
+    install -Dm644 "$srcdir"/*.flx "$pkgdir"/usr/share/exult/
+    install -Dm644 "$srcdir"/music/*.ogg "$pkgdir"/usr/share/exult/music
+}
+sha512sums="
+b5804ef1597ee667c60577d4414ae62e9d999c0921c621cc6efea6bf0d38aa0a99c72329ed94ad505cde95015c3e223ef5141fe629dc8b514e18e5761985f046  exult-1.12.1.tar.gz
+70374a079935b063f41a37aeb90315d55abb584e5542f7fa12c707318db6365e989a5848bba9045a2c2cca1ccd902cc1d31fec8c95511a986de7a75d322d0919  exult_audio.zip
+"

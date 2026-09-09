@@ -1,0 +1,52 @@
+# Contributor: Leo V <leo-v.email@proton.me>
+# Maintainer: Brian Holdsworth <brian@fucs42llc.com>
+pkgname=hypseus-singe
+pkgver=3.0.1
+pkgrel=0
+pkgdesc="Arcade Laserdisc Emulator SDL3 version of Daphne and Singe"
+url="https://github.com/DirtBagXon/hypseus-singe"
+arch="aarch64"
+license="GPL-3.0-or-later"
+depends="sdl3 sdl3_ttf sdl3_mixer sdl3_image"
+makedepends="cmake sdl3-dev sdl3_ttf-dev sdl3_mixer sdl3_image-dev libzip-dev libvorbis-dev zlib-dev"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/DirtBagXon/hypseus-singe/archive/refs/tags/v$pkgver.tar.gz
+	musl-ctime.patch"
+builddir="$srcdir/$pkgname-$pkgver"
+options="!check"
+
+build() {
+    mkdir -p "$builddir/build"
+	cd "$builddir/build"
+
+	cmake -DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_PREFIX_PATH="/usr/local" \
+		-DCMAKE_C_FLAGS="-O3" \
+		-DCMAKE_CXX_FLAGS="-O3" \
+		../src
+
+	make -j4
+}
+
+package() {
+	cd "$builddir/build"
+	
+	mkdir -p "$pkgdir"/usr/bin
+	mkdir -p "$pkgdir"/usr/share/hypseus-singe
+	
+	install -m755 hypseus "$pkgdir"/usr/bin/hypseus-singe
+
+    cp -r "$builddir/pics" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/fonts" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/ram" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/roms" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/midi" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/sound" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/vldp" "$pkgdir"/usr/share/hypseus-singe/
+    cp -r "$builddir/singe" "$pkgdir"/usr/share/hypseus-singe/
+}
+sha512sums="
+3203065ac277c527140093e18a0b93ec36780db6a7d36873d6c62793604f3e814c3c5ee0ebab8bb5e7845f05d689a05410f19c4096f9b7022b814b9a8a15046d  hypseus-singe-3.0.1.tar.gz
+f48a6351f3190c99ce97b2ff8724b0b2d16cbed97185766dd9c873c1c6559a8074d69e85e66f71e9ba6d86e1135928560734a1de7a41309abe7f5b16ad8b2fe6  musl-ctime.patch
+"

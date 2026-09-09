@@ -1,0 +1,32 @@
+diff -uNr a/src/io/mpo_fileio.h b/src/io/mpo_fileio.h
+--- a/src/io/mpo_fileio.h
++++ b/src/io/mpo_fileio.h
+@@ -50,5 +50,5 @@
+  #ifdef LINUX
+-#define MPO_FOPEN fopen64
+-#define MPO_FSEEK fseeko64
+-#define MPO_FTELL ftello64
++#define MPO_FOPEN fopen
++#define MPO_FSEEK fseeko
++#define MPO_FTELL ftello
+ #endif
+
+diff -uNr a/src/io/zippp.h b/src/io/zippp.h
+--- a/src/io/zippp.h
++++ b/src/io/zippp.h
+@@ -39,4 +39,5 @@
+ #include <cstdio>
+ #include <string>
+ #include <vector>
+ #include <functional>
++#include <ctime>
+
+diff -uNr a/src/game/singe/lfszippp.cpp b/src/game/singe/lfszippp.cpp
+--- a/src/game/singe/lfszippp.cpp
++++ b/src/game/singe/lfszippp.cpp
+@@ -31,3 +31,4 @@
+ #include "../../io/zippp.h"
+ #include <cstring>
+ #include <set>
++#include <ctime>
+

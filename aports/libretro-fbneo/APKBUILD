@@ -1,0 +1,33 @@
+# Contributor: Brian Holdsworth <brian@focus42llc.com>
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname=libretro-fbneo
+pkgver=1.0.0.3
+pkgrel=0
+_commit=26f11fa9e43227a04953e20e8c7e4bf322cd53cb
+pkgdesc="FinalBurn Neo multi-arcade core"
+arch="aarch64"
+url="https://github.com/libretro/FBNeo"
+license="LicenseRef-Custom"
+depends="libretro-core-info"
+source="$pkgname-$pkgver.tar.gz::$url/archive/$_commit.tar.gz"
+builddir="$srcdir/FBNeo-$_commit"
+options="!check"
+
+prepare() {
+	cd $builddir/src/burner/libretro
+	make generate-files
+}
+
+build() {
+	cd $builddir/src/burner/libretro
+	make -j4
+}
+
+package() {
+	cd $builddir
+	install -D -t "$pkgdir"/usr/lib/libretro src/burner/libretro/fbneo_libretro.so
+	install -Dm644 -t "$pkgdir"/usr/share/licenses/$pkgname src/license.txt
+}
+sha512sums="
+b55e184d3b6eafced2b261d7b1981f34b90b04b061a69d51337046121d06a90bb2405ffa2d54f33ce3f1bbd525de1d20c82743c8450aaafa2fc57c7656b51053  libretro-fbneo-1.0.0.3.tar.gz
+"

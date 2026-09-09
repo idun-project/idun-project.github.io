@@ -1,0 +1,33 @@
+# Contributor: Brian Holdsworth <brian@focus42llc.com>
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
+pkgname=sdl3_mixer
+pkgver=3.2.4
+pkgrel=0
+pkgdesc="A simple multi-channel audio mixer (Version 3)"
+arch="aarch64"
+url="https://github.com/libsdl-org/SDL_mixer"
+license="MIT"
+depends="sdl3 libvorbis libmodplug mpg123 flac opusfile libxmp"
+makedepends="cmake ninja"
+options="!check"
+source="$pkgname-$pkgver.tar.gz::https://github.com/libsdl-org/SDL_mixer/releases/download/release-${pkgver}/SDL3_mixer-${pkgver}.tar.gz"
+builddir=$srcdir
+
+build() {
+  cd $builddir
+  cmake -S SDL3_mixer-${pkgver} \
+    -B build -G Ninja \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D SDLMIXER_TESTS_INSTALL=OFF \
+    -D SDLMIXER_EXAMPLES_INSTALL=OFF
+cmake --build build
+}
+
+package() {
+  DESTDIR="${pkgdir}" cmake --install build
+  install -Dm644 SDL3_mixer-${pkgver}/LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+sha512sums="
+cfbd23bc1a730371b8b8232b8b72f6187a84e0fc6fb80ae0e546b023e1a7acb6115da3e010a4e1cdc3a6a8f7a4506ee1c110127cbb91f1094807da9c462e5b77  sdl3_mixer-3.2.4.tar.gz
+"

@@ -10,23 +10,27 @@ diff -uNr a/src/io/mpo_fileio.h b/src/io/mpo_fileio.h
 +#define MPO_FSEEK fseeko
 +#define MPO_FTELL ftello
  #endif
-
-diff -uNr a/src/io/zippp.h b/src/io/zippp.h
---- a/src/io/zippp.h
-+++ b/src/io/zippp.h
-@@ -39,4 +39,5 @@
- #include <cstdio>
- #include <string>
- #include <vector>
- #include <functional>
-+#include <ctime>
-
-diff -uNr a/src/game/singe/lfszippp.cpp b/src/game/singe/lfszippp.cpp
---- a/src/game/singe/lfszippp.cpp
-+++ b/src/game/singe/lfszippp.cpp
-@@ -31,3 +31,4 @@
+diff -uNr a/src/game/singe/lfszippp.cpp b/game/singe/lfszippp.cpp
+--- a/src/game/singe/lfszippp.cpp	2026-08-08 08:00:00.000000000 -0400
++++ b/src/game/singe/lfszippp.cpp	2026-09-09 17:56:57.259085435 -0400
+@@ -31,7 +31,7 @@
  #include "../../io/zippp.h"
  #include <cstring>
  #include <set>
+-
 +#include <ctime>
-
+ using namespace libzippp;
+ 
+ extern const char* g_zipFile;
+diff -uNr a/src/io/zippp.h b/src/io/zippp.h
+--- a/src/io/zippp.h	2026-08-08 08:00:00.000000000 -0400
++++ b/src/io/zippp.h	2026-09-09 17:56:19.679044636 -0400
+@@ -40,7 +40,7 @@
+ #include <string>
+ #include <vector>
+ #include <functional>
+-
++#include <ctime>
+ //defined in libzip
+ struct zip;
+ struct zip_source;

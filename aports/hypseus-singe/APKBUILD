@@ -19,9 +19,9 @@ build() {
     mkdir -p "$builddir/build"
 	cd "$builddir/build"
 
-	cmake -DCMAKE_BUILD_TYPE=Release \
-		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_PREFIX_PATH="/usr/local" \
+	cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Release" \
+		-DCMAKE_INSTALL_PREFIX="/usr/share" \
+		-DCMAKE_PREFIX_PATH="/usr/share" \
 		-DCMAKE_C_FLAGS="-O3" \
 		-DCMAKE_CXX_FLAGS="-O3" \
 		../src
@@ -30,23 +30,26 @@ build() {
 }
 
 package() {
-	cd "$builddir/build"
+	local datadir="$pkgdir/usr/share/$pkgname"
+	cd "$builddir"
 	
-	mkdir -p "$pkgdir"/usr/bin
-	mkdir -p "$pkgdir"/usr/share/hypseus-singe
-	
-	install -m755 hypseus "$pkgdir"/usr/bin/hypseus-singe
-
-    cp -r "$builddir/pics" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/fonts" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/ram" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/roms" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/midi" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/sound" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/vldp" "$pkgdir"/usr/share/hypseus-singe/
-    cp -r "$builddir/singe" "$pkgdir"/usr/share/hypseus-singe/
+	install -Dm755 scripts/run.sh "$pkgdir"/usr/bin/hypseus
+	install -Dm755 scripts/singe.sh "$pkgdir"/usr/bin/singe
+	install -Dm755 build/hypseus "$pkgdir"/usr/bin/hypseus.bin
+	install -d "$datadir"/pics/obsolete \
+	           "$datadir"/sound \
+	           "$datadir"/fonts \
+	           "$datadir"/roms/cputest \
+	           "$datadir"/screenshots
+	install -m644 pics/*.* "$datadir"/pics/
+	install -m644 roms/cputest/* "$datadir"/roms/cputest/
+	install -m644 sound/* "$datadir"/sound/
+	install -m644 fonts/* "$datadir"/fonts/
+	install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+	install -d "$pkgdir"/usr/share/doc/$pkgname/
+	install -m644 doc/*.* "$pkgdir"/usr/share/doc/$pkgname/
 }
 sha512sums="
 3203065ac277c527140093e18a0b93ec36780db6a7d36873d6c62793604f3e814c3c5ee0ebab8bb5e7845f05d689a05410f19c4096f9b7022b814b9a8a15046d  hypseus-singe-3.0.1.tar.gz
-f48a6351f3190c99ce97b2ff8724b0b2d16cbed97185766dd9c873c1c6559a8074d69e85e66f71e9ba6d86e1135928560734a1de7a41309abe7f5b16ad8b2fe6  musl-ctime.patch
+b286ba08a8b91ba47aa645049e6b13ecb4ec0f2e80cd41026b08fa00ad3b4f276b218e76105cedcb0f1fdeb2824f58e7e163d0d4a4417976b7a906864941d92a  musl-ctime.patch
 "

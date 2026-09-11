@@ -1,5 +1,5 @@
 # Contributor: Leo V <leo-v.email@proton.me>
-# Maintainer: Brian Holdsworth <brian@fucs42llc.com>
+# Maintainer: Brian Holdsworth <brian@focus42llc.com>
 pkgname=hypseus-singe
 pkgver=3.0.1
 pkgrel=0
@@ -11,7 +11,8 @@ depends="sdl3 sdl3_ttf sdl3_mixer sdl3_image"
 makedepends="cmake sdl3-dev sdl3_ttf-dev sdl3_mixer sdl3_image-dev libzip-dev libvorbis-dev zlib-dev"
 subpackages="$pkgname-doc"
 source="$pkgname-$pkgver.tar.gz::https://github.com/DirtBagXon/hypseus-singe/archive/refs/tags/v$pkgver.tar.gz
-	musl-ctime.patch"
+	musl-ctime.patch
+	mpeg2-cmake.patch"
 builddir="$srcdir/$pkgname-$pkgver"
 options="!check"
 
@@ -24,6 +25,7 @@ build() {
 		-DCMAKE_PREFIX_PATH="/usr/share" \
 		-DCMAKE_C_FLAGS="-O3" \
 		-DCMAKE_CXX_FLAGS="-O3" \
+		-DLIBMPEG2_CFLAGS="-std=gnu89 -O3 -mcpu=cortex-a53" \
 		../src
 
 	make -j4
@@ -52,4 +54,5 @@ package() {
 sha512sums="
 3203065ac277c527140093e18a0b93ec36780db6a7d36873d6c62793604f3e814c3c5ee0ebab8bb5e7845f05d689a05410f19c4096f9b7022b814b9a8a15046d  hypseus-singe-3.0.1.tar.gz
 b286ba08a8b91ba47aa645049e6b13ecb4ec0f2e80cd41026b08fa00ad3b4f276b218e76105cedcb0f1fdeb2824f58e7e163d0d4a4417976b7a906864941d92a  musl-ctime.patch
+032d77f4fb74b4e71eb912602b0fd973b7cc067698e6027a11e42f0c739f1a767ac75661fdf98fab055ae4404b79f3463ff6ecac7360edab4477fc82922e8389  mpeg2-cmake.patch
 "

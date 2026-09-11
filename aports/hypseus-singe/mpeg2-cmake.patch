@@ -1,0 +1,11 @@
+--- a/src/cmake/modules/BuildLibMPEG2.cmake	2026-09-11 16:59:19.352093022 -0400
++++ b/src/cmake/modules/BuildLibMPEG2.cmake	2026-09-11 17:08:14.300599706 -0400
+@@ -17,7 +17,7 @@
+     HAVE_DEPRECATED_NON_PROTOTYPE
+ )
+ 
+-set( LIBMPEG2_CFLAGS "-std=gnu89" )
++set( LIBMPEG2_CFLAGS "-std=gnu89" CACHE STRING "CFLAGS for bundled libmpeg2" )
+ 
+ if( HAVE_DEPRECATED_NON_PROTOTYPE )
+     string( APPEND LIBMPEG2_CFLAGS " -Wno-deprecated-non-prototype" )

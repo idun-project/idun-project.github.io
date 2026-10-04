@@ -2,7 +2,7 @@
 
 pkgname="opencubicplayer"
 pkgver=3.5.0
-pkgrel=0
+pkgrel=1
 pkgdesc="Open Cubic Player (for retro chip tunes)"
 arch="aarch64"
 url="https://stian.cubic.org/project-ocp.php"
@@ -16,7 +16,8 @@ zlib
 libdiscid
 libancient
 cjson
-libgme"
+libgme
+soundfont-timgm"
 makedepends="libdiscid-dev cjson-dev libgme-dev"
 source=
 builddir="$srcdir/opencubicplayer"
@@ -59,4 +60,6 @@ build() {
 
 package() {
         make DESTDIR="$pkgdir" install
+        cd "$srcdir"/../
+        install -Dm644 timidity.cfg "$pkgdir"/etc/timidity/timidity.cfg
 }

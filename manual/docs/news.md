@@ -1,3 +1,33 @@
+### Idun v1.3.3 Release
+
+This release includes the bug fixes from multiple "Hotfixes" that have been provided since v1.3.2, and those are detailed below. It also marks the first release that makes use of a new cartridge hardware configuration file stored on the boot partition (FAT32) of you SD card. If you are receving an idun-cartridge after October 1st, 2026, then this new config file is essential to the proper operation of your cartridge. You will need to modify the "idunhw.toml" file on the FAT32 partition #1, and ensure it contains the matching serial number you received with your cartridge. Failure to do this will prevent the cartridge from booting properly - your Commodore will freeze on a blank blue screen. _NOTE_: Earlier cartridges (before 10/2026) do not need this file, and it is Ok if it does not exist on your SD card. DO NOT add or modify "idunhw.toml" if you don't have a valid serial number.
+
+Here is an example "idunhw.toml" to show the format.
+```
+# PCB revision for the cartridge
+hw.board = "2024"
+# Unique serial number you received w/ cartridge
+hw.serial = "C1FO999999"
+# eMail address used for your cartridge order
+owner = "retrodude@gmail.com"
+```
+
+#### Installation
+
+The recommended installation is to run `sudo apk -aU upgrade` from the shell.
+
+Alternatively, if you are **not already on v1.3.2**, you can download the updated [SD card image](https://drive.google.com/file/d/1j5v-0p9-eopSoVMuX6h2P_U8w21OJF-Q/view?usp=drive_link)
+#### Change Notes
+
+- **New** Dynamic hardware configuration at boot time enabled by new hardware configuration file (`/boot/idunhw.toml`)
+- **Update** The Lua command port moved to a more secure location in `/run/user` (use to be in `/tmp`)
+- **Update** Behavior of the Mode switch to work reliably with two different SPDT parts
+- **Update** Booting Commodore into Idun shell happens automatically when you first boot up the cartridge/RasPi
+- **Fix** Properly detect Gideon's Ultimate Elite II via LAN same as we do for the Ultimate 64
+- **Fix** Crash when trying to remount a disk image with invalid filename in `idunrc.toml`
+- **Fix** `dos.app` failing to start from BASIC
+- **Fix** Issue #45 - keystroke "8" not appearing in Idun shell
+
 ### Idun v1.3.2 Release
 
 This release primarily builds on the functionality of Thor, and other kiosk applications, which were added last month. It corrects several bugs, including one that prevented use of the RaspPi 5 with the cartridge. There's also a new Commodore command for retrieving file metadata.
@@ -6,7 +36,7 @@ For Kiosk UI help, check the newly added section in the [setup docs](https://idu
 
 #### Installation
 
-The recommended installation is to run `sudo apk -U upgrade` from the shell.
+The recommended installation is to run `sudo apk -aU upgrade` from the shell.
 
 There are many changes to kiosk configuration. Therefore, if you will use kiosk apps, you should definitely also run `kiosk --replace-config`.
 

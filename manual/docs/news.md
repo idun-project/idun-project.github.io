@@ -20,6 +20,12 @@ Alternatively, if you are **not already on v1.3.2**, you can download the update
 #### Change Notes
 
 - **New** Dynamic hardware configuration at boot time enabled by new hardware configuration file (`/boot/idunhw.toml`)
+- **Update** Thor added support for:
+	- MOD file playback using Open Cubic Player, Protracker 2, and C64 Ultimate
+	- Preview D81 disk image contents
+	- Display graphics files in the xterm window
+- **Update** `kiosk` supports adding packages with custom command names or aliases (see `kiosk help`)
+- **Update** `kiosk` supports adding TUI apps (`kiosk add xterm ...`) and can run them remotely using `ssh`
 - **Update** The Lua command port moved to a more secure location in `/run/user` (use to be in `/tmp`)
 - **Update** Behavior of the Mode switch to work reliably with two different SPDT parts
 - **Update** Booting Commodore into Idun shell happens automatically when you first boot up the cartridge/RasPi

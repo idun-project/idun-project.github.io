@@ -1,0 +1,1550 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Idun Cartridge for Commodore C128, C64, and Ultimate">
+      
+      
+        <meta name="author" content="Idun Community">
+      
+      
+        <link rel="canonical" href="https://idun-project.github.io/rapper/">
+      
+      
+        <link rel="prev" href="../doc/software-packages/">
+      
+      
+        <link rel="next" href="../doc/shell/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Retro-Content - Idun Cartridge Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#retro-approved-packager-rap-builder-rapper" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Idun Cartridge Manual" class="md-header__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Idun Cartridge Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Retro-Content
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Idun Cartridge Manual" class="md-nav__button md-logo" aria-label="Idun Cartridge Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Idun Cartridge Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../news/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NEWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/setup-rpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/install-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/software-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retro-Content
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retro-Content
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#retro-approved-packager-rap-builder-rapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retro-approved Packager (rap) &amp; Builder (rapper)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sequential-stream-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sequential Stream Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-decompression-interception-tcp-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Decompression Interception &amp; TCP Flow Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-fail-fast-gatekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fail-Fast Gatekeeping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-rappers-on-internet-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosting rappers on Internet Archive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hosting rappers on Internet Archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-host-your-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Host Your Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-rap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using rap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using rap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Installed Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-rapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a rapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a rapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-syntax_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-rapperlua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomy of RAPPER.LUA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packaging Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retro-approved-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retro-Approved Certification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idun Shell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-cpem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CP/M Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idunSID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-vice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emulator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/apiref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/luaref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/eram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc/toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idun-zcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Z80
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#retro-approved-packager-rap-builder-rapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retro-approved Packager (rap) &amp; Builder (rapper)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sequential-stream-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sequential Stream Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-decompression-interception-tcp-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Decompression Interception &amp; TCP Flow Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-fail-fast-gatekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fail-Fast Gatekeeping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-rappers-on-internet-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosting rappers on Internet Archive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hosting rappers on Internet Archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-host-your-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Host Your Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-rap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using rap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using rap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Installed Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-rapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a rapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a rapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-syntax_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-rapperlua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomy of RAPPER.LUA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packaging Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retro-approved-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retro-Approved Certification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Retro-Content</h1>
+
+<h2 id="retro-approved-packager-rap-builder-rapper">Retro-approved Packager (<code>rap</code>) &amp; Builder (<code>rapper</code>)<a class="headerlink" href="#retro-approved-packager-rap-builder-rapper" title="Permanent link">&para;</a></h2>
+<p>Welcome to the guide for <strong><code>rap</code></strong> (<strong>R</strong>etro-<strong>a</strong>pproved <strong>P</strong>ackager) and its companion build tool, <strong><code>rapper</code></strong>. If you're tired of software that insists on living on someone else's server, you're in the right place. </p>
+<p>Built for retro computing enthusiasts and software archivists, <code>rap</code> is a package management ecosystem designed specifically for retro content collections. The goal is refreshingly old-fashioned: keep your collection local, avoid wasting bandwidth, and don't download gigabytes just to discover the package was never going to install anyway. Whether you're curating CP/M disks, Amiga utilities, console ROMs, or an absurdly large archive of binaries, your CPU, disk, and Internet connection have better things to do. </p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p>At the core of <code>rap</code> is a high-speed, "fail-fast" streaming architecture. Too many modern package systems cheerfully download an entire archive first and ask questions later. <code>rap</code> does the sensible thing instead: verify first, move bytes second.</p>
+<h3 id="1-sequential-stream-ordering">1. Sequential Stream Ordering<a class="headerlink" href="#1-sequential-stream-ordering" title="Permanent link">&para;</a></h3>
+<p>When <code>rapper</code> builds a package (<code>.tar.zst</code>), it explicitly enforces <code>RAPPER.LUA</code> as the very first 512-byte block in the archive. Hidden files, dot-directories, and previous build artifacts are stripped out automatically.</p>
+<h3 id="2-decompression-interception-tcp-flow-control">2. Decompression Interception &amp; TCP Flow Control<a class="headerlink" href="#2-decompression-interception-tcp-flow-control" title="Permanent link">&para;</a></h3>
+<p>When <code>rap</code> initiates a package download, it pipes the incoming network stream directly through <code>zstd</code> and acts as an inline streaming tar parser.</p>
+<ul>
+<li>It reads the first 512-byte header.</li>
+<li>It extracts <code>RAPPER.LUA</code> into memory.</li>
+<li>It <strong>pauses reading from the network socket</strong>.</li>
+</ul>
+<p>Because <code>rap</code> stops pulling network data, standard TCP flow control naturally pauses the remote HTTP server from sending the rest of the payload.</p>
+<div class="codehilite"><pre><span></span><code>[Remote Server] ---&gt; (TCP Stream) ---&gt; [rap Stream Parser]
+                                             |
+                                   (Intercepts RAPPER.LUA)
+                                             |
+                                  [Pause &amp; Evaluate Gate]
+                                    /                 \
+                           (Passes) /                 \ (Fails / Aborted)
+                                   v                   v
+                     Resume Download &amp; Install      Sever Connection Dropped
+</code></pre></div>
+
+<h3 id="3-fail-fast-gatekeeping">3. Fail-Fast Gatekeeping<a class="headerlink" href="#3-fail-fast-gatekeeping" title="Permanent link">&para;</a></h3>
+<p>While the connection is safely paused, <code>rap</code> sandboxes and executes <code>RAPPER.LUA</code>. It evaluates target installation paths, checks minimum release requirements, and inspects dependencies.</p>
+<ul>
+<li><strong>Rapper Dependencies</strong> Ensures required <code>rappers</code> are already present in <code>$HOME</code>.</li>
+<li><strong>System Dependencies</strong> Detects your native Linux package manager (<code>apk</code> or <code>pacman</code>) and offers to install any missing software.</li>
+</ul>
+<p>If any check fails—or if you reject a system dependency—<code>rap</code> severs the connection cleanly. You save bandwidth, time, and unnecessary downloads without downloading a single unnecessary byte of the payload. If everything checks out, <code>rap</code> unpauses the stream, hands control back to the downloader, and continues installation. After this it runs an optional post-install routine that package maintainers write using simple Lua script.</p>
+<h2 id="hosting-rappers-on-internet-archive">Hosting rappers on Internet Archive<a class="headerlink" href="#hosting-rappers-on-internet-archive" title="Permanent link">&para;</a></h2>
+<p>The Internet Archive is one of the few corners of the modern Internet still focused on preservation instead of recurring revenue. That's why <code>rap</code> treats it as a first-class package host. Publish once, let people download directly, and skip worrying about hosting bills, bandwidth quotas, or whether your favorite free tier survives next quarter. </p>
+<p>When you pass a standard IA page URL like <code>archive.org/details/my-retro-collection</code> to <code>rap</code>, it understands how to locate and download the rapper package file, and seamlessly streams it to your local machine.</p>
+<h3 id="how-to-host-your-package">How to Host Your Package<a class="headerlink" href="#how-to-host-your-package" title="Permanent link">&para;</a></h3>
+<p>Hosting your own retro-approved packages is pleasantly boring. No VPS to rent, no database to babysit, no Kubernetes cluster, and no monthly invoice reminding you that your files apparently need a subscription now.</p>
+<ol>
+<li>
+<p>Create a Free Account -
+Head over to <a href="https://archive.org">archive.org</a> and click <strong>Sign Up</strong>. It is completely free for everyone and only requires a valid email address. </p>
+</li>
+<li>
+<p>Upload Your Package -
+Once logged in, click the <strong>Upload</strong> button (the icon shaped like an up-arrow in the top navigation bar) and select the "Upload Files" option. </p>
+<ul>
+<li>Drag and drop your built package (e.g., <code>my-retro-collection-r1.tar.zst</code>) into the upload area.</li>
+</ul>
+</li>
+<li>
+<p>Fill Out the Metadata -
+The Internet Archive requires a few standard fields to publish your item:</p>
+<ul>
+<li><strong>Page Title:</strong> The display name of your package.</li>
+<li><strong>Description:</strong> Explain what your package is.</li>
+<li><strong>Subject Tags:</strong> Add appropriate tags like <code>retro</code>, <code>software</code>, <code>cpm</code>, <code>amiga</code>, or <code>homebrew</code> to help others discover your work.</li>
+<li><strong>Creator / Mediatype:</strong> Ensure the mediatype is set to <code>software</code>.</li>
+</ul>
+</li>
+<li>
+<p>Publish and Share -
+Click <strong>Upload and Create Your Item</strong>. Once the Internet Archive finishes its automated processing tasks (deriving metadata and generating the item page), your package is officially live on the internet!</p>
+</li>
+</ol>
+<p>You can now share your retro software with the world. Anyone with <code>rap</code> installed can pull it down immediately using your item URL:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">## Users can install your package directly from the Archive</span>
+rap<span class="w"> </span>install<span class="w"> </span>archive.org/details/my_retro_collection
+</code></pre></div>
+
+<h2 id="using-rap">Using rap<a class="headerlink" href="#using-rap" title="Permanent link">&para;</a></h2>
+<p><code>rap</code> is your client CLI tool for downloading, installing, upgrading, querying, and managing packages.</p>
+<h3 id="command-syntax">Command Syntax<a class="headerlink" href="#command-syntax" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>rap<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Arguments</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>install</code> / <code>add</code></td>
+<td style="text-align: left;"><code>&lt;url\|file&gt;</code> <code>[--path &lt;dest&gt;]</code></td>
+<td style="text-align: left;">Downloads/verifies metadata, checks dependencies, and installs the package.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>uninstall</code> / <code>remove</code></td>
+<td style="text-align: left;"><code>&lt;name&gt;</code></td>
+<td style="text-align: left;">Runs pre-remove hooks, purges the package directory, and updates the cache.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>upgrade</code></td>
+<td style="text-align: left;"><code>[name]</code></td>
+<td style="text-align: left;">Upgrades the named package, or all packages, when new revisions exist.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>info</code></td>
+<td style="text-align: left;"><code>&lt;name&gt;</code></td>
+<td style="text-align: left;">Displays local metadata and fetches live remote Archive.org metadata if available.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>list</code></td>
+<td style="text-align: left;"><code>[--rebuild]</code></td>
+<td style="text-align: left;">Lists all installed <code>rappers</code> and their release numbers.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="installing-packages">Installing Packages<a class="headerlink" href="#installing-packages" title="Permanent link">&para;</a></h3>
+<p><code>rap</code> accepts local files, raw package URLs, and direct Archive.org item details links.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">## Install from a local package file</span>
+rap<span class="w"> </span>install<span class="w"> </span>./cpem-disks-r0.tar.zst
+
+<span class="c1">## Install directly from a remote web server</span>
+rap<span class="w"> </span>install<span class="w"> </span>https://example.com/packages/cpem-disks-r1.tar.zst
+
+<span class="c1">## Install directly using an Archive.org details URL (rap auto-resolves metadata!)</span>
+rap<span class="w"> </span>install<span class="w"> </span>archive.org/details/cpm_the_basics_5_drives
+</code></pre></div>
+
+<p>Destination Path Heuristics</p>
+<p>All packages <strong>must</strong> be installed within <code>$HOME</code>. <code>rap</code> determines the destination path using the following priority:</p>
+<ol>
+<li><strong>Explicit Path Flag:</strong> <code>--path ~/Games</code> installs the package to <code>~/Games/&lt;name&gt;</code>.</li>
+<li><strong>Category Key:</strong> If <code>category = "Games"</code> is defined in RAPPER.LUA, it installs to <code>$HOME/Games/&lt;name&gt;</code>.</li>
+<li><strong>Current Working Directory:</strong> If no flag or category exists, it installs to <code>./&lt;name&gt;</code>.</li>
+</ol>
+<p>Clean Overwrites &amp; Downgrade Protection</p>
+<ul>
+<li><strong>Reinstalls / Upgrades:</strong> Installing an updated release cleans out old files before extracting the new stream, preventing orphaned files from corrupting your environment.</li>
+<li><strong>Downgrades:</strong> Accidental downgrades are blocked. If you attempt to install release <code>0</code> over release <code>1</code>, <code>rap</code> halts execution and instructs you to run <code>rap remove &lt;name&gt;</code> first.</li>
+</ul>
+<h3 id="managing-installed-packages">Managing Installed Packages<a class="headerlink" href="#managing-installed-packages" title="Permanent link">&para;</a></h3>
+<p>Upgarding Packages -
+The <code>upgrade</code> command is used to upgrade a single package when you provide its name, or all of your installed packages. <code>rap</code> will query the metadata from the original installation URL to determine if a newer revision is available.</p>
+<div class="codehilite"><pre><span></span><code>rap<span class="w"> </span>upgrade
+</code></pre></div>
+
+<p>Viewing Package Details -
+The <code>info</code> command parses local metadata and natively queries Archive.org APIs for extra metadata (uploader, title, curation date) if applicable:</p>
+<div class="codehilite"><pre><span></span><code>rap<span class="w"> </span>info<span class="w"> </span>cpem-disks
+</code></pre></div>
+
+<p>Listing Installed Packages -
+<code>rap</code> maintains a fast lookup cache at <code>~/.cache/rapper/installed.list</code>. If the cache is deleted, <code>rap list --rebuild</code> can be used to automatically search <code>$HOME</code> for installed <code>.rapper</code> manifests, and rebuild the cache.</p>
+<div class="codehilite"><pre><span></span><code>rap<span class="w"> </span>list
+</code></pre></div>
+
+<p>Removing Packages -
+Executing <code>remove</code> invokes any custom <code>remove()</code> Lua hooks (to clean up custom symlinks or configs) and safely purges the package directory:</p>
+<div class="codehilite"><pre><span></span><code>rap<span class="w"> </span>remove<span class="w"> </span>cpem-disks
+</code></pre></div>
+
+<h2 id="building-a-rapper">Building a rapper<a class="headerlink" href="#building-a-rapper" title="Permanent link">&para;</a></h2>
+<p>The <code>rapper</code> CLI tool handles creating, updating, and auditing your <code>.tar.zst</code> retro packages.</p>
+<h3 id="command-syntax_1">Command Syntax<a class="headerlink" href="#command-syntax_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>rapper<span class="w"> </span>&lt;command&gt;
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>new</code></td>
+<td style="text-align: left;">Generates a fresh <code>RAPPER.LUA</code> template or recovers one from an installed package directory.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>build</code></td>
+<td style="text-align: left;">Validates syntax, strips hidden files, and builds <code>&lt;name&gt;-r&lt;release&gt;.tar.zst</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>update</code></td>
+<td style="text-align: left;">Checks for directory changes, bumps <code>release</code> by +1, and rebuilds if changes exist.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>check</code></td>
+<td style="text-align: left;">Performs a non-destructive diff against the latest release archive and reports deltas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="anatomy-of-rapperlua">Anatomy of <code>RAPPER.LUA</code><a class="headerlink" href="#anatomy-of-rapperlua" title="Permanent link">&para;</a></h3>
+<p>Every package directory must contain a <code>RAPPER.LUA</code> file. This file defines package variables and optional lifecycle hooks.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- ============================================================================</span>
+<span class="c1">-- RAPPER.LUA - Package Metadata</span>
+<span class="c1">-- ============================================================================</span>
+
+<span class="c1">-- REQUIRED FIELDS</span>
+<span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cpem-disks&quot;</span>
+<span class="nv">release</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CP/M software binary collection for retro drives A-E&quot;</span>
+
+<span class="c1">-- OPTIONAL FIELDS</span>
+<span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Emulation&quot;</span>
+<span class="c1">-- For archive.org hosted packages, this can be determined automatically</span>
+<span class="c1">-- during `rap install`.</span>
+<span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://archive.org/details/cpm_the_basics_5_drives&quot;</span>
+
+<span class="c1">-- DEPENDENCIES (Optional)</span>
+<span class="nv">depends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="p">}</span><span class="w">          </span><span class="c1">-- Requires this rap package in $HOME</span>
+<span class="nv">uses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;idun&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">       </span><span class="c1">-- Requires these native host packages (apk/pacman)</span>
+
+<span class="c1">-- LIFECYCLE HOOKS (Optional)</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">install</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">-- Provided with global &#39;pkgpath&#39; pointing to the destination directory</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Post-install setup for: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">pkgpath</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">remove</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaning up before removal of: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">pkgpath</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+
+<p>Security &amp; Sandboxing Rules</p>
+<p><code>rapper</code> automatically validates <code>RAPPER.LUA</code> before building:</p>
+<ul>
+<li><strong>Privilege Escalation Block:</strong> References to <code>su</code> or <code>sudo</code> inside <code>RAPPER.LUA</code> trigger an immediate build failure.</li>
+<li><strong>Function Restrictions:</strong> No custom functions are permitted other than <code>install()</code> and <code>remove()</code>.</li>
+<li><strong>Data Structure Restrictions:</strong> Complex nested tables are disallowed. Metadata keys must be strings, integers, or simple string arrays (like <code>depends</code> and <code>uses</code>).</li>
+</ul>
+<h3 id="packaging-workflow">Packaging Workflow<a class="headerlink" href="#packaging-workflow" title="Permanent link">&para;</a></h3>
+<p>1.Initialize a Package -
+Run <code>rapper new</code> inside your payload directory to generate a boilerplate <code>RAPPER.LUA</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Development/my-retro-collection
+rapper<span class="w"> </span>new
+</code></pre></div>
+
+<p>2.Build the Package -
+Run <code>rapper build</code>. <code>rapper</code> includes all visible files, strips out dotfiles/hidden directories, and compiles the archive:</p>
+<div class="codehilite"><pre><span></span><code>rapper<span class="w"> </span>build<span class="w">    </span><span class="c1"># Creates my-retro-collection-r0.tar.zst</span>
+</code></pre></div>
+
+<p>3.Audit Changes (<code>check</code>) -
+To inspect what files have changed compared to your last built archive:</p>
+<div class="codehilite"><pre><span></span><code>rapper<span class="w"> </span>check
+</code></pre></div>
+
+<p>4.Automatic Release Bumping (<code>update</code>) -
+When you add, delete, or modify files in your collection, run <code>rapper update</code>. If deltas are detected, <code>rapper</code> automatically increments <code>release</code> inside <code>RAPPER.LUA</code> and compiles the new <code>my-retro-collection-r1.tar.zst</code>:</p>
+<div class="codehilite"><pre><span></span><code>rapper<span class="w"> </span>update
+</code></pre></div>
+
+<h2 id="retro-approved-certification">Retro-Approved Certification<a class="headerlink" href="#retro-approved-certification" title="Permanent link">&para;</a></h2>
+<p>Congratulations. You now have everything you need to build, distribute, and install lightweight, fail-fast software packages that live where they belong: on your own machines and in archives that are meant to outlast the latest startup. Keep your archives tidy, your bandwidth intact, and your retro software genuinely under your control.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

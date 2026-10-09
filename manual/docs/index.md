@@ -90,7 +90,7 @@ The idun-cartridge software in this repository is self-hosting. All of the assem
 3. `cd cbm && make` -builds cartridge software
 4. To make the new cartridge software active, just `sudo make install` from the `cbm` directory.
 
-See the [Makefile](https://github.com/idun-project/idun-cartridge/cbm/Makefile) for details.
+See the [Makefile](https://github.com/idun-project/idun-cartridge/blob/main/cbm/Makefile) for details.
 
 ### Patched Commodore Kernal (Optional)
 
@@ -112,7 +112,7 @@ The idun-cartridge works with many legacy applications. Single-file loaders in p
 
 Idun includes acme 6502 cross-assembler, which can be used to build both the contents of this repo and your own programs on the idun-cartridge. You should first decide whether to build a Tool or an App.
 
-1. Tools load from the idun-shell using $6D00-$BFFF, have access to the [kernel api](doc/apiref.md) and the [toolbox](doc/toolbox.md), and return the user to the idun-shell on exit. They are typically command-line style programs with arguments, but can also take over the screen and run interactively. Many examples can be found in the [cmd](https://github.com/idun-project/idun-cartridge/cbm/cmd/) sub-directory
+1. Tools load from the idun-shell using $6D00-$BFFF, have access to the [kernel api](doc/apiref.md) and the [toolbox](doc/toolbox.md), and return the user to the idun-shell on exit. They are typically command-line style programs with arguments, but can also take over the screen and run interactively. Many examples can be found in the [cmd](https://github.com/idun-project/idun-cartridge/tree/main/cbm) sub-directory
 2. An App is launched by the kernel at startup using $6000-$BFFF, has access to the kernel API, but not the toolbox _unless_ `sys/toolbox.asm` is explicitly included, and return to BASIC, or not at all. They typically take over the machine and reconfigure the hardware as needed. Examples are `shell.app` (the Linux shell) and `arcade.app` (the arcade game selector).
 
 It is certainly possible to use other assemblers besides acme; just requiring that the header files `acehead.asm` and `toolhead.asm` be ported over to your environment.
@@ -121,7 +121,7 @@ It is certainly possible to use other assemblers besides acme; just requiring th
 
 The idun software running on the Raspberry Pi embeds a Lua scripting engine. This allows you to create either Tools or Apps in which much, even a majority of the functionality, is implemented in Lua.
 
-Begin by reading [luaref.md](doc/luaref.md). There is sample Lua App code in [samples](https://github.com/idun-project/idun-cartridge/samples/), and the [arcade.app](https://github.com/idun-project/idun-cartridge/cbm/arcade.app.d/main.lua) is Lua. These can serve as a template for creating your own Lua App.
+Begin by reading [luaref.md](doc/luaref.md). There is sample Lua App code in [samples](https://github.com/idun-project/idun-cartridge/tree/main/samples), and the [arcade.app](https://github.com/idun-project/idun-cartridge/blob/main/cbm/arcade.app.d/main.lua) is Lua. These can serve as a template for creating your own Lua App.
 
  _NOTE: There is a forthcoming tool called `mace` that will generate new Lua Apps automatically, including all the boiler-plate needed._
 

@@ -1325,7 +1325,7 @@
 <li><code>cd cbm &amp;&amp; make</code> -builds cartridge software</li>
 <li>To make the new cartridge software active, just <code>sudo make install</code> from the <code>cbm</code> directory.</li>
 </ol>
-<p>See the <a href="https://github.com/idun-project/idun-cartridge/cbm/Makefile">Makefile</a> for details.</p>
+<p>See the <a href="https://github.com/idun-project/idun-cartridge/blob/main/cbm/Makefile">Makefile</a> for details.</p>
 <h3 id="patched-commodore-kernal-optional">Patched Commodore Kernal (Optional)<a class="headerlink" href="#patched-commodore-kernal-optional" title="Permanent link">&para;</a></h3>
 <p>The latest ROM kernal patch can be created easily with idun v1.1.9 and above using the command <code>mlua makerom.lua</code> from within the Idun Shell. The patched ROM file(s) will be found in your home directory on the cartridge, and most easily copied using the web file browser or a network command like scp. By default, this creates a two 16kB kernal replacement ROMs for the C128 (U32/U35).
 1. To make the 8kB C64 replacement ROM (U4), use <code>mlua makerom.lua /8</code>
@@ -1338,13 +1338,13 @@
 <h4 id="6502-assembly">6502 Assembly<a class="headerlink" href="#6502-assembly" title="Permanent link">&para;</a></h4>
 <p>Idun includes acme 6502 cross-assembler, which can be used to build both the contents of this repo and your own programs on the idun-cartridge. You should first decide whether to build a Tool or an App.</p>
 <ol>
-<li>Tools load from the idun-shell using $6D00-$BFFF, have access to the <a href="doc/apiref/">kernel api</a> and the <a href="doc/toolbox/">toolbox</a>, and return the user to the idun-shell on exit. They are typically command-line style programs with arguments, but can also take over the screen and run interactively. Many examples can be found in the <a href="https://github.com/idun-project/idun-cartridge/cbm/cmd/">cmd</a> sub-directory</li>
+<li>Tools load from the idun-shell using $6D00-$BFFF, have access to the <a href="doc/apiref/">kernel api</a> and the <a href="doc/toolbox/">toolbox</a>, and return the user to the idun-shell on exit. They are typically command-line style programs with arguments, but can also take over the screen and run interactively. Many examples can be found in the <a href="https://github.com/idun-project/idun-cartridge/tree/main/cbm">cmd</a> sub-directory</li>
 <li>An App is launched by the kernel at startup using $6000-$BFFF, has access to the kernel API, but not the toolbox <em>unless</em> <code>sys/toolbox.asm</code> is explicitly included, and return to BASIC, or not at all. They typically take over the machine and reconfigure the hardware as needed. Examples are <code>shell.app</code> (the Linux shell) and <code>arcade.app</code> (the arcade game selector).</li>
 </ol>
 <p>It is certainly possible to use other assemblers besides acme; just requiring that the header files <code>acehead.asm</code> and <code>toolhead.asm</code> be ported over to your environment.</p>
 <h4 id="lua-scripting">Lua Scripting<a class="headerlink" href="#lua-scripting" title="Permanent link">&para;</a></h4>
 <p>The idun software running on the Raspberry Pi embeds a Lua scripting engine. This allows you to create either Tools or Apps in which much, even a majority of the functionality, is implemented in Lua.</p>
-<p>Begin by reading <a href="doc/luaref/">luaref.md</a>. There is sample Lua App code in <a href="https://github.com/idun-project/idun-cartridge/samples/">samples</a>, and the <a href="https://github.com/idun-project/idun-cartridge/cbm/arcade.app.d/main.lua">arcade.app</a> is Lua. These can serve as a template for creating your own Lua App.</p>
+<p>Begin by reading <a href="doc/luaref/">luaref.md</a>. There is sample Lua App code in <a href="https://github.com/idun-project/idun-cartridge/tree/main/samples">samples</a>, and the <a href="https://github.com/idun-project/idun-cartridge/blob/main/cbm/arcade.app.d/main.lua">arcade.app</a> is Lua. These can serve as a template for creating your own Lua App.</p>
 <p><em>NOTE: There is a forthcoming tool called <code>mace</code> that will generate new Lua Apps automatically, including all the boiler-plate needed.</em></p>
 <h4 id="c-and-z80-assembly">C and Z80 Assembly<a class="headerlink" href="#c-and-z80-assembly" title="Permanent link">&para;</a></h4>
 <p>You can create programs that run on the Z80! They launch seamlessly from the idun shell, and return to it on exit. These are more akin to Apps than Tools, except for their use of the <code>zload</code> command and launching from the idun shell. The programs can be written in both C and Z80asm code, and can be built directly on the idun-cartridge. For more information, browse to the <a href="https://github.com/idun-project/idun-zcc">idun-zcc</a> repository.</p>

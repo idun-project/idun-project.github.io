@@ -1,0 +1,24 @@
+# Contributor: Brian Holdsworth <brian@focus42llc.com>
+pkgname=openfodder
+pkgver=2.0.0
+pkgrel=0
+pkgdesc="An open source version of the Cannon Fodder engine"
+arch="aarch64"
+url="http://openfodder.com/"
+license="GPL-3.0-or-later"
+depends="sdl2-compat sdl2_mixer"
+makedepends="cmake samurai sdl3-dev"
+source="git+https://github.com/OpenFodder/openfodder.git#tag=${pkgver}"
+source="$pkgname-$pkgver.tar.gz::https://github.com/OpenFodder/openfodder/archive/refs/tags/v$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+options="!check"
+
+build() {
+	cmake -S . -B build -G Ninja
+	cmake --build build
+}
+
+package() {
+  cd "$builddir/build"
+  install -m755 openfodder "$pkgdir"/usr/bin/openfodder
+}

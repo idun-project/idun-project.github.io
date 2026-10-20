@@ -1,0 +1,30 @@
+# Contributor: Leo V <leo-v.email@proton.me>
+# Maintainer: Leo V <leo-v.email@proton.me>
+pkgname=cgterm
+pkgver=1.7b2
+pkgrel=0
+pkgdesc="An open source C/G telnet BBS terminal and 64CHAT client"
+url="https://github.com/mjgardner/cgterm"
+arch="aarch64"
+license="Copyright (c) 2003, Per Olofsson All rights reserved." #?"BSD-2-Clause"
+depends="sdl12-compat"
+makedepends="make gcc musl-dev sdl12-compat-dev"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/mjgardner/cgterm/archive/refs/tags/v$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+options="!check"
+
+build() {
+	cd "$builddir"
+	make PREFIX=/usr
+}
+
+package() {
+	cd "$builddir"
+	# Redirect system installation to the packaging directory matrix
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	
+	# Optional: Package documentation explicitly if desired
+	mkdir -p "$pkgdir"/usr/share/doc/$pkgname
+	cp README.md LICENSE.md *.txt "$pkgdir"/usr/share/doc/$pkgname/
+}

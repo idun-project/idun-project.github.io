@@ -1,0 +1,44 @@
+# Contributor: Leo V <leo-v.email@proton.me>
+# Maintainer: Leo V <leo-v.email@proton.me>
+pkgname=cgterm
+pkgver=1.7
+pkgrel=2 	#git tag is 1.7b2
+pkgdesc="An open source C/G telnet BBS terminal and 64CHAT client"
+url="https://github.com/mjgardner/cgterm"
+arch="aarch64"
+license="Copyright (c) 2003, Per Olofsson All rights reserved." #?"BSD-2-Clause"
+depends="sdl12-compat sdl2-compat sdl3"
+makedepends="sdl12-compat-dev"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/mjgardner/cgterm/archive/refs/tags/v1.7b2.tar.gz"
+builddir="$srcdir/$pkgname-1.7b2"
+options="!check"
+
+prepare() {
+    cd "$builddir"
+    # Default PREFIX to /usr for Alpine FHS compliance and runtime paths
+    sed -i 's|PREFIX=/usr/local|PREFIX=/usr|g' Makefile
+    # Ensure all mkdir calls use -p to prevent race conditions or missing parent errors
+    sed -i 's|\bmkdir\b|mkdir -p|g' Makefile
+}
+
+build() {
+	cd "$builddir"
+	make
+}
+
+package() {
+	cd "$builddir"
+	# Override PREFIX to install directly into the package destination tree
+	make PREFIX="$pkgdir/usr" install
+	
+	# Package documentation
+	install -Dm644 README.md "$pkgdir"/usr/share/doc/$pkgname/README.md
+	install -Dm644 LICENSE.md "$pkgdir"/usr/share/doc/$pkgname/LICENSE.md
+	install -Dm644 cgterm.txt "$pkgdir"/usr/share/doc/$pkgname/cgterm.txt
+	install -Dm644 cgchat.txt "$pkgdir"/usr/share/doc/$pkgname/cgchat.txt
+	install -Dm644 history.txt "$pkgdir"/usr/share/doc/$pkgname/history.txt
+}
+sha512sums="
+4c4d73c5ac1883fa3c4eb96d6641dd11fecb6af6dd00202095db94a08d868a076b495abec3b9e02d1f90d4e67b249c78487f12c22a6d4b85a337f20647031db9  cgterm-1.7.tar.gz
+"

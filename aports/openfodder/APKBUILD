@@ -7,9 +7,9 @@ arch="aarch64"
 url="http://openfodder.com/"
 license="GPL-3.0-or-later"
 depends="sdl2-compat sdl2_mixer"
-makedepends="cmake samurai sdl3-dev"
+makedepends="cmake samurai sdl3-dev sdl2_mixer-dev"
 source="git+https://github.com/OpenFodder/openfodder.git#tag=${pkgver}"
-source="$pkgname-$pkgver.tar.gz::https://github.com/OpenFodder/openfodder/archive/refs/tags/v$pkgver.tar.gz"
+source="$pkgname-$pkgver.tar.gz::https://github.com/OpenFodder/openfodder/archive/refs/tags/$pkgver.tar.gz"
 builddir="$srcdir/$pkgname-$pkgver"
 options="!check"
 
@@ -20,5 +20,8 @@ build() {
 
 package() {
   cd "$builddir/build"
-  install -m755 openfodder "$pkgdir"/usr/bin/openfodder
+  install -Dm755 openfodder "$pkgdir"/usr/bin/openfodder
 }
+sha512sums="
+e9bf8bd1b57a4910e99f5a5faf41a165bbfc7bfd5a2341faeb9a4227bfd16959e1cd22d6472738f09550d20323fee9497f8a4f5355d023f9d2e3d1b9e0666ec8  openfodder-2.0.0.tar.gz
+"
